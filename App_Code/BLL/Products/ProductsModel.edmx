@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProductsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ProductsModelStoreContainer">
+          <EntitySet Name="echoBrands" EntityType="ProductsModel.Store.echoBrands" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoCathegory" EntityType="ProductsModel.Store.echoCathegory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoCollection" EntityType="ProductsModel.Store.echoCollection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoColors" EntityType="ProductsModel.Store.echoColors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoGroups" EntityType="ProductsModel.Store.echoGroups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoPlatforms" EntityType="ProductsModel.Store.echoPlatforms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoProductColors" EntityType="ProductsModel.Store.echoProductColors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoProducts" EntityType="ProductsModel.Store.echoProducts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoProductSizes" EntityType="ProductsModel.Store.echoProductSizes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoSizes" EntityType="ProductsModel.Store.echoSizes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoTemplate" EntityType="ProductsModel.Store.echoTemplate" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_echoCathegory_echoGroups" Association="ProductsModel.Store.FK_echoCathegory_echoGroups">
+            <End Role="echoGroups" EntitySet="echoGroups" />
+            <End Role="echoCathegory" EntitySet="echoCathegory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoCathegory_echoTemplate" Association="ProductsModel.Store.FK_echoCathegory_echoTemplate">
+            <End Role="echoTemplate" EntitySet="echoTemplate" />
+            <End Role="echoCathegory" EntitySet="echoCathegory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoCollection_echoCathegory" Association="ProductsModel.Store.FK_echoCollection_echoCathegory">
+            <End Role="echoCathegory" EntitySet="echoCathegory" />
+            <End Role="echoCollection" EntitySet="echoCollection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoCollection_echoProducts" Association="ProductsModel.Store.FK_echoCollection_echoProducts">
+            <End Role="echoProducts" EntitySet="echoProducts" />
+            <End Role="echoCollection" EntitySet="echoCollection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductColors_echoColors" Association="ProductsModel.Store.FK_echoProductColors_echoColors">
+            <End Role="echoColors" EntitySet="echoColors" />
+            <End Role="echoProductColors" EntitySet="echoProductColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductColors_echoProducts" Association="ProductsModel.Store.FK_echoProductColors_echoProducts">
+            <End Role="echoProducts" EntitySet="echoProducts" />
+            <End Role="echoProductColors" EntitySet="echoProductColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProducts_echoBrands" Association="ProductsModel.Store.FK_echoProducts_echoBrands">
+            <End Role="echoBrands" EntitySet="echoBrands" />
+            <End Role="echoProducts" EntitySet="echoProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProducts_echoPlatforms" Association="ProductsModel.Store.FK_echoProducts_echoPlatforms">
+            <End Role="echoPlatforms" EntitySet="echoPlatforms" />
+            <End Role="echoProducts" EntitySet="echoProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductSizes_echoProductColors" Association="ProductsModel.Store.FK_echoProductSizes_echoProductColors">
+            <End Role="echoProductColors" EntitySet="echoProductColors" />
+            <End Role="echoProductSizes" EntitySet="echoProductSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductSizes_echoSizes" Association="ProductsModel.Store.FK_echoProductSizes_echoSizes">
+            <End Role="echoSizes" EntitySet="echoSizes" />
+            <End Role="echoProductSizes" EntitySet="echoProductSizes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="echoBrands">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Name="BrandId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="echoCathegory">
+          <Key>
+            <PropertyRef Name="CatID" />
+          </Key>
+          <Property Name="CatID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="TempleID" Type="int" Nullable="false" />
+          <Property Name="CatNameEng" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CatNameRus" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="DescriptionEng" Type="varchar" MaxLength="2000" />
+          <Property Name="DescriptionRus" Type="varchar(max)" />
+          <Property Name="ActiveStatus" Type="bit" Nullable="false" />
+          <Property Name="HeaderImageEngURL" Type="varchar" MaxLength="50" />
+          <Property Name="HeaderImageRusURL" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="Marked" Type="bit" Nullable="false" />
+          <Property Name="GroupTitle" Type="varchar" MaxLength="1000" />
+          <Property Name="MetaDescription" Type="varchar(max)" />
+          <Property Name="MetaKeywords" Type="varchar(max)" />
+          <Property Name="CatOrder" Type="int" Nullable="false" />
+          <Property Name="Description2Rus" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="echoCollection">
+          <Key>
+            <PropertyRef Name="CollID" />
+          </Key>
+          <Property Name="CollID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CatID" Type="int" Nullable="false" />
+          <Property Name="ProdID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="echoColors">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ColorNameEng" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ColorNameRus" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsMain" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="echoGroups">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupNameRus" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="GroupNameEng" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="GroupOrder" Type="int" />
+          <Property Name="AvaliableInEngilsh" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="echoPlatforms">
+          <Key>
+            <PropertyRef Name="PlatformID" />
+          </Key>
+          <Property Name="PlatformID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformNameEng" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PlatformNameRus" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PlatformDescriptionEng" Type="varchar" MaxLength="2000" />
+          <Property Name="PlatformDescriptionRus" Type="varchar" MaxLength="2000" />
+          <Property Name="SizeInfo" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="echoProductColors">
+          <Key>
+            <PropertyRef Name="ProdColorID" />
+          </Key>
+          <Property Name="ProdColorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProdID" Type="int" Nullable="false" />
+          <Property Name="ColorID" Type="int" Nullable="false" />
+          <Property Name="ImageURL" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="echoProducts">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProdTypeID" Type="int" Nullable="false" />
+          <Property Name="PlatformID" Type="int" />
+          <Property Name="ProductNameEng" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="ProductNameRus" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="ProductDescriptionEng" Type="varchar" MaxLength="2000" />
+          <Property Name="ProductDescriptionRus" Type="varchar" MaxLength="2000" />
+          <Property Name="ThumbURL" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="OrigPrice" Type="money" Nullable="false" />
+          <Property Name="WHSPrice" Type="money" />
+          <Property Name="SalePrice" Type="money" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="SortedName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+          <Property Name="OnSale" Type="bit" Nullable="false" />
+          <Property Name="FromUsa" Type="bit" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="echoProductSizes">
+          <Key>
+            <PropertyRef Name="ProdSizeID" />
+          </Key>
+          <Property Name="ProdSizeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProdColorID" Type="int" Nullable="false" />
+          <Property Name="SizeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="echoSizes">
+          <Key>
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="SizeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SizeNameEng" Type="varchar" MaxLength="50" />
+          <Property Name="SizeNameRus" Type="varchar" MaxLength="50" />
+          <Property Name="ProdTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="echoTemplate">
+          <Key>
+            <PropertyRef Name="TempleID" />
+          </Key>
+          <Property Name="TempleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TempleName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TempleURL" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TempleItemURL" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_echoCathegory_echoGroups">
+          <End Role="echoGroups" Type="ProductsModel.Store.echoGroups" Multiplicity="1" />
+          <End Role="echoCathegory" Type="ProductsModel.Store.echoCathegory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoGroups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="echoCathegory">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoCathegory_echoTemplate">
+          <End Role="echoTemplate" Type="ProductsModel.Store.echoTemplate" Multiplicity="1" />
+          <End Role="echoCathegory" Type="ProductsModel.Store.echoCathegory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoTemplate">
+              <PropertyRef Name="TempleID" />
+            </Principal>
+            <Dependent Role="echoCathegory">
+              <PropertyRef Name="TempleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoCollection_echoCathegory">
+          <End Role="echoCathegory" Type="ProductsModel.Store.echoCathegory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoCollection" Type="ProductsModel.Store.echoCollection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoCathegory">
+              <PropertyRef Name="CatID" />
+            </Principal>
+            <Dependent Role="echoCollection">
+              <PropertyRef Name="CatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoCollection_echoProducts">
+          <End Role="echoProducts" Type="ProductsModel.Store.echoProducts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoCollection" Type="ProductsModel.Store.echoCollection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoProducts">
+              <PropertyRef Name="ProdID" />
+            </Principal>
+            <Dependent Role="echoCollection">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoProductColors_echoColors">
+          <End Role="echoColors" Type="ProductsModel.Store.echoColors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductColors" Type="ProductsModel.Store.echoProductColors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoColors">
+              <PropertyRef Name="ColorID" />
+            </Principal>
+            <Dependent Role="echoProductColors">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoProductColors_echoProducts">
+          <End Role="echoProducts" Type="ProductsModel.Store.echoProducts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductColors" Type="ProductsModel.Store.echoProductColors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoProducts">
+              <PropertyRef Name="ProdID" />
+            </Principal>
+            <Dependent Role="echoProductColors">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoProducts_echoBrands">
+          <End Role="echoBrands" Type="ProductsModel.Store.echoBrands" Multiplicity="1" />
+          <End Role="echoProducts" Type="ProductsModel.Store.echoProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoBrands">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="echoProducts">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoProducts_echoPlatforms">
+          <End Role="echoPlatforms" Type="ProductsModel.Store.echoPlatforms" Multiplicity="0..1" />
+          <End Role="echoProducts" Type="ProductsModel.Store.echoProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoPlatforms">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="echoProducts">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoProductSizes_echoProductColors">
+          <End Role="echoProductColors" Type="ProductsModel.Store.echoProductColors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductSizes" Type="ProductsModel.Store.echoProductSizes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoProductColors">
+              <PropertyRef Name="ProdColorID" />
+            </Principal>
+            <Dependent Role="echoProductSizes">
+              <PropertyRef Name="ProdColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_echoProductSizes_echoSizes">
+          <End Role="echoSizes" Type="ProductsModel.Store.echoSizes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductSizes" Type="ProductsModel.Store.echoProductSizes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="echoSizes">
+              <PropertyRef Name="SizeID" />
+            </Principal>
+            <Dependent Role="echoProductSizes">
+              <PropertyRef Name="SizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductsModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ProductsEntities">
+          <EntitySet Name="Cathegories" EntityType="ProductsModel.Cathegory" />
+          <EntitySet Name="Collections" EntityType="ProductsModel.Collection" />
+          <EntitySet Name="Colors" EntityType="ProductsModel.Color" />
+          <EntitySet Name="Groups" EntityType="ProductsModel.Group" />
+          <EntitySet Name="Platforms" EntityType="ProductsModel.Platform" />
+          <EntitySet Name="ProductColors" EntityType="ProductsModel.ProductColor" />
+          <EntitySet Name="Products" EntityType="ProductsModel.Product" />
+          <EntitySet Name="ProductSizes" EntityType="ProductsModel.ProductSize" />
+          <EntitySet Name="Sizes" EntityType="ProductsModel.Size" />
+          <EntitySet Name="Templates" EntityType="ProductsModel.Template" />
+          <AssociationSet Name="FK_echoCathegory_echoGroups" Association="ProductsModel.FK_echoCathegory_echoGroups">
+            <End Role="echoGroups" EntitySet="Groups" />
+            <End Role="echoCathegory" EntitySet="Cathegories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoCathegory_echoTemplate" Association="ProductsModel.FK_echoCathegory_echoTemplate">
+            <End Role="echoTemplate" EntitySet="Templates" />
+            <End Role="echoCathegory" EntitySet="Cathegories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoCollection_echoCathegory" Association="ProductsModel.FK_echoCollection_echoCathegory">
+            <End Role="echoCathegory" EntitySet="Cathegories" />
+            <End Role="echoCollection" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoCollection_echoProducts" Association="ProductsModel.FK_echoCollection_echoProducts">
+            <End Role="echoProducts" EntitySet="Products" />
+            <End Role="echoCollection" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductColors_echoColors" Association="ProductsModel.FK_echoProductColors_echoColors">
+            <End Role="echoColors" EntitySet="Colors" />
+            <End Role="echoProductColors" EntitySet="ProductColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProducts_echoPlatforms" Association="ProductsModel.FK_echoProducts_echoPlatforms">
+            <End Role="echoPlatforms" EntitySet="Platforms" />
+            <End Role="echoProducts" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductColors_echoProducts" Association="ProductsModel.FK_echoProductColors_echoProducts">
+            <End Role="echoProducts" EntitySet="Products" />
+            <End Role="echoProductColors" EntitySet="ProductColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductSizes_echoProductColors" Association="ProductsModel.FK_echoProductSizes_echoProductColors">
+            <End Role="echoProductColors" EntitySet="ProductColors" />
+            <End Role="echoProductSizes" EntitySet="ProductSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_echoProductSizes_echoSizes" Association="ProductsModel.FK_echoProductSizes_echoSizes">
+            <End Role="echoSizes" EntitySet="Sizes" />
+            <End Role="echoProductSizes" EntitySet="ProductSizes" />
+          </AssociationSet>
+          <EntitySet Name="Brands" EntityType="ProductsModel.Brand" />
+          <AssociationSet Name="FK_echoProducts_echoBrands" Association="ProductsModel.FK_echoProducts_echoBrands">
+            <End Role="echoBrands" EntitySet="Brands" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cathegory">
+          <Key>
+            <PropertyRef Name="CatID" />
+          </Key>
+          <Property Name="ActiveStatus" Type="Boolean" Nullable="false" />
+          <Property Name="CatID" Type="Int32" Nullable="false" />
+          <Property Name="CatNameEng" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CatNameRus" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="DateUpdated" Type="DateTime" />
+          <Property Name="DescriptionEng" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="DescriptionRus" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="HeaderImageEngURL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="HeaderImageRusURL" Type="String" Nullable="true" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Group" Relationship="ProductsModel.FK_echoCathegory_echoGroups" FromRole="echoCathegory" ToRole="echoGroups" />
+          <NavigationProperty Name="Template" Relationship="ProductsModel.FK_echoCathegory_echoTemplate" FromRole="echoCathegory" ToRole="echoTemplate" />
+          <NavigationProperty Name="Collections" Relationship="ProductsModel.FK_echoCollection_echoCathegory" FromRole="echoCathegory" ToRole="echoCollection" />
+          <Property Name="Marked" Type="Boolean" Nullable="false" />
+          <Property Type="String" Name="GroupTitle" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MetaDescription" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MetaKeywords" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CatOrder" Nullable="false" />
+          <Property Type="String" Name="Description2Rus" MaxLength="Max" FixedLength="false" Unicode="false" /></EntityType>
+        <EntityType Name="Collection">
+          <Key>
+            <PropertyRef Name="CollID" />
+          </Key>
+          <Property Name="CollID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cathegory" Relationship="ProductsModel.FK_echoCollection_echoCathegory" FromRole="echoCollection" ToRole="echoCathegory" />
+          <NavigationProperty Name="Product" Relationship="ProductsModel.FK_echoCollection_echoProducts" FromRole="echoCollection" ToRole="echoProducts" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="Int32" Nullable="false" />
+          <Property Name="ColorNameEng" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ColorNameRus" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ProductColors" Relationship="ProductsModel.FK_echoProductColors_echoColors" FromRole="echoColors" ToRole="echoProductColors" />
+          <Property Type="Boolean" Name="IsMain" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="AvaliableInEngilsh" Type="Boolean" Nullable="false" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="GroupNameEng" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="GroupNameRus" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="GroupOrder" Type="Int32" />
+          <NavigationProperty Name="Cathegories" Relationship="ProductsModel.FK_echoCathegory_echoGroups" FromRole="echoGroups" ToRole="echoCathegory" />
+        </EntityType>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="PlatformID" />
+          </Key>
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="DateUpdated" Type="DateTime" />
+          <Property Name="PlatformDescriptionEng" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="PlatformDescriptionRus" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="PlatformID" Type="Int32" Nullable="false" />
+          <Property Name="PlatformNameEng" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PlatformNameRus" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SizeInfo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="ProductsModel.FK_echoProducts_echoPlatforms" FromRole="echoPlatforms" ToRole="echoProducts" />
+        </EntityType>
+        <EntityType Name="ProductColor">
+          <Key>
+            <PropertyRef Name="ProdColorID" />
+          </Key>
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="DateUpdated" Type="DateTime" />
+          <Property Name="ImageURL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProdColorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="ProductsModel.FK_echoProductColors_echoColors" FromRole="echoProductColors" ToRole="echoColors" />
+          <NavigationProperty Name="Product" Relationship="ProductsModel.FK_echoProductColors_echoProducts" FromRole="echoProductColors" ToRole="echoProducts" />
+          <NavigationProperty Name="ProductSizes" Relationship="ProductsModel.FK_echoProductSizes_echoProductColors" FromRole="echoProductColors" ToRole="echoProductSizes" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="DateUpdated" Type="DateTime" />
+          <Property Name="OrigPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ProdID" Type="Int32" Nullable="false" />
+          <Property Name="ProdTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ProductDescriptionEng" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="ProductDescriptionRus" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="ProductNameEng" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ProductNameRus" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="SalePrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SortedName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ThumbURL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="WHSPrice" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Collections" Relationship="ProductsModel.FK_echoCollection_echoProducts" FromRole="echoProducts" ToRole="echoCollection" />
+          <NavigationProperty Name="Platform" Relationship="ProductsModel.FK_echoProducts_echoPlatforms" FromRole="echoProducts" ToRole="echoPlatforms" />
+          <NavigationProperty Name="ProductColors" Relationship="ProductsModel.FK_echoProductColors_echoProducts" FromRole="echoProducts" ToRole="echoProductColors" />
+          <Property Type="Boolean" Name="OnSale" Nullable="false" />
+          <Property Type="Boolean" Name="FromUsa" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="ProductsModel.FK_echoProducts_echoBrands" FromRole="Product" ToRole="echoBrands" />
+        </EntityType>
+        <EntityType Name="ProductSize">
+          <Key>
+            <PropertyRef Name="ProdSizeID" />
+          </Key>
+          <Property Name="ProdSizeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProductColor" Relationship="ProductsModel.FK_echoProductSizes_echoProductColors" FromRole="echoProductSizes" ToRole="echoProductColors" />
+          <NavigationProperty Name="Size" Relationship="ProductsModel.FK_echoProductSizes_echoSizes" FromRole="echoProductSizes" ToRole="echoSizes" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="ProdTypeID" Type="Int32" />
+          <Property Name="SizeID" Type="Int32" Nullable="false" />
+          <Property Name="SizeNameEng" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SizeNameRus" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ProductSizes" Relationship="ProductsModel.FK_echoProductSizes_echoSizes" FromRole="echoSizes" ToRole="echoProductSizes" />
+        </EntityType>
+        <EntityType Name="Template">
+          <Key>
+            <PropertyRef Name="TempleID" />
+          </Key>
+          <Property Name="TempleID" Type="Int32" Nullable="false" />
+          <Property Name="TempleItemURL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TempleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TempleURL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Theme" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Cathegories" Relationship="ProductsModel.FK_echoCathegory_echoTemplate" FromRole="echoTemplate" ToRole="echoCathegory" />
+        </EntityType>
+        <Association Name="FK_echoCathegory_echoGroups">
+          <End Role="echoGroups" Type="ProductsModel.Group" Multiplicity="1" />
+          <End Role="echoCathegory" Type="ProductsModel.Cathegory" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoCathegory_echoTemplate">
+          <End Role="echoTemplate" Type="ProductsModel.Template" Multiplicity="1" />
+          <End Role="echoCathegory" Type="ProductsModel.Cathegory" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoCollection_echoCathegory">
+          <End Role="echoCathegory" Type="ProductsModel.Cathegory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoCollection" Type="ProductsModel.Collection" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoCollection_echoProducts">
+          <End Role="echoProducts" Type="ProductsModel.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoCollection" Type="ProductsModel.Collection" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoProductColors_echoColors">
+          <End Role="echoColors" Type="ProductsModel.Color" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductColors" Type="ProductsModel.ProductColor" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoProducts_echoPlatforms">
+          <End Role="echoPlatforms" Type="ProductsModel.Platform" Multiplicity="0..1" />
+          <End Role="echoProducts" Type="ProductsModel.Product" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoProductColors_echoProducts">
+          <End Role="echoProducts" Type="ProductsModel.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductColors" Type="ProductsModel.ProductColor" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoProductSizes_echoProductColors">
+          <End Role="echoProductColors" Type="ProductsModel.ProductColor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductSizes" Type="ProductsModel.ProductSize" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_echoProductSizes_echoSizes">
+          <End Role="echoSizes" Type="ProductsModel.Size" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="echoProductSizes" Type="ProductsModel.ProductSize" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandId" />
+          </Key>
+          <Property Type="Int32" Name="BrandId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="BrandName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="ProductsModel.FK_echoProducts_echoBrands" FromRole="echoBrands" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_echoProducts_echoBrands">
+          <End Type="ProductsModel.Brand" Role="echoBrands" Multiplicity="1" />
+          <End Type="ProductsModel.Product" Role="Product" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductsModelStoreContainer" CdmEntityContainer="ProductsEntities">
+          <EntitySetMapping Name="Cathegories">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Cathegory)">
+              <MappingFragment StoreEntitySet="echoCathegory">
+                <ScalarProperty Name="Description2Rus" ColumnName="Description2Rus" />
+                <ScalarProperty Name="CatOrder" ColumnName="CatOrder" />
+                <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />
+                <ScalarProperty Name="Marked" ColumnName="Marked" />
+                <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+                <ScalarProperty Name="CatID" ColumnName="CatID" />
+                <ScalarProperty Name="CatNameEng" ColumnName="CatNameEng" />
+                <ScalarProperty Name="CatNameRus" ColumnName="CatNameRus" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DescriptionEng" ColumnName="DescriptionEng" />
+                <ScalarProperty Name="DescriptionRus" ColumnName="DescriptionRus" />
+                <ScalarProperty Name="HeaderImageEngURL" ColumnName="HeaderImageEngURL" />
+                <ScalarProperty Name="HeaderImageRusURL" ColumnName="HeaderImageRusURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collections">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Collection)">
+              <MappingFragment StoreEntitySet="echoCollection">
+                <ScalarProperty Name="CollID" ColumnName="CollID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colors">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Color)">
+              <MappingFragment StoreEntitySet="echoColors">
+                <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="ColorNameEng" ColumnName="ColorNameEng" />
+                <ScalarProperty Name="ColorNameRus" ColumnName="ColorNameRus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Group)">
+              <MappingFragment StoreEntitySet="echoGroups">
+                <ScalarProperty Name="AvaliableInEngilsh" ColumnName="AvaliableInEngilsh" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupNameEng" ColumnName="GroupNameEng" />
+                <ScalarProperty Name="GroupNameRus" ColumnName="GroupNameRus" />
+                <ScalarProperty Name="GroupOrder" ColumnName="GroupOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Platforms">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Platform)">
+              <MappingFragment StoreEntitySet="echoPlatforms">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="PlatformDescriptionEng" ColumnName="PlatformDescriptionEng" />
+                <ScalarProperty Name="PlatformDescriptionRus" ColumnName="PlatformDescriptionRus" />
+                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
+                <ScalarProperty Name="PlatformNameEng" ColumnName="PlatformNameEng" />
+                <ScalarProperty Name="PlatformNameRus" ColumnName="PlatformNameRus" />
+                <ScalarProperty Name="SizeInfo" ColumnName="SizeInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductColors">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.ProductColor)">
+              <MappingFragment StoreEntitySet="echoProductColors">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="ProdColorID" ColumnName="ProdColorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Product)">
+              <MappingFragment StoreEntitySet="echoProducts">
+                <ScalarProperty Name="FromUsa" ColumnName="FromUsa" />
+                <ScalarProperty Name="OnSale" ColumnName="OnSale" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="OrigPrice" ColumnName="OrigPrice" />
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="ProdTypeID" ColumnName="ProdTypeID" />
+                <ScalarProperty Name="ProductDescriptionEng" ColumnName="ProductDescriptionEng" />
+                <ScalarProperty Name="ProductDescriptionRus" ColumnName="ProductDescriptionRus" />
+                <ScalarProperty Name="ProductNameEng" ColumnName="ProductNameEng" />
+                <ScalarProperty Name="ProductNameRus" ColumnName="ProductNameRus" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="SortedName" ColumnName="SortedName" />
+                <ScalarProperty Name="ThumbURL" ColumnName="ThumbURL" />
+                <ScalarProperty Name="WHSPrice" ColumnName="WHSPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductSizes">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.ProductSize)">
+              <MappingFragment StoreEntitySet="echoProductSizes">
+                <ScalarProperty Name="ProdSizeID" ColumnName="ProdSizeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sizes">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Size)">
+              <MappingFragment StoreEntitySet="echoSizes">
+                <ScalarProperty Name="ProdTypeID" ColumnName="ProdTypeID" />
+                <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+                <ScalarProperty Name="SizeNameEng" ColumnName="SizeNameEng" />
+                <ScalarProperty Name="SizeNameRus" ColumnName="SizeNameRus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Templates">
+            <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Template)">
+              <MappingFragment StoreEntitySet="echoTemplate">
+                <ScalarProperty Name="TempleID" ColumnName="TempleID" />
+                <ScalarProperty Name="TempleItemURL" ColumnName="TempleItemURL" />
+                <ScalarProperty Name="TempleName" ColumnName="TempleName" />
+                <ScalarProperty Name="TempleURL" ColumnName="TempleURL" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_echoCathegory_echoGroups" TypeName="ProductsModel.FK_echoCathegory_echoGroups" StoreEntitySet="echoCathegory">
+            <EndProperty Name="echoGroups">
+              <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            </EndProperty>
+            <EndProperty Name="echoCathegory">
+              <ScalarProperty Name="CatID" ColumnName="CatID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoCathegory_echoTemplate" TypeName="ProductsModel.FK_echoCathegory_echoTemplate" StoreEntitySet="echoCathegory">
+            <EndProperty Name="echoTemplate">
+              <ScalarProperty Name="TempleID" ColumnName="TempleID" />
+            </EndProperty>
+            <EndProperty Name="echoCathegory">
+              <ScalarProperty Name="CatID" ColumnName="CatID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoCollection_echoCathegory" TypeName="ProductsModel.FK_echoCollection_echoCathegory" StoreEntitySet="echoCollection">
+            <EndProperty Name="echoCathegory">
+              <ScalarProperty Name="CatID" ColumnName="CatID" />
+            </EndProperty>
+            <EndProperty Name="echoCollection">
+              <ScalarProperty Name="CollID" ColumnName="CollID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoCollection_echoProducts" TypeName="ProductsModel.FK_echoCollection_echoProducts" StoreEntitySet="echoCollection">
+            <EndProperty Name="echoProducts">
+              <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+            </EndProperty>
+            <EndProperty Name="echoCollection">
+              <ScalarProperty Name="CollID" ColumnName="CollID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoProductColors_echoColors" TypeName="ProductsModel.FK_echoProductColors_echoColors" StoreEntitySet="echoProductColors">
+            <EndProperty Name="echoColors">
+              <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+            </EndProperty>
+            <EndProperty Name="echoProductColors">
+              <ScalarProperty Name="ProdColorID" ColumnName="ProdColorID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoProducts_echoPlatforms" TypeName="ProductsModel.FK_echoProducts_echoPlatforms" StoreEntitySet="echoProducts">
+            <EndProperty Name="echoPlatforms">
+              <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
+            </EndProperty>
+            <EndProperty Name="echoProducts">
+              <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+            </EndProperty>
+            <Condition ColumnName="PlatformID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoProductColors_echoProducts" TypeName="ProductsModel.FK_echoProductColors_echoProducts" StoreEntitySet="echoProductColors">
+            <EndProperty Name="echoProducts">
+              <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+            </EndProperty>
+            <EndProperty Name="echoProductColors">
+              <ScalarProperty Name="ProdColorID" ColumnName="ProdColorID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoProductSizes_echoProductColors" TypeName="ProductsModel.FK_echoProductSizes_echoProductColors" StoreEntitySet="echoProductSizes">
+            <EndProperty Name="echoProductColors">
+              <ScalarProperty Name="ProdColorID" ColumnName="ProdColorID" />
+            </EndProperty>
+            <EndProperty Name="echoProductSizes">
+              <ScalarProperty Name="ProdSizeID" ColumnName="ProdSizeID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_echoProductSizes_echoSizes" TypeName="ProductsModel.FK_echoProductSizes_echoSizes" StoreEntitySet="echoProductSizes">
+            <EndProperty Name="echoSizes">
+              <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+            </EndProperty>
+            <EndProperty Name="echoProductSizes">
+              <ScalarProperty Name="ProdSizeID" ColumnName="ProdSizeID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="ProductsModel.Brand">
+              <MappingFragment StoreEntitySet="echoBrands">
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_echoProducts_echoBrands" TypeName="ProductsModel.FK_echoProducts_echoBrands" StoreEntitySet="echoProducts">
+            <EndProperty Name="Product">
+              <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+            </EndProperty>
+            <EndProperty Name="echoBrands">
+              <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ProductsModel" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <EntityTypeShape EntityType="ProductsModel.Cathegory" Width="1.5" PointX="3.125" PointY="7.375" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Collection" Width="1.5" PointX="5.25" PointY="4.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Color" Width="1.5" PointX="7.875" PointY="3.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Group" Width="1.5" PointX="1" PointY="6.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Platform" Width="1.5" PointX="0.75" PointY="3.5" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.ProductColor" Width="2" PointX="5.25" PointY="0.75" Height="2.364889322916667" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Product" Width="1.5" PointX="3" PointY="2.75" Height="4.2879036458333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.ProductSize" Width="1.75" PointX="7.5" PointY="1.125" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Size" Width="1.5" PointX="5.25" PointY="6.625" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Template" Width="1.5" PointX="5.25" PointY="9" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="ProductsModel.FK_echoCathegory_echoGroups" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.5" PointY="8.1487939453125" />
+          <ConnectorPoint PointX="3.125" PointY="8.1487939453125" />
+          </AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoCathegory_echoTemplate" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="9.9468489583333337" />
+          <ConnectorPoint PointX="4.625" PointY="9.9468489583333337" />
+          </AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoCollection_echoCathegory" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.875" PointY="7.375" />
+          <ConnectorPoint PointX="3.875" PointY="7.1004036458333317" />
+          <ConnectorPoint PointX="4.5625" PointY="7.1004036458333317" />
+          <ConnectorPoint PointX="4.5625" PointY="5.12230424609375" />
+          <ConnectorPoint PointX="5.25" PointY="5.12230424609375" /></AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoCollection_echoProducts" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.4614208984375" />
+          <ConnectorPoint PointX="5.25" PointY="4.4614208984375" />
+          </AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoProductColors_echoColors" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.625" PointY="3.125" />
+          <ConnectorPoint PointX="8.625" PointY="3.00212" />
+          <ConnectorPoint PointX="8.1458338333333344" PointY="3.0021199999999997" />
+          <ConnectorPoint PointX="7.9791671666666675" PointY="3.00212" />
+          <ConnectorPoint PointX="7.37288" PointY="3.00212" />
+          <ConnectorPoint PointX="7.37288" PointY="1.9324446614583337" />
+          <ConnectorPoint PointX="7.25" PointY="1.9324446614583337" />
+          </AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoProducts_echoPlatforms" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.87474609375" />
+          <ConnectorPoint PointX="3" PointY="4.87474609375" /></AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoProductColors_echoProducts" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.9324446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="2.9324446614583337" />
+          </AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoProductSizes_echoProductColors" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="1.922841796875" />
+          <ConnectorPoint PointX="7.5" PointY="1.922841796875" /></AssociationConnector>
+        <AssociationConnector Association="ProductsModel.FK_echoProductSizes_echoSizes" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.6151432291666676" />
+          <ConnectorPoint PointX="7.125" PointY="7.6151432291666676" />
+          <ConnectorPoint PointX="7.125" PointY="5.3552864583333335" />
+          <ConnectorPoint PointX="7.625" PointY="5.3552864583333335" />
+          <ConnectorPoint PointX="7.625" PointY="3.0956835937499996" />
+          <ConnectorPoint PointX="8.0625005" PointY="3.0956835937499996" />
+          <ConnectorPoint PointX="8.0625005" PointY="2.72068359375" />
+          </AssociationConnector>
+        <EntityTypeShape EntityType="ProductsModel.Brand" Width="1.5" PointX="7.375" PointY="6.875" Height="1.5956835937500031" />
+        <AssociationConnector Association="ProductsModel.FK_echoProducts_echoBrands" >
+          <ConnectorPoint PointX="7.5" PointY="6.875" />
+          <ConnectorPoint PointX="7.5" PointY="6.172841796875" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="6.1728417968749989" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="6.172841796875" />
+          <ConnectorPoint PointX="4.5" PointY="6.172841796875" />
+        </AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

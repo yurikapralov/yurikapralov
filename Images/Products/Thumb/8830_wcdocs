@@ -1,0 +1,189 @@
+
+Москва. МВД, инспекция по личному составу +7 (499) 698–67–63
+УСБ ГУВД города Москвы +7 (499) 255–96–57 
+вывод ошибок,
+авторизация,
+добавление mime types,
+документы по умолчанию
+и красивые сообщения об ошибках.
+
+
+В ASP.NET реализован механизм, который позволяет переопределить многие
+настройки веб-сервера - файл web.config.
+Все свойства Вашего web-приложения можно описать в этом файле.
+Файл представляет собой XML-документ. Он начинается и заканчивается тегом
+
+<configuration>
+</configuration>
+
+Рассмотрим некоторые параметры.
+
+
+Вывод ошибок
+
+
+Чтобы указать приложению, что нужно выводить отладочную информацию на
+страницу при возникновении ошибки, нужно использовать параметр
+
+<compilation debug="true" />
+
+Его добавляют в секции <system.web> </system.web>.
+
+
+
+Авторизация
+
+
+Windows-сервер поддерживает несколько видов аутентификации. Параметрами авторизации управляет тег <autentification>.
+Тег <authorization> управляет доступом пользователей.
+
+ В условиях хостинга можно использовать аутентификации с помощью "Forms", например, так:
+
+
+<system.web>
+<authentication mode="Forms">
+<forms defaultUrl="~/Default.aspx" loginUrl="~/Login.aspx" >
+<credentials passwordFormat="Clear">
+<user name="admin" password="admin"/>
+</credentials>
+</forms>
+</authentication>
+<authorization>
+<deny users="?"/>
+</authorization>
+</system.web>
+
+Либо можно использовать аутентификацию <authentication mode="Windows"> для владельца ресурса. (Линадэ! У тебя был работающий пример, я это не тестировала!)
+
+Примечание: далее здесь нужно проверить пути! насколько помню, <location path> надо указывать от корня что-то вроде ~/admin, но я не уверена, т.к. ты снес мой winnew!
+
+Если нужно авторизовываться только в отдельном разделе сайта,  то секцию <system.web><authorization> заключают внутри тега <location>,
+например, так:
+
+<location path="admin/">
+<system.web>
+<authorization>
+<allow users="admin" />
+<deny users="client" />
+</authorization>
+</system.web>
+</location>
+
+<location path="usersonly/">
+<system.web>
+<authorization>
+<deny users="?" />
+</authorization>
+</system.web>
+</location>
+
+<location path="public/">
+<system.web>
+<authorization>
+<allow users="*" />
+</authorization>
+</system.web>
+</location>
+
+
+
+
+
+
+
+Пользовательские сообщения об ошибках
+
+
+тег customErrors позволяет задавать страницы, которые увидят посетители сайта
+в случае ошибки. Можно задать несколько страниц, обрабатывающих разные коды ошибок,
+например, так:
+
+<system>
+<customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+</system>
+
+
+Документы по умолчанию.
+
+Документ по умолчанию переопределяется с помощью тега <defaultDocument> внутри секции <system.webServer></system.webServer>.
+
+<system.webServer>
+        <defaultDocument>
+            <files>
+                <add value="newdefault.html" />
+            </files>
+        </defaultDocument>
+    </system.webServer>
+
+Чтобы запретить  листинг директорий, используется
+
+<defaultDocument enabled="false">
+
+На нашем хостинге по умолчанию приняты следующие документы:
+
+default.htm default.asp index.htm index.html iisstart.htm default.aspx index.php
+
+
+
+Добавление заголовков
+
+Кодировку страницы можно переопределить с помощью тега <globalization>:
+
+
+<globalization
+     fileEncoding="utf-8" 
+     requestEncoding="utf-8"
+     responseEncoding="utf-8"
+     culture="ru-RU"
+     uiCulture="ru-RU"
+      />
+
+Если нужно назначить тип документа (mimeType) для какого-либо расширения файла, это делается так:
+
+<system.webServer>
+      <staticContent>
+         <mimeMap fileExtension=".syx" mimeType="application/octet-stream" />
+         <mimeMap fileExtension=".tab" mimeType="text/plain" />
+      </staticContent>
+   </system.webServer>
+
+
+Наиболее распространенные Mime-types: (взято из нашего unix-хостинга, можно что-то добавить или изменить)
+
+Картинки gif 
+gif 
+image/gif 
+Картинки jpeg 
+jpeg jpg jpe 
+image/jpeg 
+VRML-файлы 
+wrl vrml 
+model/vrml 
+HTML-документ 
+html htm 
+text/html 
+Обычный текст 
+asc txt 
+text/plain 
+Архив ZIP 
+zip 
+application/zip 
+Файл MS Word 
+doc 
+application/msword 
+Файл MS Excel 
+xls 
+application/vnd.ms-excel 
+Файл MS Power Point 
+ppt 
+application/vnd.ms-powerpoint 
+Файл Adobe Acrobat 
+pdf 
+application/pdf 
+Flash-документ 
+swf 
+application/x-shockwave-flash 
+

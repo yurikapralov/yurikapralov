@@ -1,0 +1,12 @@
+Изменения в таблицах базы:
+Удалена колонка adminId
+в echoTemplate добавлена колонка theme
+Изменены таблицы
+echoRate
+echoInformation
+MoscowDelivery
+
+В orders добавлена колонка addedby
+и переименован OrderStatusId
+
+В ordersitem добалена колонка title

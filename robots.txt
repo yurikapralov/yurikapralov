@@ -1,0 +1,24 @@
+User-agent: *
+
+Allow: /
+
+
+
+User-agent: Yandex
+
+Disallow: /(A
+Allow: /About.aspx
+Allow: /Collaboration.aspx
+Allow: /CustomShoes.aspx
+Allow: /Default.aspx
+Allow: /Gallery.aspx
+Allow: /News.aspx
+Allow: /PayMethods.aspx
+Allow: /ProductItem.aspx
+Allow: /Products.aspx
+Allow: /Search.aspx
+Allow: /Shipping.aspx
+Allow: /Shopping.aspx
+Allow: /Sizes.aspx
+Allow: /Stores.aspx
+Host: echo-h.ru

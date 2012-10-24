@@ -1,0 +1,249 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true"
+    CodeFile="Orders_old.aspx.cs" Inherits="Admin_Orders_old" Theme="Admin" %>
+
+<%@ MasterType VirtualPath="~/Admin/Admin.master" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register src="../Controls/Order.ascx" tagname="Order" tagprefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="MainComtext" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div id="content_total">
+        <asp:UpdatePanel ID="uppnlTotal" runat="server">
+            <ContentTemplate>
+                <asp:Panel ID="pnlNonPrint" runat="server" CssClass="nonprint">
+                    <div id="secondary_menu">
+                        <asp:LinkButton ID="lbtnOrderStatus" runat="server" Text="Поиск по статусу" OnClick="lbtnOrderStatus_Click" />&nbsp;|&nbsp;
+                        <asp:LinkButton ID="lbtnFio" runat="server" Text="Поиск по Фамилии" OnClick="lbtnFio_Click" />&nbsp;|&nbsp;
+                        <asp:LinkButton ID="lbtnUser" runat="server" Text="Поиск по зарегистрированному пользователю"
+                            OnClick="lbtnUser_Click" />&nbsp;|&nbsp;
+                        <asp:LinkButton ID="lbtnEmail" runat="server" Text="Поиск по e-mail" OnClick="lbtnEmail_Click" />&nbsp;|&nbsp;
+                        <asp:LinkButton ID="lbtnOrdersNumber" runat="server" Text="Поиск по номеру заказа"
+                            OnClick="lbtnOrdersNumber_Click" />&nbsp;|&nbsp;
+                        <asp:LinkButton ID="lbtnCity" runat="server" Text="Поиск по городу" OnClick="lbtnCity_Click" />
+                </asp:Panel>
+                </div>
+                <p>
+                </p>
+                <p>
+                </p>
+                <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="uppnlTotal">
+                    <ProgressTemplate>
+                        Пожалуйста подождите....
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+                <asp:Panel ID="pnlOrdersList" runat="server">
+                    <asp:Panel ID="pnlOrderStatus" runat="server" Visible="true">
+                        <h2>
+                            Поиск по статусу</h2>
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:DropDownList ID="ddlOrderStatus" runat="server" DataValueField="OrderStatusId"
+                                        DataTextField="OrderStaus" />
+                                </td>
+                                <td>
+                                    в период с
+                                    <asp:TextBox ID="txtFromDate" runat="server" />
+                                    <asp:CalendarExtender ID="txtFromDate_CalendarExtender" runat="server" TargetControlID="txtFromDate"
+                                        Format="dd.MM.yyyy">
+                                    </asp:CalendarExtender>
+                                    <asp:RequiredFieldValidator ID="reqValFrom" runat="server" ErrorMessage="Поле начала периода не должно быть пустым"
+                                        ControlToValidate="txtFromDate" Display="Dynamic" SetFocusOnError="True" ValidationGroup="valStat">*</asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="compValFrom" runat="server" ErrorMessage="Поле начала периода имеет неверный формат"
+                                        ControlToValidate="txtFromDate" Display="Dynamic" Operator="DataTypeCheck" SetFocusOnError="True"
+                                        Type="Date" ValidationGroup="valStat">*</asp:CompareValidator>
+                                </td>
+                                <td>
+                                    по
+                                    <asp:TextBox ID="txtToDate" runat="server" />
+                                    <asp:CalendarExtender ID="txtToDate_CalendarExtender" runat="server" TargetControlID="txtToDate"
+                                        Format="dd.MM.yyyy">
+                                    </asp:CalendarExtender>
+                                    <asp:RequiredFieldValidator ID="reqValTo" runat="server" ErrorMessage="Поле конца периода не должно быть пустым"
+                                        ControlToValidate="txtToDate" Display="Dynamic" SetFocusOnError="True" ValidationGroup="valStat">*</asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="compValTo" runat="server" ErrorMessage="Поле конца периода имеет неправильный формат "
+                                        ControlToValidate="txtToDate" Display="Dynamic" Operator="DataTypeCheck" SetFocusOnError="True"
+                                        Type="Date">*</asp:CompareValidator>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnShowByStatus" runat="server" Text="Показать" ValidationGroup="valStat"
+                                        OnClick="btnShowByStatus_Click" />
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlFIO" runat="server" Visible="false">
+                        <h2>
+                            Поиск по фамилии клиента:</h2>
+                        Введите частично или полностью фамилию заказчика:
+                        <asp:TextBox ID="txtFIO" runat="server" />
+                        <asp:AutoCompleteExtender ID="txtFIO_AutoCompleteExtender" runat="server" TargetControlID="txtFIO"
+                            ServiceMethod="GetFIOs" MinimumPrefixLength="1">
+                        </asp:AutoCompleteExtender>
+                        <asp:RequiredFieldValidator ID="valReqFIO" runat="server" ControlToValidate="txtFIO"
+                            Text="Введите фамилию" Display="Dynamic" ValidationGroup="valFIO" />
+                        <asp:Button ID="btnShowByFIO" runat="server" Text="Показать" ValidationGroup="valFIO"
+                            OnClick="btnShowByFIO_Click" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlUser" runat="server" Visible="false">
+                        <h2>
+                            Поиск по логину клиента:</h2>
+                        Введите частично или полностью логин заказчика:
+                        <asp:TextBox ID="txtLogin" runat="server" />
+                        <asp:AutoCompleteExtender ID="txtLogin_AutoCompleteExtender" runat="server" TargetControlID="txtLogin"
+                            ServiceMethod="GetUsers" MinimumPrefixLength="1">
+                        </asp:AutoCompleteExtender>
+                        <asp:RequiredFieldValidator ID="valReqUser" runat="server" ControlToValidate="txtLogin"
+                            Text="Введите логин" Display="Dynamic" ValidationGroup="valLogin" />
+                        <asp:Button ID="btnShowByUser" runat="server" Text="Показать" ValidationGroup="valLogin"
+                            OnClick="btnShowByUser_Click" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlEmails" runat="server" Visible="false">
+                        <h2>
+                            Поиск по e-mail:</h2>
+                        Введите частично или полностью e-mail заказчика:
+                        <asp:TextBox ID="txtEmail" runat="server" />
+                        <asp:AutoCompleteExtender ID="txtEmail_AutoCompleteExtender" runat="server" TargetControlID="txtEmail"
+                            ServiceMethod="GetEmails" MinimumPrefixLength="1">
+                        </asp:AutoCompleteExtender>
+                        <asp:RequiredFieldValidator ID="valReqEmail" runat="server" ControlToValidate="txtEmail"
+                            Text="Введите e-mail" Display="Dynamic" ValidationGroup="valEmail" />
+                        <asp:Button ID="btnShowByEmail" runat="server" Text="Показать" ValidationGroup="valEmail"
+                            OnClick="btnShowByEmail_Click" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlNumber" runat="server" Visible="false">
+                        <h2>
+                            Поиск по номеру заказа:</h2>
+                        Введите частично или полностью номер заказа:
+                        <asp:TextBox ID="txtNumber" runat="server" />
+                        <asp:RequiredFieldValidator ID="valReqNumber" runat="server" ControlToValidate="txtNumber"
+                            Text="Введите номер" Display="Dynamic" ValidationGroup="valNumber" />
+                        <asp:Button ID="btnNumber" runat="server" Text="Показать" ValidationGroup="valNumber"
+                            OnClick="btnNumber_Click" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlCity" runat="server" Visible="false">
+                        <h2>
+                            Поиск по городу:</h2>
+                        Выберите город:
+                        <asp:DropDownList ID="ddlCities" DataTextField="City_RUS" DataValueField="CityID"
+                            runat="server" />
+                        <asp:Button ID="btnCity" runat="server" Text="Показать" OnClick="btnCity_Click" />
+                    </asp:Panel>
+                    <asp:ListView ID="lvOrders" runat="server" DataKeyNames="OrderID" OnPagePropertiesChanged="lvOrders_PagePropertiesChanged"
+                        OnSelectedIndexChanging="lvOrders_SelectedIndexChanging" OnItemDeleting="lvOrders_ItemDeleting">
+                        <LayoutTemplate>
+                            <table class="MainAdminTable" border="1" cellpadding="0" cellspacing="0">
+                                <tr class="MainAdminTableHeader">
+                                    <td>
+                                        № Заказа
+                                    </td>
+                                    <td>
+                                        Дата
+                                    </td>
+                                    <td>
+                                        User
+                                    </td>
+                                    <td>
+                                        ФИО
+                                    </td>
+                                    <td>
+                                        E-mail
+                                    </td>
+                                    <td>
+                                        Город
+                                    </td>
+                                    <td>
+                                        Датали заказа
+                                    </td>
+                                    <td>
+                                        Статус заказа
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr id="itemPlaceholder" runat="server" class="MainAdminTableItem" />
+                            </table>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <tr>
+                                <td>
+                                    <%#Eval("OrderNumber") %>
+                                </td>
+                                <td>
+                                    <%#Eval("DateCreated") %>
+                                </td>
+                                <td>
+                                    <%#Eval("AddedBy") %>
+                                </td>
+                                <td>
+                                    <%#Eval("FIO") %>
+                                </td>
+                                <td>
+                                    <%#Eval("Email") %>
+                                </td>
+                                <td>
+                                    <%#Eval("City.City_RUS") %>
+                                </td>
+                                <td>
+                                    <small>
+                                        <asp:Repeater ID="rptOrderItems" runat="server" DataSource='<%#Eval("OrdersItems") %>'>
+                                            <ItemTemplate>
+                                                <asp:HyperLink ID="lnkProduct" runat="server" Text='<%#Eval("DinamicTitle") %>' NavigateUrl='<%#GetNavigateURL((int)Eval("ProdSizeID")) %>' />
+                                                -
+                                                <%#Eval("Qty") %><br />
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </small>
+                                </td>
+                                <td>
+                                    <%#Eval("OrderStatus.OrderStaus") %>
+                                </td>
+                                <td>
+                                    <asp:LinkButton ID="lbtnSelect" runat="server" Text="Выбрать" CommandName="Select"
+                                        CommandArgument='<%#Eval("OrderID") %>' OnClick="lbtnSelect_Click" />
+                                    <asp:LinkButton ID="lbtnDelete" runat="server" Text="Удалить" CommandName="Delete"
+                                        CommandArgument='<%#Eval("OrderID") %>' OnClientClick="return confirm('Вы действительно хотите удалить этот заказ?');" />
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            <p>
+                                Не одного заказа по заданным параметрам нет.</p>
+                        </EmptyDataTemplate>
+                    </asp:ListView>
+                    <asp:Panel ID="pnlPager" runat="server" HorizontalAlign="Center" Visible="false">
+                        Перейти:
+                        <asp:DataPager ID="pagerBottom" runat="server" PageSize="20" PagedControlID="lvOrders">
+                            <Fields>
+                                <asp:NextPreviousPagerField ButtonCssClass="command" FirstPageText="«" PreviousPageText="‹"
+                                    RenderDisabledButtonsAsLabels="true" ShowFirstPageButton="true" ShowPreviousPageButton="true"
+                                    ShowLastPageButton="false" ShowNextPageButton="false" />
+                                <asp:NumericPagerField ButtonCount="7" NumericButtonCssClass="command" CurrentPageLabelCssClass="current"
+                                    NextPreviousButtonCssClass="command" />
+                                <asp:NextPreviousPagerField ButtonCssClass="command" LastPageText="»" NextPageText="›"
+                                    RenderDisabledButtonsAsLabels="true" ShowFirstPageButton="false" ShowPreviousPageButton="false"
+                                    ShowLastPageButton="true" ShowNextPageButton="true" />
+                            </Fields>
+                        </asp:DataPager>
+                    </asp:Panel>
+                </asp:Panel>
+                <asp:Panel ID="pnlOrder" runat="server" Visible="false">
+                    <uc1:Order ID="OrderCtrl" runat="server" ViewOrderStatus="True" />
+                    <table border="1" cellpadding="0" cellspacing="0" class="MainAdminTable" width="600px">
+                      <tr>
+                            <td>
+                                <asp:Button ID="btnUpdate" runat="server" Text="Обновить" CssClass="TableButton"
+                                    OnClick="btnUpdate_Click" />
+                                <asp:Button ID="btnCancel" runat="server" Text="Отмена" CssClass="TableButton" OnClick="btnCancel_Click" />
+                                <asp:HyperLink ID="lnkPrint" runat="server"  Target="_blank">Печать</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <div id="EmptySpace">
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+</asp:Content>

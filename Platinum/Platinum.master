@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Platinum.master.cs" Inherits="Platinum_Platinum" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Images/Platinum.css" rel="stylesheet" type="text/css" />
+
+    <script src="jquery-1.5.min.js" type="text/javascript"></script>
+
+    <script src="Platinum.js" type="text/javascript"></script>
+
+    <script src="Images/tooltip.js" type="text/javascript"></script>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="headerbackground">
+    </div>
+    <div id="mainlayer">
+        <div id="headerzone">
+            <div id="navigation_links">
+                <a href="Default.aspx">Главная страница</a><br />
+                <a href="Stores.aspx">Наши магазины</a><br />
+                <a href="Delivery.aspx">Оплата и доставка</a><br />
+                <a href="CustomShoes.aspx">Обувь на заказ</a>
+            </div>
+            <div id="shopping_link">
+                <a href="Shopping.aspx" style="color: Black">Корзина:</a>
+                кол-во покупок:&nbsp;
+                <asp:Label ID="lblShopCartCount" runat="server" />
+            </div>
+            <div id="header_phone">
+                Тел.: (499) 464-2365</div>
+        </div>
+        <div id="mainzone">
+            <div id="mainzonemenu">
+                <asp:Label ID="lblNavigation" runat="server" />
+            </div>
+            <div id="mainzonecontext">
+                        <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="footerzone">
+            <div id="copyright">
+                copyright "platinum shoes" 2011<br />
+            </div>
+            <div id="footer_info">
+                Тел: (499) 464-23-65<br />
+                E-mail:info@platinumshoes.ru
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

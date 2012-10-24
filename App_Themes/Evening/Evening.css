@@ -1,0 +1,338 @@
+﻿*
+{
+	padding:0;
+	margin:0;
+}
+body
+{
+	background-color:#cccccc;
+	text-align:center;
+}
+.Content
+{
+	width:1000px;
+	margin: 0 auto;
+	border: thin solid #FFFFFF;
+	background:#c6e2ff url(spacer.gif) repeat-y left top;
+	text-align:left;
+
+}
+#Page
+{
+	width:1000px;
+	margin: 0 auto;
+}
+.Content2
+{
+	width:1000px;
+	margin: 0 auto;
+	border: thin solid #FFFFFF;
+	background:#b8dbff url(spacer.gif) repeat-y left top;
+	text-align:left;
+
+}
+.LeftColumn
+{
+	width: 250px;
+	background-image: url(EveningTitle.jpg);
+	background-repeat: no-repeat;
+	background-position: top;
+	padding-top: 450px;
+	background-color: #c6e2ff;
+	padding-bottom: 50px;
+	float: left;
+}
+
+#Navigation {
+	FONT-SIZE: 14px;
+	HEIGHT: 100%;
+	padding-left: 10px;
+}
+#Navigation A {
+	COLOR: #000066;
+	TEXT-DECORATION: underline;
+	margin-left: 10px;
+}
+#Navigation A:hover {
+	TEXT-DECORATION: none
+}
+#Navigation h3
+{
+	color: #000066;
+}
+
+
+.RightColumn
+{
+	background-color: #b8dbff;
+	float: right;
+	margin: 0 auto;
+	background-image: url(Header.jpg);
+	background-repeat: no-repeat;
+	background-position: top;
+}
+.Header
+{
+	height: 84px;
+}
+.Header h1
+{
+	color: #ffffff;
+	font-weight: bold;
+	position: relative;
+	width: 750px;
+	top: 60px;
+	text-align: right;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	left: -20px;
+}
+#SearchPanel
+{
+	background-color: #FFFFFF;
+	height: 53px;
+	padding-right: 20px;
+	padding-left: 20px;
+	vertical-align: bottom;
+	padding-top: 4px;
+	font-size: 12px;
+}
+#SearchTable
+{
+	float:left;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #000000;
+	padding-right: 40px;
+	vertical-align: text-top;
+}
+#StoreTable
+{
+	float:right;
+	text-align:right;
+	padding-bottom: 3px;
+}
+#StoreTable a
+{
+	color:#000000;
+}
+#MainArea
+{
+	COLOR: #000066;
+	padding-top: 50px;
+	padding-right: 30px;
+	padding-left: 30px;
+	width: 685px;
+}
+#MainArea h2
+{
+	FONT-SIZE: 18px;
+	COLOR: #000066;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	margin-bottom: 20px;
+}
+#MainArea h3
+{
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 16px; 
+	COLOR: #000066; 
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#MainArea img
+{
+	BORDER: #ffffff 1px solid;
+}
+#MainArea p
+{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 16px;
+	FONT-FAMILY: "Times New Roman", Times, serif;
+	TEXT-ALIGN: justify;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#MainArea a
+{
+	COLOR: #000066; 
+	TEXT-DECORATION: underline
+}
+
+#MainArea a:hover
+{
+	text-decoration:none;
+}
+#Footer
+{
+	clear:both;
+	background-color: #cccccc;
+	border-top-width: thin;
+	border-top-style: solid;
+	border-top-color: #FFFFFF;
+	text-align: center;
+}
+.Button
+{
+	color: #FFFFFF;
+	background-color: #000000;
+	border: 1px solid #FFFFFF;
+}
+#IntroArea
+{
+}
+#NewsArea
+{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#CatalogArea
+{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#CatalogArea p
+{
+	font-size:10px;
+}
+#NewCollectionArea
+{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.itemdescription {
+	BORDER: #ffffff 1px solid;
+	BACKGROUND-COLOR: #c6e2ff;
+	TEXT-ALIGN: center;
+	font-size: 12px;
+	height: 147px;
+	width: 340px;
+}
+.LookingMore
+{
+	text-align: right;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+.secondmenu
+{
+	font-size: 12px;
+	color: #000000;
+}
+.secondmenulink 
+{
+	font-size: 12px;
+	color: #333333;
+}
+.copyright
+{
+	color: #000000;
+	font-size: 12px;
+}
+.mail
+{
+	color: #000000;
+	font-size: 12px;
+}
+.SroreAddress
+{
+	padding-left: 20px;
+}
+#ProductArea 
+{
+	width: 680px;
+	margin-bottom: 30px;
+}
+#ProductArea h4
+{
+	font-size: 16px;
+}
+.itemImage
+{
+	float: left;
+}
+.navigationbar
+{
+	BORDER: #ffffff 1px solid;
+	padding-left: 10px;
+}
+#ProductItemArea {
+	
+}
+#MainProductItemArea {
+	FLOAT: left;
+	WIDTH: 520px;
+	padding-right: 10px;
+	text-align:left;
+}
+#ExtraProductItemArea {
+	FLOAT: right; WIDTH: 150px; text-align:left;
+}
+#ExtraProductItemArea IMG {
+	WIDTH: 150px; HEIGHT: 150px
+}
+.ProductItemDescription {
+	COLOR: #333333
+}
+.ProductItemPrice {
+	FONT-WEIGHT: bold; FONT-SIZE: larger
+}
+.orderbutton {
+	BORDER: #ffffff 1px solid; 
+	FONT-SIZE: 14px;  
+	COLOR: #ffffff; 
+	BACKGROUND-COLOR: #000000
+}
+.ExtraImage {
+	WIDTH: 150px;
+	HEIGHT: 150px;
+	border: 1px solid #FFFFFF;
+}
+.MainImage
+{	
+	border: 1px solid #FFFFFF;
+	width:500px;
+	height:500px;
+}
+.shopButton
+{
+	BORDER: #cc0000 1px solid; 
+	PADDING: 3px;  
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 16px;  
+	COLOR: #ffffff; 
+	FONT-FAMILY: Arial, Helvetica, sans-serif; 
+	TEXT-ALIGN: right; 
+	TEXT-DECORATION: none;
+	background-color:#FFFFFF;
+}
+.salePrice
+{
+	color:#990000;
+}
+.marked 
+{
+    color:#990000;
+    font-weight:bold;
+    text-decoration:underline;
+    font-style:italic;
+}
+.ErrorNote
+{
+    color:#990000;
+    font-weight:bold;
+}
+
+.topPager
+{
+    font-size: large;
+    font-style: italic;
+}
+.curPage
+{
+    font-size: x-large;
+    font-weight: bold;
+}
+#catDescription p
+{
+    font-size: smaller;
+    font-weight: normal;
+}

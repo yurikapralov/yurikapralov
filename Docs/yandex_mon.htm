@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <link href="YandexStyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var getobj = function(name) {
+            return document.forms[0].elements[name];
+        };
+
+        var addPhone = function() {
+            var phone = getobj("CustPhone").value;
+            var add_elem = getobj("CustAddr");
+            add_elem.value = add_elem.value + " / Телефон: " + phone;
+        };
+    </script>
+</head>
+<body>
+    <div class="b-widget-commercial">
+        <form method="POST" action="https://money.yandex.ru/eshop.xml">
+        <table>
+            <tr>
+                <td style="width: 400px">
+                    <input class="wide" name="scid" value="4637" type="hidden">
+                    <input type="hidden" name="ShopID" value="13170">
+                    Номер заказа:<br>
+                    <input type="text" name="CustomerNumber" size="20"><br>
+                    <br>
+                    Сумма:<br>
+                    <input type="text" name="Sum" size="10"><br>
+                    <br>
+                </td>
+                <td>
+                    <img src="i/echo_logo.jpg"/>
+                </td>
+            </tr>
+        </table>
+        Ф.И.О.:<br>
+        <input type="text" name="CustName" size="60"><br>
+        <br>
+        Адрес доставки:<br>
+        <input type="text" name="CustAddr" size="60">
+        <br>
+        <br>
+        Контактный телефон:<br>
+        <input type="text" name="CustPhone" size="60"><br>
+        <br>
+        E-mail:<br>
+        <input type="text" name="CustEMail" size="60"><br>
+        <br>
+        Содержание заказа:<br>
+        <textarea rows="10" name="OrderDetails" cols="60"></textarea><br>
+        <br>
+        <table>
+            <tr class="b-form__buttons">
+                <td style="text-align: right;">
+                    <img height="32px" alt="Yandex.Money" src="i/ym_logo.gif" class="b-widget-commercial__logo-img">
+                </td>
+                <td style="width: 20px">
+                    &nbsp;
+                </td>
+                <td>
+                    <span class="b-button b-button_1 b-button_orange"><span class="b-button__inner">Платить
+                        через Яндекс.Деньги</span>
+                        <input type="submit" class="b-button__input" value="Платить через Яндекс.Деньги"
+                            name="submit-button" onclick="addPhone();">
+                    </span>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+</body>
+</html>

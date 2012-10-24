@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
+<%@ Register src="../Controls/AdminMenu.ascx" tagname="AdminMenu" tagprefix="uc1" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Система администрирования сайта</title>
+    <link  rel="stylesheet" type="text/css"  href="../App_Themes/Admin/style.css"/>
+    <script type="text/javascript" src="JS/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="JS/mainAdmin.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    <div id="wrapper">
+      <div id="search" class="nonprint">
+       Вы вошли как, 
+          <asp:LoginName ID="LoginName1" runat="server" />  &nbsp;&nbsp;<asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Выйти"/>
+      </div>
+      <div id="logo" class="nonprint">
+        <h1><asp:Label ID="lblHeader" runat="server"/> <span class="headCont">- Система администрирования сайта</span></h1>
+      </div>
+  
+      <div style="background-color:#FFFFFF; height:50px;" class="nonprint">   
+      <div>
+          <uc1:AdminMenu ID="AdminMenu1" runat="server" />
+      </div>
+      </div>
+        <div style="background-color:#FFFFFF; height:10px;" class="nonprint"></div>
+         <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        <div id="content">
+        <h2><asp:Label ID="lblLeftHeader" runat="server" /></h2>
+           
+           
+        </div>
+        <div id="sidebar">
+        <h2><asp:Label ID="lblRightHeader" runat="server" /></h2>
+             
+       </div>
+       </asp:contentplaceholder>
+       <div id="footer" class="nonprint">copyright Kitaev Klim 2010. Design By Autonomouse. <a href="#">Terms
+            and Conditions</a> | <a href="#">Contact</a> 
+        </div>
+    </div>
+    </form>
+    </body>
+</html>

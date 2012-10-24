@@ -1,0 +1,304 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server" id="header1">
+    <title></title>
+    <link href="JS/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
+    <script src="JS/jquery-1.4.3.min.js" type="text/javascript"></script>
+    <script src="JS/fancybox/jquery.fancybox-1.3.4.pack.js" type="text/javascript"></script>
+    <script src="JS/fancybox/jquery.easing-1.3.pack.js" type="text/javascript"></script>
+    <script src="JS/fancybox/jquery.mousewheel-3.0.4.pack.js" type="text/javascript"></script>
+    <script src="JS/main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function ShowPreview(strElem) {
+            //Задаем ссылку на элемент- контейнер
+            var elem = $get(strElem)
+            elem.style.display = 'block';
+
+           
+
+            // из имени контейнера выделеляем id продукции.
+            var prodId = elem.id.substring(10);
+            GetLargeImages(prodId);
+
+
+
+        }
+        function HidePreview(strElem) {
+            var elem = $get(strElem)
+            elem.innerHTML = "";
+            elem.style.display = 'none';
+        }
+        function GetLargeImages(productId) {
+            ListImages.GetLargeImagesByProductId(productId, onRequestComplete, onError);
+        }
+
+        function onRequestComplete(result) {
+
+            // result: объект содержащий id продукции и url изображения
+            // по id продукции определяем имя контейнера
+            // заносим в контейнер изображения
+            var prodId = result[0].ProdID;
+            var elem = $get("img_block_" + prodId);
+
+            elem.innerHTML = "";
+            for (var n = 0; n < result.length; n++) {
+                var img = document.createElement("img");
+                img.src = result[n].ImageUrl;
+                var increaseFactor = img.width / 50;
+                img.width = 50;
+                img.height = 50;
+               // img.height = img.height / increaseFactor;
+                var lft = -50 * (n + 1);
+                lft = lft + "px";
+                elem.style.left = lft;
+                elem.appendChild(img);
+            }
+
+        }
+        function onError(result) {
+
+        }
+        function OnTimeout(result) {
+
+        }
+     </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+     <Services>
+    <asp:ServiceReference Path="~/ListImages.asmx" />
+    </Services>
+    </asp:ScriptManager>
+    <div id="Content" runat="server">
+    <div id="Page">
+        <div id="LeftColumn" 
+            class="LeftColumn" runat="server">
+            <div id="Navigation">
+            <asp:Label ID="lblNavigation" runat="server" />
+            </div>
+        </div>
+        <div id="RightColumn" style="background-image: url(Images/Headers/Header.jpg);" class="RightColumn"
+            runat="server">
+            <div id="Header" runat="server" class="Header" >
+                
+            </div>
+            <div id="SearchPanel">
+                <div id="SearchTable">
+                    Поиск артикула:
+                    <asp:TextBox ID="txtSearch" runat="server" />
+                    <asp:Button ID="btnSearch" runat="server" Text="Найти" CssClass="Button" 
+                        onclick="btnSearch_Click" />
+                    <br />
+                    <asp:CheckBox ID="cbxShoes" runat="server" Text="Обувь"  Checked="True" />
+                    <asp:CheckBox ID="cbxClothers" runat="server" Text="Одежда" Checked="true" />                    
+                </div>
+                <div id="StoreTable">
+                   <asp:LoginView ID="LoginView1" runat="server">
+                <AnonymousTemplate>
+                    <asp:Login ID="ctrLogin" FailureText="Неправильное имя или пароль" runat="server">
+                    <LayoutTemplate>
+                          
+                           <table width="100%">
+                            <tr>
+                                <td width="150" align="right">
+                                    <asp:Literal runat="server" ID="FailureText" />
+                                    Имя: 
+                                    <asp:TextBox ID="UserName" runat="server" CssClass="logpas" Height="12px" Width="100px" Font-Size="X-Small" />
+                                    <asp:RequiredFieldValidator ID="valRequireLogin" runat="server" 
+                                     SetFocusOnError="true" Text="*" Display="Dynamic" ControlToValidate="UserName"
+                                      ValidationGroup="Login"/>
+       		                        <br/>
+                                    Пароль: <asp:TextBox ID="Password" runat="server" CssClass="logpas"
+                                     TextMode="Password" Height="12px" Width="100px" Font-Size="X-Small" />
+                                     <asp:RequiredFieldValidator ID="valRequirePassword" runat="server" 
+                                     SetFocusOnError="true" Text="*" Display="Dynamic" ControlToValidate="Password"
+                                      ValidationGroup="Login"/>
+                                </td>
+                                <td width="70" valign="middle" align="center" >
+                                    <asp:Button ID="btnLogin" runat="server" Text="Войти" CssClass="Button" ValidationGroup="Login" CommandName="Login" />
+                                </td>
+                                <td width="150">
+                                    <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Register.aspx">Зарегистрироваться</asp:HyperLink>
+                                    <br />
+                                    <asp:HyperLink ID="lnkPaswordRecovery" NavigateUrl="~/PasswordRecovery.aspx" runat="server">Забыли пароль</asp:HyperLink>
+                                </td>
+                            </tr>
+                           </table> 
+                        </LayoutTemplate>
+                    </asp:Login>
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    <table width="100%">
+                        <tr>
+                            <td width="180">
+                                <asp:LoginName ID="LoginName1" runat="server" FormatString="Добро пожаловать: {0}!" /><br />
+                                <asp:HyperLink ID="lnkOrderHistory" runat="server" NavigateUrl="~/OrdersHistory.aspx">История заказов</asp:HyperLink>
+                            </td>
+                            <td width="180">
+                                <asp:HyperLink ID="lnkProfile" runat="server" NavigateUrl="~/EditProfile.aspx">Редактировать данные</asp:HyperLink>
+                                <br />
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Выйти" LogoutPageUrl="~/Default.aspx" LogoutAction="Redirect" />
+                            </td>
+                        </tr>
+                    </table>
+                </LoggedInTemplate>
+                </asp:LoginView> 
+                    Количество покупок в <a href="Shopping.aspx">корзине:</a><asp:Label ID="lblShopCartCount" runat="server" />
+                </div>
+            </div>
+            <div id="MainArea">
+                <span style="font-size: small; padding-left: 600px; padding-bottom: 20px;"><a href="../En/Default.aspx">
+                    English&nbsp;Version</a></span>
+                <p></p>
+                <asp:ContentPlaceHolder ID="ContentPlaceMainHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        </div>
+        <div id="Footer">
+            <table cellspacing="0" cellpadding="0" width="1000" align="center" border="0">
+                <tr>
+                    <td class="copyright" align="center">
+                        <p>
+                            Copyright (c) 2001-2010 "Echo of Hollywood - обувь и одежда для танцев и шоу. Одежда
+                            и обувь для праздничных и выпускных вечеров."<br />
+                            <font size="+1"><b>Контактные телефоны: (499) 464-2365; (495) 652-4297</b></font><br />
+                            E-mail: <a class="mail" href="mailto:info@echoofhollywood.com">info@echoofhollywood.com</a>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <!--begin of Rambler's Top100 code -->
+                        <a href="http://top100.rambler.ru/top100/">
+                            <img height="1" alt="" src="Эхо Голливуда - Интернет магазин обуви и одежды Echo Of Hollywood Обувь и одежда для стриптиза, танцев, шоу_ Эротическое нижнее белье, вечернее платья, выходная обувь.files/top100.gif"
+                                width="1" border="0"></a>
+                        <!--end of Top100 code-->
+                        <!--begin of Top100 logo-->
+                        <a href="http://top100.rambler.ru/top100/">
+                            <img height="31" alt="Rambler's Top100" src="Эхо Голливуда - Интернет магазин обуви и одежды Echo Of Hollywood Обувь и одежда для стриптиза, танцев, шоу_ Эротическое нижнее белье, вечернее платья, выходная обувь.files/w5.gif"
+                                width="88" border="0"></a>
+                        <!--end of Top100 logo -->
+                        <!--LiveInternet counter-->
+
+                        <script language="JavaScript"><!--
+                            document.write('<a href="http://www.liveinternet.ru/click" ' +
+            'target=liveinternet><img src="http://counter.yadro.ru/hit?t14.11;r' +
+            escape(document.referrer) + ((typeof (screen) == 'undefined') ? '' :
+            ';s' + screen.width + '*' + screen.height + '*' + (screen.colorDepth ?
+            screen.colorDepth : screen.pixelDepth)) + ';' + Math.random() +
+            '" alt="liveinternet.ru: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодн\я" ' +
+            'border=0 width=88 height=31></a>')//--></script>
+
+                        <!--/LiveInternet-->
+                        <!-- SpyLOG f:0211 -->
+
+                        <script language="javascript"><!--
+                            Mu = "u3264.88.spylog.com"; Md = document; Mnv = navigator; Mp = 0;
+                            Md.cookie = "b=b"; Mc = 0; if (Md.cookie) Mc = 1; Mrn = Math.random();
+                            Mn = (Mnv.appName.substring(0, 2) == "Mi") ? 0 : 1; Mt = (new Date()).getTimezoneOffset();
+                            Mz = "p=" + Mp + "&rn=" + Mrn + "&c=" + Mc + "&t=" + Mt;
+                            if (self != top) { Mfr = 1; } else { Mfr = 0; } Msl = "1.0";
+                //--></script>
+
+                        <script language="javascript1.1"><!--
+                Mpl="";Msl="1.1";Mj = (Mnv.javaEnabled()?"Y":"N");Mz+='&j='+Mj;
+                //--></script>
+
+                        <script language="javascript1.2"><!--         
+                Msl="1.2";Ms=screen;Mpx=(Mn==0)?Ms.colorDepth:Ms.pixelDepth;
+                Mz+="&wh="+Ms.width+'x'+Ms.height+"&px="+Mpx;
+                //--></script>
+
+                        <script language="javascript1.3"><!--
+                Msl="1.3";//--></script>
+
+                        <script language="javascript"><!--
+                            My = ""; My += "<a href='http://" + Mu + "/cnt?cid=326488&f=3&p=" + Mp + "&rn=" + Mrn + "' target='_blank'>";
+                            My += "<img src='http://" + Mu + "/cnt?cid=326488&" + Mz + "&sl=" + Msl + "&r=" + escape(Md.referrer) + "&fr=" + Mfr + "&pg=" + escape(window.location.href);
+                            My += "' border=0  width=88 height=31  alt='SpyLOG'>";
+                            My += "</a>"; Md.write(My);//--></script>
+
+                        <noscript>
+                            <a href="http://u3264.88.spylog.com/cnt?cid=326488&amp;f=3&amp;p=0" target="_blank">
+                                <img height="31" alt="SpyLOG" src="" width="88" border="0">
+                            </a>
+                        </noscript>
+                        <!--Rating@Mail.ru COUNTER-->
+
+                        <script language="JavaScript"><!--
+                            d = document; var a = ''; a += ';r=' + escape(d.referrer)
+                            js = 10//--></script>
+
+                        <script language="JavaScript1.1"><!--
+                a+=';j='+navigator.javaEnabled()
+                js=11//--></script>
+
+                        <script language="JavaScript1.2"><!--
+                s=screen;a+=';s='+s.width+'*'+s.height
+                a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+                js=12//--></script>
+
+                        <script language="JavaScript1.3"><!--
+                js=13//--></script>
+
+                        <script language="JavaScript"><!--
+                            d.write('<a href="http://top.mail.ru/jump?from=267449"' +
+                ' target=_top><img src="http://top.list.ru/counter' +
+                '?id=267449;t=236;js=' + js + a + ';rand=' + Math.random() +
+                '" alt="Рейтинг@Mail.ru"' + ' border=0 height=31 width=88></a>')
+                            if (11 < js) d.write('<' + '!-- ')//--></script>
+
+                        <noscript>
+                            <a href="http://top.mail.ru/jump?from=267449" target="_top">
+                                <img height="31" alt="Рейтинг@Mail.ru" src="Эхо Голливуда - Интернет магазин обуви и одежды Echo Of Hollywood Обувь и одежда для стриптиза, танцев, шоу_ Эротическое нижнее белье, вечернее платья, выходная обувь.files/counter.gif"
+                                    width="88" border="0"></a></noscript>
+
+                        <script language="JavaScript"><!--
+                            if (11 < js) d.write('--' + '>')//--></script>
+
+                        <!--/COUNTER-->
+
+                        <script type="text/javascript"><!--
+                            document.write('<a href="http://click.kmindex.ru/?uid=36776"><img ' +
+                'src="http://counting.kmindex.ru/1.gif?uid=36776&r=' + escape(document.referrer) +
+                ((typeof (screen) == 'undefined') ? '' : '&s=' + screen.width + screen.height +
+                (screen.colorDepth ? screen.colorDepth : screen.pixelDepth)) +
+                '&' + Math.random() + '" width=88 height=31 border=0 alt=KMindex></a>')
+                //--></script>
+
+                        <script language="JavaScript">
+                <!--
+
+                            //window.open = SymRealWinOpen;
+
+                //-->
+                        </script>
+
+                        <!-- YaMetrics begin -->
+
+                        <script type="text/javascript"><!--
+                            var ya_cid = 70002;
+            //--></script>
+
+                        <script src="Эхо Голливуда - Интернет магазин обуви и одежды Echo Of Hollywood Обувь и одежда для стриптиза, танцев, шоу_ Эротическое нижнее белье, вечернее платья, выходная обувь.files/watch.js"
+                            type="text/javascript"></script>
+
+                        <noscript>
+                            <div style="display: inline">
+                                <img height="1" alt="" src="Эхо Голливуда - Интернет магазин обуви и одежды Echo Of Hollywood Обувь и одежда для стриптиза, танцев, шоу_ Эротическое нижнее белье, вечернее платья, выходная обувь.files/70002.gif"
+                                    width="1"></div>
+                        </noscript>
+                        <!-- YaMetrics end -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

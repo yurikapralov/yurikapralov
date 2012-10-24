@@ -1,0 +1,353 @@
+﻿html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial,Geneva CY,Sans-Serif;
+    background-color: #ddd;
+}
+a {
+    color: #0059D1;
+    outline: medium none;
+}
+a:hover {
+    color: #FF7300;
+}
+div, li, span, b, a, ul, ol, p, h1, h2, h3, h4, h5, h6, dl, dd, dt, form, fieldset, i, button, td, th {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+}
+h1 {
+    font-size: 24px;
+    font-weight: normal;
+    padding-bottom: 20px;
+}
+h2 {
+    color: #414141;
+    font-size: 18px;
+    font-weight: normal;
+    padding-bottom: 15px;
+}
+p {
+    padding-bottom: 10px;
+}
+span.ym-simple-tip-block {
+    position: static;
+}
+.b-form {
+}
+.b-form__grid {
+    width: 100%;
+}
+.b-form__label {
+    min-width: 140px;
+    padding: 4px 30px 15px 0;
+    vertical-align: top;
+    width: 30%;
+}
+.b-form__field {
+    padding: 0 0 15px;
+    position: relative;
+    vertical-align: top;
+}
+.b-form__input-postfix {
+    vertical-align: middle;
+}
+.b-form__field-hint {
+    color: #999999;
+    font-size: 11px;
+    padding: 3px 0;
+}
+.b-form__errors_hidden {
+    display: none;
+}
+.b-form__error-text {
+    color: #D40000;
+    font-size: 12px;
+    padding-bottom: 3px;
+}
+.b-form__buttons td {
+    padding: 15px 0;
+}
+.b-form__hint-bottom {
+    padding: 15px 0;
+}
+.b-textarea {
+    margin: 0 5px 0 0;
+    padding: 0 12px 12px 0;
+    position: relative;
+}
+.b-textarea__textarea {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #A3A3A3 #C6C6C6 #E5E5E5;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px #CFCFCF inset;
+    font-family: Arial,Geneva CY,Sans-Serif;
+    font-size: 13px;
+    height: 100%;
+    line-height: 22px;
+    outline: medium none;
+    padding: 5px;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+}
+.b-textarea__textarea:focus {
+    box-shadow: 0 1px 1px #CFCFCF inset, 0 0 1px #FFD94F, 0 0 1px #FFD94F, 0 0 2px #FFD94F;
+}
+.b-textarea_transparent .b-textarea__textarea {
+    border: medium none;
+    box-shadow: none;
+    margin-right: 0;
+    top: -1px;
+}
+.b-textarea_transparent .b-textarea__textarea:focus {
+    box-shadow: none;
+}
+.b-textarea_inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+.b-input-text {
+    margin: 0 5px 0 0;
+    padding: 0 12px 0 0;
+    position: relative;
+}
+.b-input-text__input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #A3A3A3 #C6C6C6 #E5E5E5;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px #CFCFCF inset;
+    font-family: Arial,Geneva CY,Sans-Serif;
+    font-size: 13px;
+    height: 23px;
+    line-height: 22px;
+    outline: medium none;
+    padding: 0 7px;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+}
+.b-input-text__input:focus {
+    box-shadow: 0 1px 1px #CFCFCF inset, 0 0 1px #FFD94F, 0 0 1px #FFD94F, 0 0 2px #FFD94F;
+}
+.b-input-text_transparent .b-input-text__input {
+    border: medium none;
+    box-shadow: none;
+    margin-right: 0;
+    top: -1px;
+}
+.b-input-text_transparent .b-input-text__input:focus {
+    box-shadow: none;
+}
+.b-input-text_inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+.b-input-text_1 .b-input-text__input {
+    font-size: 22px;
+    height: 30px;
+    line-height: 30px;
+}
+.b-input-text_1 .b-input-text__inner {
+    height: 30px;
+}
+.b-button {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    margin: 0 15px 0 0;
+    outline: medium none;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.b-button__input {
+    border: 0 none;
+    cursor: pointer;
+    font-size: 0;
+    height: 100%;
+    left: 0;
+    line-height: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    text-indent: -999px;
+    top: 0;
+    width: 100%;
+}
+.b-button__inner {
+    background: url("i/b-button__sprite.png") repeat-x scroll 0 center #FFFFFF;
+    border: 1px solid #B4B4B4;
+    border-radius: 3px 3px 3px 3px;
+    display: block;
+    font-family: Arial,Geneva CY,Sans-Serif;
+    font-size: 13px;
+    height: 23px;
+    line-height: 23px;
+    margin: 0;
+    outline: medium none;
+    padding: 0 15px;
+    position: relative;
+    white-space: nowrap;
+}
+.b-button__inner .b-icon {
+    margin: -1px 10px 0 -10px;
+}
+.b-button__inner .b-icon_right {
+    margin: -1px -10px 0 10px;
+}
+.b-button:hover .b-button__inner {
+    border-color: #888888;
+    color: #000000 !important;
+}
+.b-button:active .b-button__inner {
+    box-shadow: 0 1px 2px #888888 inset;
+    color: #444444 !important;
+}
+.b-button_disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+.b-button_disabled .b-button__input {
+    display: none;
+}
+.b-button_disabled:hover .b-button__inner {
+    border-color: #B4B4B4;
+    color: #000000 !important;
+}
+.b-button_disabled:active .b-button__inner {
+    box-shadow: none;
+    color: #000000 !important;
+}
+.b-button_1 {
+    height: 32px;
+}
+.b-button_1 .b-button__inner {
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+}
+.b-button_1 .b-button__inner .b-icon {
+    margin-top: -2px;
+}
+.b-button_orange {
+    height: 32px;
+}
+.b-button_orange .b-button__inner {
+    background: url("i/b-button_orange.png") repeat-x scroll 0 bottom #F47C33;
+    border: medium none;
+    color: #FFFFFF;
+    height: 32px;
+    line-height: 31px;
+    text-shadow: -1px -1px 1px #F16A2A;
+}
+.b-button_orange:hover .b-button__inner {
+    color: #FFFFFF !important;
+    opacity: 0.8;
+}
+.b-button_orange:active .b-button__inner {
+    box-shadow: 0 1px 2px #D54915 inset;
+    color: #FAFAFA !important;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.b-widget-commercial {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #FFFFFF;
+    background-image: url("i/b-widget-donate.png");
+    background-origin: padding-box;
+    background-position: 0 bottom;
+    background-repeat: repeat-x;
+    background-size: 10px 100%;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 1px 3px #999999;
+    font-family: Arial,sans-serif;
+    font-size: 13px;
+    margin: 2px 3px 4px;
+    padding: 20px;
+    width: 600px;
+    z-index:2;
+    position:absolute;
+    top:0px;
+    vertical-align:middle;
+    margin-left: -300px;
+    left:50%;
+    margin-top: 10px;
+}
+.b-widget-commercial__logo-link {
+    margin-right: 15px;
+    position: relative;
+}
+.b-widget-commercial__logo-img {
+    border: medium none;
+    vertical-align: middle;
+}
+.b-widget-commercial .b-form__label {
+    font-size: 13px;
+    padding-right: 10px;
+    text-align: right;
+    width: 25%;
+}
+.b-widget-commercial .b-form__buttons td {
+    padding: 10px 0 0;
+}
+.b-widget-commercial .b-form__field, .b-widget-commercial .b-form__label {
+    padding-bottom: 10px;
+}
+.b-widget-commercial_bank {
+    border: 1px solid #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 26, 0.25);
+    padding: 19px 17px;
+    width: 429px;
+}
+.b-widget-commercial_bank td.b-form__label {
+    min-width: 130px;
+}
+.b-widget-commercial_bank div.b-form__label {
+    min-width: 130px;
+    padding-right: 3px;
+}
+.b-widget-commercial div.b-form__label {
+    text-align: left;
+    width: auto;
+}
+.b-widget-commercial_bank .b-input-text__input {
+    padding-left: 0;
+    padding-right: 0;
+}
+.b-widget-commercial_bank div.b-input-text {
+    margin-right: -6px;
+}
+.b-widget-commercial_bank .b-button_orange {
+    height: 36px;
+}
+.b-widget-commercial_bank .b-button_orange .b-button__inner {
+    height: 36px;
+    line-height: 35px;
+}
+.b-textarea__textarea-compact {
+    margin: 0 -5px 0 0;
+    padding: 0 12px 5px 0;
+}
+.b-textarea__textarea-compact .b-textarea__textarea {
+    padding: 2px 2px 1px;
+}
+.b-form__field-hint {
+    padding-bottom: 0 !important;
+}
