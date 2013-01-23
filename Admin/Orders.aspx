@@ -139,6 +139,9 @@
                                 <th class="center">
                                     Статус заказа
                                 </th>
+                                <th class="center">
+                                    В кредит
+                                </th>
                                 <th>
                                     &nbsp;
                                 </th>
@@ -177,6 +180,9 @@
                             </td>
                             <td>
                                 <%#Eval("OrderStatus.OrderStaus") %>
+                            </td>
+                            <td>
+                                <input type="checkbox" disabled="disabled"  <%#(bool)Eval("InCredit") ? "checked":"" %>/>
                             </td>
                             <td>
                                 <asp:LinkButton ID="lbtnSelect" runat="server" Text="Выбрать" CommandName="Select"

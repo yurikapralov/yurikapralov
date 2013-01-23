@@ -4,15 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OrdersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="OrdersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="OrdersModelStoreContainer">
-          <EntitySet Name="echoCity" EntityType="OrdersModel.Store.echoCity" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="echoCountries" EntityType="OrdersModel.Store.echoCountries" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="echoOrders" EntityType="OrdersModel.Store.echoOrders" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="echoOrdersItem" EntityType="OrdersModel.Store.echoOrdersItem" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="echoOrderStatus" EntityType="OrdersModel.Store.echoOrderStatus" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="echoZone" EntityType="OrdersModel.Store.echoZone" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MoscowDelivery" EntityType="OrdersModel.Store.MoscowDelivery" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="echoCity" EntityType="OrdersModel.Store.echoCity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoCountries" EntityType="OrdersModel.Store.echoCountries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoOrders" EntityType="OrdersModel.Store.echoOrders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoOrdersItem" EntityType="OrdersModel.Store.echoOrdersItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoOrderStatus" EntityType="OrdersModel.Store.echoOrderStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="echoZone" EntityType="OrdersModel.Store.echoZone" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MoscowDelivery" EntityType="OrdersModel.Store.MoscowDelivery" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="echoOrdersItem_Orders" Association="OrdersModel.Store.echoOrdersItem_Orders">
             <End Role="echoOrders" EntitySet="echoOrders" />
             <End Role="echoOrdersItem" EntitySet="echoOrdersItem" />
@@ -34,11 +34,11 @@
           <Key>
             <PropertyRef Name="CityID" />
           </Key>
-          <Property Name="City_ENG" Type="varchar" MaxLength="50" />
-          <Property Name="City_RUS" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="CityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="City_RUS" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="ZN" Type="int" Nullable="false" />
+          <Property Name="City_ENG" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="echoCountries">
           <Key>
@@ -53,42 +53,43 @@
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="AddedBy" Type="nvarchar" MaxLength="100" />
-          <Property Name="Adress" Type="varchar" MaxLength="50" />
-          <Property Name="City2" Type="varchar" MaxLength="50" />
-          <Property Name="CityID" Type="int" Nullable="false" />
-          <Property Name="CityIndex" Type="varchar" MaxLength="50" />
-          <Property Name="CityTypeID" Type="int" Nullable="false" />
-          <Property Name="CountryID" Type="int" Nullable="false" />
-          <Property Name="DateCreated" Type="datetime" Nullable="false" />
-          <Property Name="DateUpdated" Type="datetime" />
-          <Property Name="DeliverSum" Type="money" Nullable="false" />
-          <Property Name="DeliverTypeID" Type="int" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="FIO" Type="varchar" MaxLength="50" />
-          <Property Name="Home" Type="varchar" MaxLength="50" />
-          <Property Name="Korpus" Type="varchar" MaxLength="50" />
-          <Property Name="Note" Type="varchar" MaxLength="2000" />
           <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="OrderNumber" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="OrderStatusID" Type="int" Nullable="false" />
-          <Property Name="OrderSum" Type="money" Nullable="false" />
-          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="FIO" Type="varchar" MaxLength="50" />
+          <Property Name="DeliverTypeID" Type="int" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="City2" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+          <Property Name="CityIndex" Type="varchar" MaxLength="50" />
+          <Property Name="CityTypeID" Type="int" Nullable="false" />
           <Property Name="Street" Type="varchar" MaxLength="100" />
+          <Property Name="Home" Type="varchar" MaxLength="50" />
+          <Property Name="Korpus" Type="varchar" MaxLength="50" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
           <Property Name="time1" Type="varchar" MaxLength="50" />
           <Property Name="time2" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="2000" />
+          <Property Name="DeliverSum" Type="money" Nullable="false" />
+          <Property Name="OrderSum" Type="money" Nullable="false" />
           <Property Name="TotalSum" Type="money" Nullable="false" />
-          <Property Name="Unit" Type="varchar" MaxLength="50" />
+          <Property Name="OrderStatusID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="AddedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="InCredit" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="echoOrdersItem">
           <Key>
             <PropertyRef Name="OrderItemID" />
           </Key>
-          <Property Name="OrderID" Type="int" Nullable="false" />
           <Property Name="OrderItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="PriceForSale" Type="money" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
           <Property Name="ProdSizeID" Type="int" Nullable="false" />
           <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="PriceForSale" Type="money" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="echoOrderStatus">
@@ -104,6 +105,9 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="QTY" Type="int" />
+          <Property Name="Zn6_1" Type="money" />
+          <Property Name="Zn6_2" Type="money" />
+          <Property Name="Zn7_1" Type="money" />
           <Property Name="Zn0_1" Type="money" />
           <Property Name="Zn0_2" Type="money" />
           <Property Name="Zn1_1" Type="money" />
@@ -116,17 +120,14 @@
           <Property Name="Zn4_2" Type="money" />
           <Property Name="Zn5_1" Type="money" />
           <Property Name="Zn5_2" Type="money" />
-          <Property Name="Zn6_1" Type="money" />
-          <Property Name="Zn6_2" Type="money" />
-          <Property Name="Zn7_1" Type="money" />
           <Property Name="Zn7_2" Type="money" />
         </EntityType>
         <EntityType Name="MoscowDelivery">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="echoOrdersItem_Orders">
           <End Role="echoOrders" Type="OrdersModel.Store.echoOrders" Multiplicity="1">
@@ -259,6 +260,7 @@
           <NavigationProperty Name="Country" Relationship="OrdersModel.FK_echoOrders_echoCountries" FromRole="echoOrders" ToRole="echoCountries" />
           <NavigationProperty Name="OrderStatus" Relationship="OrdersModel.FK_echoOrders_echoOrderStatus" FromRole="echoOrders" ToRole="echoOrderStatus" />
           <NavigationProperty Name="OrdersItems" Relationship="OrdersModel.FK_echoOrdersItem_echoOrders" FromRole="echoOrders" ToRole="echoOrdersItem" />
+          <Property Type="Boolean" Name="InCredit" Nullable="false" />
         </EntityType>
         <EntityType Name="OrdersItem">
           <Key>
@@ -354,6 +356,7 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="IsTypeOf(OrdersModel.Order)">
               <MappingFragment StoreEntitySet="echoOrders">
+                <ScalarProperty Name="InCredit" ColumnName="InCredit" />
                 <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
                 <ScalarProperty Name="Adress" ColumnName="Adress" />
                 <ScalarProperty Name="City2" ColumnName="City2" />
@@ -477,6 +480,8 @@
     <edmx:Options>
       <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

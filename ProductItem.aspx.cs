@@ -65,6 +65,16 @@ public partial class ProductItem : BasePage
             lblProductName.Text = productColor.Product.ProductNameRus+" "+productColor.Color.ColorNameRus;
             imgLarge.ImageUrl = string.Format("~/Images/Products/Large/{0}", productColor.ImageURL);
             lblUSA.Visible = productColor.Product.FromUsa;
+            btnAddKredit.Visible = productColor.Product.FromUsa == false;
+            if(this.Profile.ShoppingCart.HaveUsaProduct()&&(!productColor.Product.FromUsa))
+            {
+                btnAddKredit.OnClientClick =
+                    "alert('В вашем заказе присутствуют вещи с доставкой из США.\\nВ кредит доступна только продукция Echo Of Hollywood.\\nВы можете оформить покупки разными заказами.');return false;";
+            }
+            if(this.Profile.ShoppingCart.InCredit && productColor.Product.FromUsa)
+            {
+                btnAdd.OnClientClick = "return confirm('При добавлении продукции с доставкой из США покупка в кредит будет невозможной.\\nДобавить товар в корзину?');";
+            }
             ltlsale.Text = productColor.Product.OnSale ? " <div id=\"sale_" + productColor.ProductId + "\" style=\"z-index: 2; height: 128px; left: 350px; width:128px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/sale_large.png\" /></div>" : "";
             if (productColor.Product.ProdTypeID == 1)
             {
@@ -123,6 +133,11 @@ public partial class ProductItem : BasePage
     {
         pnlProductItem.Visible = false;
         pnlProductItemAdd.Visible = true;
+        AddProdut();
+    }
+
+    protected void AddProdut()
+    {
         int colorId = int.Parse(ddlColors.SelectedValue);
         using (ProductColorRepository lProductColorRepository = new ProductColorRepository())
         {
@@ -140,8 +155,9 @@ public partial class ProductItem : BasePage
                 s_salePrice = size.IsLargeShoesSize() ? s_salePrice + 600 : s_salePrice;
                 this.Profile.ShoppingCart.InsertItem(s_ProdSizeId, s_salePrice, s_title, ProductId);
             }
-        }
+        } 
     }
+
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         Response.Redirect(PreviousPage);
@@ -169,5 +185,12 @@ public partial class ProductItem : BasePage
             else
                 lblLargeSizeInfo.Visible = false;
         }
+    }
+
+    protected void btnAddKredit_Click(object sender, ImageClickEventArgs e)
+    {
+        this.Profile.ShoppingCart.InCredit = true;
+        AddProdut();
+        Response.Redirect("Shopping.aspx");
     }
 }

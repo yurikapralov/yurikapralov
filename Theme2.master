@@ -147,7 +147,7 @@
                                         ClientIDMode="Static" />
                                     <span class="logTitle">Пароль:</span><asp:TextBox ID="Password" runat="server" CssClass="textform"
                                         TextMode="Password" ClientIDMode="Static" />
-                                    <asp:Button ID="btnLogin" runat="server" Text="Вход" CssClass="subform"  CommandName="Login" />
+                                    <asp:Button ID="btnLogin" runat="server" Text="Вход" CssClass="btn btn-primary btn-small enter"   CommandName="Login" />
                                     <a href="PasswordRecovery.aspx">Забыли пароль</a>&nbsp;|&nbsp; <a href="Register.aspx">
                                         Регистрация</a>&nbsp;|&nbsp; <a href="En/Default.aspx">
                                         English</a>
@@ -181,7 +181,7 @@
                             <%=Profile.ShoppingCart.Count %></span></a><br />
                         <a href="Shopping.aspx">На сумму – <span class="sel">
                             <%=string.Format("{0:C}",Profile.ShoppingCart.Total) %></span></a><br />
-                        <input type="button" class="subform" value="Оформить заказ" onclick="location.href='Shopping.aspx';" />
+                        <input type="button" style="margin-top: 4px;" class="btn btn-primary btn-mini" value="Оформить заказ" onclick="location.href='Shopping.aspx';" />
                     </div>
                 </div>
             </div>

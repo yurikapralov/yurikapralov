@@ -250,7 +250,7 @@ public partial class V2_Shopping : BasePage
                                                   txtKorpus.Text, txtNote.Text, txtPhone.Text, txtStreet.Text,
                                                   txtTime1.Text, txtTime2.Text, txtUnit.Text,
                                                   int.Parse(ddlCountry.SelectedValue),
-                                                  int.Parse(ddlCities.SelectedValue));
+                                                  int.Parse(ddlCities.SelectedValue),this.Profile.ShoppingCart.InCredit);
             LblOrderNumber.Text = string.Format("Номер вашего заказа: {0}", order.OrderNumber);
             pnlShippingConfirmation.Visible = false;
             pnlFinal.Visible = true;

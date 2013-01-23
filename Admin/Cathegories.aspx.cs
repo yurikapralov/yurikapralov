@@ -274,7 +274,7 @@ public partial class Admin_Cathegories : AdminPage
                     {
                         writer.WriteStartElement("siteMapNode");
                         writer.WriteAttributeString("title", groupItem.GroupNameRus);
-                        if (groupId == 3 || groupId == 4 || groupId == 6 || groupId == 7 || groupId == 8 || groupId == 11)
+                        if (groupId == 3 || groupId == 4 || groupId == 6 || groupId == 7 || groupId == 8 || groupId == 11 || groupId == 5)
                         {
                             writer.WriteAttributeString("url", "Products.aspx?CatId=0&GroupID=" + groupId);
                         }

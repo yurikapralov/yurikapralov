@@ -1150,7 +1150,8 @@ namespace echo.BLL.Orders
         /// <param name="orderNumber">Исходное значение свойства OrderNumber.</param>
         /// <param name="orderSum">Исходное значение свойства OrderSum.</param>
         /// <param name="totalSum">Исходное значение свойства TotalSum.</param>
-        public static Order CreateOrder(global::System.Int32 cityTypeID, global::System.DateTime dateCreated, global::System.Decimal deliverSum, global::System.Int32 deliverTypeID, global::System.Int32 orderID, global::System.String orderNumber, global::System.Decimal orderSum, global::System.Decimal totalSum)
+        /// <param name="inCredit">Исходное значение свойства InCredit.</param>
+        public static Order CreateOrder(global::System.Int32 cityTypeID, global::System.DateTime dateCreated, global::System.Decimal deliverSum, global::System.Int32 deliverTypeID, global::System.Int32 orderID, global::System.String orderNumber, global::System.Decimal orderSum, global::System.Decimal totalSum, global::System.Boolean inCredit)
         {
             Order order = new Order();
             order.CityTypeID = cityTypeID;
@@ -1161,6 +1162,7 @@ namespace echo.BLL.Orders
             order.OrderNumber = orderNumber;
             order.OrderSum = orderSum;
             order.TotalSum = totalSum;
+            order.InCredit = inCredit;
             return order;
         }
 
@@ -1721,6 +1723,30 @@ namespace echo.BLL.Orders
         private global::System.String _Unit;
         partial void OnUnitChanging(global::System.String value);
         partial void OnUnitChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean InCredit
+        {
+            get
+            {
+                return _InCredit;
+            }
+            set
+            {
+                OnInCreditChanging(value);
+                ReportPropertyChanging("InCredit");
+                _InCredit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InCredit");
+                OnInCreditChanged();
+            }
+        }
+        private global::System.Boolean _InCredit;
+        partial void OnInCreditChanging(global::System.Boolean value);
+        partial void OnInCreditChanged();
 
         #endregion
     

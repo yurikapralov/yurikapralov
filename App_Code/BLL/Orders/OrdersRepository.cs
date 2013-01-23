@@ -211,12 +211,12 @@ namespace echo.BLL.Orders
 
         public Order InsertOrder(ShoppingCart vshoppingCart, string adress, string city2,string cityIndex, int cityTypeId,
             decimal deliverSum, int deliverTypeId, string email, string fio, string home, string korpus, string note, 
-            string phone, string street, string time1, string time2 , string unit,int countryId, int cityId)
+            string phone, string street, string time1, string time2 , string unit,int countryId, int cityId,bool inCredit)
         {
             string addedBy = Helpers.CurrentUserName;
 
             Order order = Order.CreateOrder(cityTypeId, DateTime.Now, deliverSum, deliverTypeId, 0, "", vshoppingCart.Total,
-                                            vshoppingCart.Total+deliverSum);
+                                            vshoppingCart.Total+deliverSum,inCredit);
             order.Adress = adress;
             order.AddedBy = addedBy;
             order.City2 = city2;

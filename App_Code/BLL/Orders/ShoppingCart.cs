@@ -15,6 +15,11 @@ namespace echo.BLL.Orders
     {
         private Dictionary<int,ShoppingCartItem> _items=new Dictionary<int, ShoppingCartItem>();
 
+        /// <summary>
+        /// Покупка в кредит
+        /// </summary>
+        public bool InCredit { get; set; }
+
         public ICollection Items
         {
             get { return _items.Values; }

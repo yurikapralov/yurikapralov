@@ -8,17 +8,27 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 using echo.BLL;
 using echo.BLL.Info;
 using echo.BLL.Orders;
+using System.Collections;
 
 public partial class Shopping : BasePage
 {
+
+    public ClientScriptManager Scr
+    {
+        get { return this.Page.ClientScript; }
+
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
             UpdateSubTotals();
+           
         }
 
 
@@ -90,12 +100,14 @@ public partial class Shopping : BasePage
         if (User.Identity.IsAuthenticated)
         {
             GetProfileInfo();
-        }
+        } 
         btnMore.Enabled = false;
         pnlRusAdress.Visible = false;
         pnlOutsideAdress.Visible = false;
         if(this.Profile.ShoppingCart.HaveUsaProduct())
         {
+            this.Profile.ShoppingCart.InCredit = false;
+            cbxCreditPayment.Visible = false;
             ddlDeliverType.Items.Clear();
             ddlDeliverType.Items.Add(new ListItem("Условия доставки оговариваются отдельно","5"));
 
@@ -110,24 +122,42 @@ public partial class Shopping : BasePage
         }
         else
         {
-            ddlDeliverType.Items.Clear();
-            var items=new[] { new ListItem("--Выберите способ доставки--","0"),
-            new ListItem("ЕМС Гарантпост","1"),
-            new ListItem("Наложенный платеж","2"),
-            new ListItem("Курьером по Москве","3"),
-            new ListItem("За пределы РФ","4")};
-            ddlDeliverType.Items.AddRange(items);
+           SetDeliverType(this.Profile.ShoppingCart.InCredit);
 
             //Начальные установки панелей
             btnMore.Enabled = false;
             pnlRusAdress.Visible = false;
             pnlOutsideAdress.Visible = false;
         }
+        cbxCreditPayment.Checked = this.Profile.ShoppingCart.InCredit;
+    }
+
+    private void SetDeliverType(bool in_credit)
+    {
+        ddlDeliverType.Items.Clear();
+        if(in_credit)
+        {
+            var items = new[] { new ListItem("--Выберите способ доставки--","0"),
+            new ListItem("ЕМС Гарантпост","1"),
+            new ListItem("Курьером по Москве","3")};
+            ddlDeliverType.Items.AddRange(items);
+        }
+        else
+        {
+            var items = new[] { new ListItem("--Выберите способ доставки--","0"),
+            new ListItem("ЕМС Гарантпост","1"),
+            new ListItem("Наложенный платеж","2"),
+            new ListItem("Курьером по Москве","3"),
+            new ListItem("За пределы РФ","4")};
+            ddlDeliverType.Items.AddRange(items);
+        }
     }
 
     protected void GetProfileInfo()
     {
-        txtFIO.Text = Profile.LastName + " " + Profile.FirstName + " " + Profile.MiddleName;
+        txtFirstName.Text = Profile.FirstName;
+        txtLastName.Text = Profile.LastName;
+        txtMiddleName.Text = Profile.MiddleName;
         int countryId = Profile.Address.CountryId;
         //Если не учтановлена страна, данные из профиля не считываются
         if (countryId != 0)
@@ -224,7 +254,7 @@ public partial class Shopping : BasePage
                                  : string.Format("{0:C}", deliversum);
         decimal totalSum = this.Profile.ShoppingCart.Total + deliversum;
         lblTotalSum.Text = string.Format("{0:C}", totalSum);
-        lblFIO.Text = txtFIO.Text;
+        lblFIO.Text = (txtLastName.Text + " " + txtFirstName.Text + " " + txtMiddleName.Text).Trim();
         lblDeliver.Text = ddlDeliverType.SelectedItem.Text;
         string Address = "";
         switch (ddlDeliverType.SelectedValue)
@@ -303,28 +333,124 @@ public partial class Shopping : BasePage
         pnlShipping.Visible = true;
         pnlShippingConfirmation.Visible = false;
     }
+
+    private string GetCreaditArray(string order_number)
+    {
+       Hashtable order=new Hashtable();
+        object[] items=new object[this.Profile.ShoppingCart.Items.Count+1];
+       int i = 0;
+       foreach (ShoppingCartItem sh_item in this.Profile.ShoppingCart.Items)
+       {
+           Hashtable item = new Hashtable();
+           item.Add("title", sh_item.Title);
+           item.Add("category", "");
+           item.Add("qty", sh_item.Qty);
+           item.Add("price", (int)Math.Ceiling(sh_item.PriceForSale));
+           items[i] = item;
+           i++;
+       }
+       Hashtable deliver_item = new Hashtable();
+       deliver_item.Add("title", "Доставка");
+       deliver_item.Add("category", "");
+       deliver_item.Add("qty", 1);
+       deliver_item.Add("price", (int)GetDeliverSum(int.Parse(ddlDeliverType.SelectedValue)));
+
+        items[i] = deliver_item;
+       order.Add("items", items);
+       
+       Hashtable details = new Hashtable();
+       details.Add("firstname", txtFirstName.Text);
+       details.Add("lastname", txtLastName.Text);
+       details.Add("middlename", txtMiddleName.Text);
+       details.Add("email", txtEmail.Text);
+       details.Add("cellphone", txtPhone.Text);
+       order.Add("details", details);
+
+       order.Add("partnerId", "1-8R8GI0J");
+       order.Add("partnerName", "Echo Of Hollywood");
+       order.Add("partnerOrderId", order_number);
+       order.Add("deliveryType", "");
+
+       string ret = JsonConvert.SerializeObject(order);
+       return ret;
+    }
+
+    private string Get64CreditArray(string orderNo)
+    {
+        string json = GetCreaditArray(orderNo);
+        byte[] encbuff = System.Text.Encoding.UTF8.GetBytes(json);
+        return Convert.ToBase64String(encbuff);
+    }
+
+    public static string GetSign(string message, string salt)
+    {
+        int iterationCount = 1102;
+        message += salt;
+        string result = SymmetricEncryptionUtility.getMd5Hash(message, Encoding.UTF8) + SymmetricEncryptionUtility.getSHA1Hash(message, Encoding.UTF8);
+        byte[] data = Encoding.UTF8.GetBytes(result);
+        for (int i = 0; i < iterationCount; i++)
+        {
+            result = SymmetricEncryptionUtility.getMd5Hash(result, Encoding.UTF8);
+        }
+        return result;
+    }
+
     protected void btnAdmit_Click(object sender, EventArgs e)
     {
+        string order_number = "";
         using (OrdersRepository lRepository = new OrdersRepository())
         {
             int deliverType = int.Parse(ddlDeliverType.SelectedValue);
             Order order = lRepository.InsertOrder(this.Profile.ShoppingCart, txtAdress.Text, txtCity2.Text,
                                                   txtIndex.Text,
                                                   int.Parse(rblRegionType.SelectedValue), GetDeliverSum(deliverType),
-                                                  deliverType, txtEmail.Text, txtFIO.Text, txtHouse.Text,
+                                                  deliverType, txtEmail.Text, lblFIO.Text, txtHouse.Text,
                                                   txtKorpus.Text, txtNote.Text, txtPhone.Text, txtStreet.Text,
                                                   txtTime1.Text, txtTime2.Text, txtUnit.Text,
                                                   int.Parse(ddlCountry.SelectedValue),
-                                                  int.Parse(ddlCities.SelectedValue));
-            LblOrderNumber.Text = string.Format("Номер вашего заказа: {0}", order.OrderNumber);
-            pnlShippingConfirmation.Visible = false;
-            pnlFinal.Visible = true;
+                                                  int.Parse(ddlCities.SelectedValue), this.Profile.ShoppingCart.InCredit);
             OrderCtrl.OrderId = order.OrderID;
             OrderCtrl.BindOrder();
-            this.Profile.ShoppingCart.Clear();
+            order_number = order.OrderNumber;
+
+
+            LblOrderNumber.Text = string.Format("Номер вашего заказа: {0}", order_number);
+            pnlShippingConfirmation.Visible = false;
+            if (this.Profile.ShoppingCart.InCredit)
+            {
+                string test = Get64CreditArray(order_number);
+                pnlCredit.Visible = true;
+                string script =
+                    @"<script>
+                vkredit = new VkreditWidget(
+                1, /*цвет кнопки*/";
+                script +=
+                    string.Format("{0}, /*запрашиваемая сумма - служит для расчета суммы, отображаемой на кнопке.*/",(int)Math.Ceiling(order.OrderSum) );
+                script += "{";
+                script += string.Format(" order: '{0}',  sig: '{1}'", test, GetSign(test, "echoh-secret-yn397nd7"));
+                script += @" }
+                );
+                </script>";
+                lblCreditScript.Text = script;
+            }
+            else
+            {
+                ShowFinalPanel();
+            }
             SendingMail();
+            this.Profile.ShoppingCart.Clear();
         }
+
     }
+
+    protected void ShowFinalPanel()
+    {
+        pnlCredit.Visible = false;
+        pnlFinal.Visible = true;            
+    }
+
+
+
     protected void btnDefault_Click(object sender, EventArgs e)
     {
         Response.Redirect("Default.aspx");
@@ -465,5 +591,14 @@ public partial class Shopping : BasePage
     {
         pnlShipping.Visible = false;
         pnlShoppingCart.Visible = true;
+    }
+    protected void cbxCreditPayment_CheckedChanged(object sender, EventArgs e)
+    {
+        this.Profile.ShoppingCart.InCredit = cbxCreditPayment.Checked;
+        SetDeliverType(this.Profile.ShoppingCart.InCredit);
+    }
+    protected void btnBuyCash_Click(object sender, EventArgs e)
+    {
+        ShowFinalPanel();
     }
 }
