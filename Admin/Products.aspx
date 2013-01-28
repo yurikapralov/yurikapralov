@@ -429,6 +429,13 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="control-group">
+                            <label class="control-label" for="txtAlt">
+                                Alt:</label>
+                            <div class="controls">
+                                <asp:TextBox ID="txtAlt" runat="server" CssClass="span4" ClientIDMode="Static" />
+                            </div>
+                        </div>
                         <div class="form-actions">
                             <asp:Button ID="btnMore" runat="server" CssClass="btn btn-primary" Text="Далее" ValidationGroup="EditProduct"
                                 OnClick="btnMore_Click" />

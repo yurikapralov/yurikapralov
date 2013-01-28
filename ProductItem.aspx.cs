@@ -64,6 +64,9 @@ public partial class ProductItem : BasePage
             _prodName = productColor.Product.ProductNameRus;
             lblProductName.Text = productColor.Product.ProductNameRus+" "+productColor.Color.ColorNameRus;
             imgLarge.ImageUrl = string.Format("~/Images/Products/Large/{0}", productColor.ImageURL);
+            imgLarge.AlternateText = (string.IsNullOrEmpty(productColor.Product.Alt))
+                                         ? productColor.Product.ProductNameRus
+                                         : productColor.Product.Alt;
             lblUSA.Visible = productColor.Product.FromUsa;
             btnAddKredit.Visible = productColor.Product.FromUsa == false;
             if(this.Profile.ShoppingCart.HaveUsaProduct()&&(!productColor.Product.FromUsa))

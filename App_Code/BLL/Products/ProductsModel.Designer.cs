@@ -2195,6 +2195,30 @@ namespace echo.BLL.Products
         private global::System.Boolean _FromUsa;
         partial void OnFromUsaChanging(global::System.Boolean value);
         partial void OnFromUsaChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Alt
+        {
+            get
+            {
+                return _Alt;
+            }
+            set
+            {
+                OnAltChanging(value);
+                ReportPropertyChanging("Alt");
+                _Alt = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Alt");
+                OnAltChanged();
+            }
+        }
+        private global::System.String _Alt;
+        partial void OnAltChanging(global::System.String value);
+        partial void OnAltChanged();
 
         #endregion
     

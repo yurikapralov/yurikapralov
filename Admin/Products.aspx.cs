@@ -325,6 +325,7 @@ public partial class Admin_Products : AdminPage
             txtEngDescr.Text = product.ProductDescriptionEng;
             txtRusDescr.Text = product.ProductDescriptionRus;
             txtThumb.Text = product.ThumbURL;
+            txtAlt.Text = product.Alt;
             txtOrigPrice.Text = string.Format("{0:F2}", product.OrigPrice);
             txtSalePrice.Text = string.Format("{0:F2}", product.SalePrice);
             cbProdAvailable.Checked = product.Available;
@@ -406,6 +407,7 @@ public partial class Admin_Products : AdminPage
         BindProducts();
         BindProductColors();
         ddlBrand.SelectedValue = "1";
+        txtAlt.Text = "";
     }
 
     protected void GetProductData(Product product)
@@ -431,6 +433,7 @@ public partial class Admin_Products : AdminPage
         product.Available = cbProdAvailable.Checked;
         product.OnSale = cbOnSale.Checked;
         product.FromUsa = cbFromUsa.Checked;
+        product.Alt = txtAlt.Text;
     }
 
     protected bool Uploadfile()

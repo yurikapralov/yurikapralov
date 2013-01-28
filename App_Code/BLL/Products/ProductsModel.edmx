@@ -163,6 +163,7 @@
           <Property Name="OnSale" Type="bit" Nullable="false" />
           <Property Name="FromUsa" Type="bit" Nullable="false" />
           <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="Alt" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="echoProductSizes">
           <Key>
@@ -484,6 +485,7 @@
           <Property Type="Boolean" Name="OnSale" Nullable="false" />
           <Property Type="Boolean" Name="FromUsa" Nullable="false" />
           <NavigationProperty Name="Brand" Relationship="ProductsModel.FK_echoProducts_echoBrands" FromRole="Product" ToRole="echoBrands" />
+          <Property Type="String" Name="Alt" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ProductSize">
           <Key>
@@ -659,6 +661,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Product)">
               <MappingFragment StoreEntitySet="echoProducts">
+                <ScalarProperty Name="Alt" ColumnName="Alt" />
                 <ScalarProperty Name="FromUsa" ColumnName="FromUsa" />
                 <ScalarProperty Name="OnSale" ColumnName="OnSale" />
                 <ScalarProperty Name="Available" ColumnName="Available" />

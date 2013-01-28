@@ -66,7 +66,7 @@
                             <div style="position: relative;">
                                 <a href="<%#"ProductItem.aspx?ProdId="+Eval("ProdId") %>">
                                     <img src="<%# Eval("ThumbURL", "Images/Products/Thumb/{0}") %>" class="thumb_image"
-                                        alt="<%#Eval("ProductNameRus") %>" onmouseover="<%# formatFunction(Eval("ProdId"),true) %>"
+                                        alt="<%#string.IsNullOrEmpty((string)Eval("Alt")) ? Eval("ProductNameRus"):Eval("Alt") %>" onmouseover="<%# formatFunction(Eval("ProdId"),true) %>"
                                         onmouseout="<%# formatFunction(Eval("ProdId"),false) %>" />
                                 </a>
                                 <div id="img_block_<%#Eval("ProdId") %>" style="z-index: 1000; height: 100px; left: 0px;
