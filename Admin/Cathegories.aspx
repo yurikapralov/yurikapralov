@@ -53,6 +53,9 @@
                             <th class="center">
                                 Используемый шаблон
                             </th>
+                            <th class="center">
+                                Участвует в групповой ссылке
+                            </th>
                             <td class="center">
                                 &nbsp;
                             </td>
@@ -86,6 +89,9 @@
                             <%#Eval("Template.TempleName") %>
                         </td>
                         <td>
+                            <asp:CheckBox ID="cbInGeneral" runat="server" Checked='<%#Eval("InGeneralLink") %>' Enabled="false" />
+                        </td>
+                        <td>
                             <asp:LinkButton ID="lbtnSelect" runat="server" Text="Выбрать" CommandName="Select"
                                 CommandArgument='<%#Eval("CatId") %>' OnClick="lbtnSelect_Click" />&nbsp;
                             <asp:LinkButton ID="lbtnDelete" runat="server" Text="Удалить" CommandName="Delete"
@@ -116,6 +122,9 @@
                         <td class="row_selected">
                             <%--                        <%#Eval("TempleName")%>--%>
                             <%#Eval("Template.TempleName")%>
+                        </td>
+                        <td class="row_selected">
+                            <asp:CheckBox ID="cbInGeneral" runat="server" Checked='<%#Eval("InGeneralLink") %>' Enabled="false" />
                         </td>
                         <td class="row_selected">
                             &nbsp;
@@ -187,6 +196,13 @@
                         <div class="controls">
                             <asp:DropDownList ID="ddlTemplate" runat="server" DataTextField="TempleName" DataValueField="TempleID"
                                 CssClass="span5" ClientIDMode="Static" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="cbxInGroupLink">
+                            Учавствует в групповй ссылке:</label>
+                        <div class="controls">
+                           <asp:CheckBox runat="server" ID="cbxInGroupLink" ClientIDMode="Static"/>
                         </div>
                     </div>
                     <div class="accordion-group">

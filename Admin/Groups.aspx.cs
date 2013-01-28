@@ -41,6 +41,7 @@ public partial class Admin_Groups : AdminPage
             txtGroupNameEng.Text = _group.GroupNameEng;
             txtGroupOrder.Text = _group.GroupOrder.ToString();
             cbxAvaliable.Checked = _group.AvaliableInEngilsh;
+            cbxGeneralLink.Checked = _group.HaveGeneralLink;
             btnAddGroup.Text = "Изменить";
         }
     }
@@ -55,6 +56,7 @@ public partial class Admin_Groups : AdminPage
         txtGroupNameEng.Text = "";
         txtGroupOrder.Text = "";
         cbxAvaliable.Checked = true;
+        cbxGeneralLink.Checked = false;
     }
 
     protected void UpdateGroup()
@@ -74,9 +76,12 @@ public partial class Admin_Groups : AdminPage
             _group.GroupNameEng = txtGroupNameEng.Text;
             _group.GroupOrder = int.Parse(txtGroupOrder.Text);
             _group.AvaliableInEngilsh = cbxAvaliable.Checked;
+            _group.HaveGeneralLink = cbxGeneralLink.Checked;
 
             _group = lRepository.AddGroup(_group);
         }
+        MenuCreator.GenerateRusXmlMenu();
+        MenuCreator.GenerateEngXmlMenu();
     }
 
     protected void gvwGroups_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -89,7 +94,7 @@ public partial class Admin_Groups : AdminPage
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            LinkButton btn = e.Row.Cells[5].Controls[0] as LinkButton;
+            LinkButton btn = e.Row.Cells[6].Controls[0] as LinkButton;
             btn.OnClientClick = "if (confirm('Вы уверенны что хотите удалить этот раздел?')==false)return false;";
             btn.ForeColor = System.Drawing.Color.Red;
         }
@@ -111,6 +116,8 @@ public partial class Admin_Groups : AdminPage
         {
             lRepository.DeleteGroup(groupId);
         }
+        MenuCreator.GenerateRusXmlMenu();
+        MenuCreator.GenerateEngXmlMenu();
     }
 
     protected void gvwGroups_RowDeleting(object sender, GridViewDeleteEventArgs e)

@@ -34,8 +34,9 @@ public partial class Products : BasePage
             {
                 SetDefultPageSize();
             }
-            LoadHeadersData();
+            
         }
+        LoadHeadersData();
     }
 
     protected int BindProducts()

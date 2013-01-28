@@ -19,6 +19,7 @@
             <asp:BoundField DataField="GroupNameRus" HeaderText="Русское имя" HeaderStyle-CssClass="center"  />
             <asp:BoundField DataField="GroupNameEng" HeaderText="Английское имя" HeaderStyle-CssClass="center" />
             <asp:CheckBoxField DataField="AvaliableInEngilsh" HeaderText="Доступно в англ. версии" HeaderStyle-CssClass="center" />
+            <asp:CheckBoxField DataField="HaveGeneralLink" HeaderText="Есть общая ссылка" HeaderStyle-CssClass="center" />
             <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" DeleteText="Удалить"
                 SelectText="Выбрать" />
         </Columns>
@@ -66,6 +67,14 @@
                     <div class="controls">
                       <label class="checkbox">
                           <asp:CheckBox ID="cbxAvaliable" runat="server" Checked="true" ClientIDMode="Static"/>
+                      </label>
+                    &nbsp;</div>
+                  </div>
+                  <div class="control-group">
+                    <label for="cbxGeneralLink" class="control-label">Есть общая ссылка:</label>
+                    <div class="controls">
+                      <label class="checkbox">
+                          <asp:CheckBox ID="cbxGeneralLink" runat="server" Checked="true" ClientIDMode="Static"/>
                       </label>
                     &nbsp;</div>
                   </div>

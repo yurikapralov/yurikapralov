@@ -756,7 +756,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID  == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID  == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.DateCreated
                          select lp.Product).ToList();
             break;
@@ -765,7 +765,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.DateCreated descending
                          select lp.Product).ToList();
             break;
@@ -774,7 +774,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.SortedName
                          select lp.Product).ToList();
             break;
@@ -783,7 +783,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.SortedName descending
                          select lp.Product).ToList();
             break;
@@ -792,7 +792,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.OrigPrice
                          select lp.Product).ToList();
             break;
@@ -801,7 +801,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.OrigPrice descending
                          select lp.Product).ToList();
             break;
@@ -810,7 +810,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.DateUpdated
                          select lp.Product).ToList();
             break;
@@ -819,7 +819,7 @@ namespace echo.BLL.Products
                          join lCollection in Productctx.Collections
                              on lProduct.ProdID equals lCollection.Product.ProdID into lprodcol
                          from lp in lprodcol
-                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available
+                         where lp.Cathegory.Group.GroupID == groupId && lp.Product.Available && lp.Cathegory.InGeneralLink
                          orderby lp.Product.DateUpdated descending
                          select lp.Product).ToList();
             break;

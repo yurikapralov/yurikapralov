@@ -477,7 +477,8 @@ namespace echo.BLL.Products
         /// <param name="dateCreated">Исходное значение свойства DateCreated.</param>
         /// <param name="marked">Исходное значение свойства Marked.</param>
         /// <param name="catOrder">Исходное значение свойства CatOrder.</param>
-        public static Cathegory CreateCathegory(global::System.Boolean activeStatus, global::System.Int32 catID, global::System.String catNameEng, global::System.String catNameRus, global::System.DateTime dateCreated, global::System.Boolean marked, global::System.Int32 catOrder)
+        /// <param name="inGeneralLink">Исходное значение свойства InGeneralLink.</param>
+        public static Cathegory CreateCathegory(global::System.Boolean activeStatus, global::System.Int32 catID, global::System.String catNameEng, global::System.String catNameRus, global::System.DateTime dateCreated, global::System.Boolean marked, global::System.Int32 catOrder, global::System.Boolean inGeneralLink)
         {
             Cathegory cathegory = new Cathegory();
             cathegory.ActiveStatus = activeStatus;
@@ -487,6 +488,7 @@ namespace echo.BLL.Products
             cathegory.DateCreated = dateCreated;
             cathegory.Marked = marked;
             cathegory.CatOrder = catOrder;
+            cathegory.InGeneralLink = inGeneralLink;
             return cathegory;
         }
 
@@ -879,6 +881,30 @@ namespace echo.BLL.Products
         private global::System.String _Description2Rus;
         partial void OnDescription2RusChanging(global::System.String value);
         partial void OnDescription2RusChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean InGeneralLink
+        {
+            get
+            {
+                return _InGeneralLink;
+            }
+            set
+            {
+                OnInGeneralLinkChanging(value);
+                ReportPropertyChanging("InGeneralLink");
+                _InGeneralLink = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InGeneralLink");
+                OnInGeneralLinkChanged();
+            }
+        }
+        private global::System.Boolean _InGeneralLink;
+        partial void OnInGeneralLinkChanging(global::System.Boolean value);
+        partial void OnInGeneralLinkChanged();
 
         #endregion
     
@@ -1294,13 +1320,15 @@ namespace echo.BLL.Products
         /// <param name="groupID">Исходное значение свойства GroupID.</param>
         /// <param name="groupNameEng">Исходное значение свойства GroupNameEng.</param>
         /// <param name="groupNameRus">Исходное значение свойства GroupNameRus.</param>
-        public static Group CreateGroup(global::System.Boolean avaliableInEngilsh, global::System.Int32 groupID, global::System.String groupNameEng, global::System.String groupNameRus)
+        /// <param name="haveGeneralLink">Исходное значение свойства HaveGeneralLink.</param>
+        public static Group CreateGroup(global::System.Boolean avaliableInEngilsh, global::System.Int32 groupID, global::System.String groupNameEng, global::System.String groupNameRus, global::System.Boolean haveGeneralLink)
         {
             Group group = new Group();
             group.AvaliableInEngilsh = avaliableInEngilsh;
             group.GroupID = groupID;
             group.GroupNameEng = groupNameEng;
             group.GroupNameRus = groupNameRus;
+            group.HaveGeneralLink = haveGeneralLink;
             return group;
         }
 
@@ -1429,6 +1457,30 @@ namespace echo.BLL.Products
         private Nullable<global::System.Int32> _GroupOrder;
         partial void OnGroupOrderChanging(Nullable<global::System.Int32> value);
         partial void OnGroupOrderChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean HaveGeneralLink
+        {
+            get
+            {
+                return _HaveGeneralLink;
+            }
+            set
+            {
+                OnHaveGeneralLinkChanging(value);
+                ReportPropertyChanging("HaveGeneralLink");
+                _HaveGeneralLink = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HaveGeneralLink");
+                OnHaveGeneralLinkChanged();
+            }
+        }
+        private global::System.Boolean _HaveGeneralLink;
+        partial void OnHaveGeneralLinkChanging(global::System.Boolean value);
+        partial void OnHaveGeneralLinkChanged();
 
         #endregion
     

@@ -87,6 +87,7 @@
           <Property Name="MetaKeywords" Type="varchar(max)" />
           <Property Name="CatOrder" Type="int" Nullable="false" />
           <Property Name="Description2Rus" Type="varchar(max)" />
+          <Property Name="InGeneralLink" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="echoCollection">
           <Key>
@@ -114,6 +115,7 @@
           <Property Name="GroupNameEng" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="GroupOrder" Type="int" />
           <Property Name="AvaliableInEngilsh" Type="bit" Nullable="false" />
+          <Property Name="HaveGeneralLink" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="echoPlatforms">
           <Key>
@@ -400,7 +402,8 @@
           <Property Type="String" Name="MetaDescription" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="MetaKeywords" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="CatOrder" Nullable="false" />
-          <Property Type="String" Name="Description2Rus" MaxLength="Max" FixedLength="false" Unicode="false" /></EntityType>
+          <Property Type="String" Name="Description2Rus" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="InGeneralLink" Nullable="false" /></EntityType>
         <EntityType Name="Collection">
           <Key>
             <PropertyRef Name="CollID" />
@@ -429,6 +432,7 @@
           <Property Name="GroupNameRus" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="GroupOrder" Type="Int32" />
           <NavigationProperty Name="Cathegories" Relationship="ProductsModel.FK_echoCathegory_echoGroups" FromRole="echoGroups" ToRole="echoCathegory" />
+          <Property Type="Boolean" Name="HaveGeneralLink" Nullable="false" />
         </EntityType>
         <EntityType Name="Platform">
           <Key>
@@ -579,6 +583,7 @@
           <EntitySetMapping Name="Cathegories">
             <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Cathegory)">
               <MappingFragment StoreEntitySet="echoCathegory">
+                <ScalarProperty Name="InGeneralLink" ColumnName="InGeneralLink" />
                 <ScalarProperty Name="Description2Rus" ColumnName="Description2Rus" />
                 <ScalarProperty Name="CatOrder" ColumnName="CatOrder" />
                 <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
@@ -618,6 +623,7 @@
           <EntitySetMapping Name="Groups">
             <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Group)">
               <MappingFragment StoreEntitySet="echoGroups">
+                <ScalarProperty Name="HaveGeneralLink" ColumnName="HaveGeneralLink" />
                 <ScalarProperty Name="AvaliableInEngilsh" ColumnName="AvaliableInEngilsh" />
                 <ScalarProperty Name="GroupID" ColumnName="GroupID" />
                 <ScalarProperty Name="GroupNameEng" ColumnName="GroupNameEng" />
@@ -810,7 +816,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="ProductsModel" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
-        <EntityTypeShape EntityType="ProductsModel.Cathegory" Width="1.5" PointX="3.125" PointY="7.375" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductsModel.Cathegory" Width="1.5" PointX="3" PointY="8" Height="4.6725065104166656" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Collection" Width="1.5" PointX="5.25" PointY="4.125" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Color" Width="1.5" PointX="7.875" PointY="3.125" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Group" Width="1.5" PointX="1" PointY="6.75" Height="2.1725878906249996" IsExpanded="true" />
@@ -821,19 +827,19 @@
         <EntityTypeShape EntityType="ProductsModel.Size" Width="1.5" PointX="5.25" PointY="6.625" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="ProductsModel.Template" Width="1.5" PointX="5.25" PointY="9" Height="2.1725878906249996" IsExpanded="true" />
         <AssociationConnector Association="ProductsModel.FK_echoCathegory_echoGroups" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.5" PointY="8.1487939453125" />
-          <ConnectorPoint PointX="3.125" PointY="8.1487939453125" />
+          <ConnectorPoint PointX="2.5" PointY="8.4612939453125" />
+          <ConnectorPoint PointX="3" PointY="8.4612939453125" />
           </AssociationConnector>
         <AssociationConnector Association="ProductsModel.FK_echoCathegory_echoTemplate" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="9.9468489583333337" />
-          <ConnectorPoint PointX="4.625" PointY="9.9468489583333337" />
+          <ConnectorPoint PointX="5.25" PointY="10.0862939453125" />
+          <ConnectorPoint PointX="4.5" PointY="10.0862939453125" />
           </AssociationConnector>
         <AssociationConnector Association="ProductsModel.FK_echoCollection_echoCathegory" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.875" PointY="7.375" />
-          <ConnectorPoint PointX="3.875" PointY="7.1004036458333317" />
-          <ConnectorPoint PointX="4.5625" PointY="7.1004036458333317" />
-          <ConnectorPoint PointX="4.5625" PointY="5.12230424609375" />
-          <ConnectorPoint PointX="5.25" PointY="5.12230424609375" /></AssociationConnector>
+          <ConnectorPoint PointX="4.5" PointY="8.0011528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="7.6261528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="5.3530146953124991" />
+          <ConnectorPoint PointX="5.25" PointY="5.3530146953124991" />
+          </AssociationConnector>
         <AssociationConnector Association="ProductsModel.FK_echoCollection_echoProducts" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="4.4614208984375" />
           <ConnectorPoint PointX="5.25" PointY="4.4614208984375" />
@@ -869,10 +875,12 @@
         <EntityTypeShape EntityType="ProductsModel.Brand" Width="1.5" PointX="7.375" PointY="6.875" Height="1.5956835937500031" />
         <AssociationConnector Association="ProductsModel.FK_echoProducts_echoBrands" >
           <ConnectorPoint PointX="7.5" PointY="6.875" />
-          <ConnectorPoint PointX="7.5" PointY="6.172841796875" />
-          <ConnectorPoint PointX="7.208333333333333" PointY="6.1728417968749989" />
-          <ConnectorPoint PointX="7.041666666666667" PointY="6.172841796875" />
-          <ConnectorPoint PointX="4.5" PointY="6.172841796875" />
+          <ConnectorPoint PointX="7.5" PointY="6.188466796875" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="6.1884667968749989" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="6.188466796875" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="6.1884667968749989" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="6.188466796875" />
+          <ConnectorPoint PointX="4.5" PointY="6.188466796875" />
         </AssociationConnector></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
