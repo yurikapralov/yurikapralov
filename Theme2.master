@@ -337,6 +337,13 @@
                         })(document, "script", document.location.protocol);
                     </script>
                     <!--/Openstat-->
+                    <script type="text/javascript">
+                        $(function () {
+
+                            $('#st-accordion').accordion();
+
+                        });
+                </script>
             </div>
         </div>
     </div>
