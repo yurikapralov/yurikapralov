@@ -55,6 +55,9 @@
                 case 'PayMethods.aspx':
                     $("#pay_list").text("Способы оплаты").addClass("top_menu_active");
                     break;
+                case 'CreditInfo.aspx':
+                    $("#credit_list").text("Покупка в кредит").addClass("top_menu_active");
+                    break;
             }
         });
 
@@ -189,10 +192,11 @@
                 <ul id="top_menu">
                     <li id="main_list"><a href="Default.aspx" title="Главная">Главная</a></li>
                     <li id="about_list"><a href="About.aspx" title="О Компании">О Компании</a></li>
-                    <li id="collab_list"><a href="Collaboration.aspx" title="Сотрудничество">Сотрудничество</a></li>
+                   <!-- <li id="collab_list"><a href="Collaboration.aspx" title="Сотрудничество">Сотрудничество</a></li>-->
                     <li id="stor_list"><a href="Stores.aspx" title="Магазины">Магазины</a></li>
                     <li id="ship_list"><a href="Shipping.aspx" title="Оплата и Доставка">Оплата и Доставка</a></li>                   
                     <li id="pay_list"><a href="PayMethods.aspx" title="Способы оплаты">Способы оплаты</a></li>
+                    <li id="credit_list"><a href="CreditInfo.aspx" title="Покупка в кредит">Покупка в кредит</a></li>
                    <!-- <li id="contact_list"><a href="mailto:info@echo-h.ru" title="Связаться с нами">Связаться
                         с нами</a></li>-->
                 </ul>
@@ -227,9 +231,11 @@
                 <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
                 <a href="skype:echoofhollywood?add"><img src="http://download.skype.com/share/skypebuttons/buttons/add_blue_white_194x52.png" style="border: none;" width="194" height="52" alt="Добавь меня в Skype" /></a>
 
-
-                </div>
                
+                </div>
+                <a href="CreditInfo.aspx">
+        <img src="Images/Decoration/logo-kupivkredit.jpg" class="qiwi_image" style="margin-bottom: 20px" />
+        </a>
                 <div id="nav_block">
                 
                     <ul>
@@ -239,6 +245,7 @@
                         </li>
                         <div class='sub_menu'>
                             <li><a href="News.aspx">Новости</a></li>
+                            <li><a href="Collaboration.aspx">Сотрудничество</a></li>
                             <li><a href="CustomShoes.aspx">Обувь на заказ</a></li>
                             <li><a href="Sizes.aspx">Как снимать мерки для сапог</a></li>
                             <li><a href="Gallery.aspx">Фотоотчеты</a></li>

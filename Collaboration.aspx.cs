@@ -11,7 +11,7 @@ public partial class Collaboration : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         Master.Title =
-                "Invitation to cooperation";
+                "Приглашение к сотрудничеству";
         Master.MainHeader = "Приглашение к сотрудничеству";
     }
 }

@@ -5,12 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class PayMethods2 : System.Web.UI.Page
+public partial class CreditInfo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         Master.Title =
-               "Способы оплаты";
-        Master.MainHeader = "Способы оплаты";
+               "Покупка в кредит";
+        Master.MainHeader = "Покупка в кредит";
     }
 }

@@ -175,4 +175,23 @@ public partial class Search : BasePage
             return "ShowPreview('img_block_" + i.ToString() + "');";
         return "HidePreview('img_block_" + i.ToString() + "');";
     }
+
+    /// <summary>
+    /// В случе нескольких вариантов цвета выдает соответствующую надпись. В противном случае ничего не выдает
+    /// </summary>
+    /// <param name="prodId"></param>
+    /// <returns></returns>
+    protected string ColorVariation(object prodId)
+    {
+        int productId = (int)prodId;
+        using (ProductColorRepository rep = new ProductColorRepository())
+        {
+            int c_count = rep.GetColorCount(productId);
+            if (c_count > 1 && c_count < 5)
+                return string.Format("<span class=\"prodthumb_color\">{0} варианта цвета</span>", c_count);
+            if (c_count > 4)
+                return string.Format("<span class=\"prodthumb_color\">{0} вариантов цвета</span>", c_count);
+            return "";
+        }
+    }
 }

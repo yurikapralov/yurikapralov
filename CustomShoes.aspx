@@ -11,6 +11,9 @@
     <p>
         <strong>Обмер:</strong> наши модельеры в магазинах или у вас на дому, в офисе снимут
         мерки, разработают для вас дизайн и лекала.</p>
+        <a class="a_cust" rel="gal1" href="Images/Decoration/l_cast1.jpg">
+        <img src="Images/Decoration/sm_cast1.jpg" class="i_cast"  alt="обувь на заказ" title="обувь на заказ" />
+        </a>
     <p>
         <strong>Выбор материалов:</strong> по обширным каталогам декоративных тканей и натуральных
         кож вы подберете желаемый материал. Практически все наши материалы привозные, от
@@ -18,6 +21,9 @@
     <p>
         <strong>Время:</strong> создание модели обуви займёт от 3 до 10 дней в зависимости
         от сложности модели.</p>
+        <a class="a_cust" rel="gal1" href="Images/Decoration/l_cast2.jpg">
+        <img src="Images/Decoration/sm_cast2.jpg" class="i_cast"  alt="пошив обуви" title="пошив обуви"/>
+        </a>
     <p>
         <strong>Размеры:</strong> возможен пошив обуви от 34 размер до 44 в зависимости
         от модели (проконсультируйтесь с модельером).</p>
@@ -36,16 +42,30 @@
         в мире, неповторимые изделия, изготовленные индивидуально по вашим меркам.</p>
     <table width="600px" cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td style="width: 200px">
-                <a class="a_cust" rel="gal1" href="Images/Decoration/l_cast1.jpg">
-                    <img src="Images/Decoration/sm_cast1.jpg" class="i_cast" alt="Фотогаллерея Echo Of Hollywood" alt="обувь на заказ" title="обувь на заказ" /></a>
+            <td style="width: 125px">
+                <a class="as_cust" rel="gal2" href="Images/Decoration/cs_l_1.jpg">
+                    <img src="Images/Decoration/cs_s_1.jpg" class="is_cast" alt="обувь на заказ" title="обувь на заказ" /></a>
             </td>
-            <td style="width: 200px">
+            <td>
                 &nbsp;
             </td>
-            <td style="width: 200px">
-                <a class="a_cust" rel="gal1" href="Images/Decoration/l_cast2.jpg">
-                    <img src="Images/Decoration/sm_cast2.jpg" class="i_cast" alt="Фотогаллерея Echo Of Hollywood"  alt="пошив обуви" title="пошив обуви"/></a>
+            <td style="width: 125px">
+                <a class="as_cust" rel="gal2" href="Images/Decoration/cs_l_2.jpg">
+                    <img src="Images/Decoration/cs_s_2.jpg" class="is_cast"   alt="пошив обуви" title="пошив обуви"/></a>
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td style="width: 125px">
+                <a class="as_cust" rel="gal2" href="Images/Decoration/cs_l_3.jpg">
+                    <img src="Images/Decoration/cs_s_3.jpg" class="is_cast" alt="обувь на заказ" title="обувь на заказ" /></a>
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td style="width: 125px">
+                <a class="as_cust" rel="gal2" href="Images/Decoration/cs_l_4.jpg">
+                    <img src="Images/Decoration/cs_s_4.jpg" class="is_cast"   alt="пошив обуви" title="пошив обуви"/></a>
             </td>
         </tr>
     </table>

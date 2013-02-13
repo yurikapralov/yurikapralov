@@ -77,8 +77,10 @@
                             </div>
                             <div class="post_info">
                                 <%#oldSalePrice(Eval("SalePrice", "{0:C}"), true)%><%#Eval("OrigPrice","<span class=\"prodthumb_price\">{0:C}</span>")%>
+                                <%#ColorVariation(Eval("ProdId")) %>
                                 <span class="prodthumb_description">
                                     <%#DescRestrict(Eval("ProductDescriptionRus"))%></span>
+                                    
                             </div>
                             <a href="<%#"ProductItem.aspx?ProdId="+Eval("ProdId") %>" class="flex_link">Подробнее</a>
                         </td>

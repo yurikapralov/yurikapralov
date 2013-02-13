@@ -22,6 +22,16 @@ namespace echo.BLL.Products
             return Productctx.ProductColors.Include("Color").Where(p => p.Product.ProdID == productId).ToList();
         }
 
+        /// <summary>
+        /// Количесто вариантов цвета
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
+        public int GetColorCount(int productId)
+        {
+            return Productctx.ProductColors.Where(p => p.Product.ProdID == productId).Count();
+        }
+
 
         public List<ProductColor> GetAllProductColors()
         {

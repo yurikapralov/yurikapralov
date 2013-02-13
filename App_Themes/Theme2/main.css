@@ -621,6 +621,15 @@ a:hover {
     text-decoration: none;
     margin-bottom: 10px;
 }
+.prodthumb_color
+{
+    margin-top: 0px;
+    display: block;
+    font: bold 12px Arial;
+    color: #676767;
+    text-decoration: none;
+    margin-bottom: 0px;
+}
 .prodthumb_name:hover
 {
     text-decoration: underline;
@@ -674,7 +683,7 @@ a:hover {
 
 .preview_product .post_info
 {
-    height: 120px;
+    height: 130px;
 }
 
 .post_info_eng
@@ -963,6 +972,11 @@ tablePanel h2
 {
     border: 1px solid #fff;
     width:200px;
+} 
+.is_cast
+{
+   /* border: 1px solid #fff;*/
+    width: 125px;
 } 
 
 /*Английская версия*/

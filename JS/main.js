@@ -27,5 +27,12 @@ $(document).ready(function() {
         'speedIn': 600,
         'speedOut': 200,
         'overlayShow': false
+    });
+    $("a.as_cust").fancybox({
+        'transitionIn': 'elastic',
+        'transitionOut': 'elastic',
+        'speedIn': 600,
+        'speedOut': 200,
+        'overlayShow': false
     }); 
 });
