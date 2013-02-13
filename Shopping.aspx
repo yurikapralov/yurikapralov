@@ -62,9 +62,9 @@
             <p>
                 <asp:Button ID="btnUpdate" runat="server" Text="Обновить" CssClass="btn" OnClick="btnUpdate_Click" />
                 <asp:Button ID="btnOrder" runat="server" Text="Оформить заказ" CssClass="btn btn-primary"
-                    Width="150px" OnClick="btnOrder_Click" />
+                    OnClick="btnOrder_Click" />
                 <asp:Button ID="btnReset" runat="server" Text="Отменить заказ" CssClass="btn"
-                    Width="150px" OnClientClick="if(confirm('Очистить вашу корзину?')==false)return false;"
+                     OnClientClick="if(confirm('Очистить вашу корзину?')==false)return false;"
                     OnClick="btnReset_Click" />
             </p>
         </asp:Panel>
@@ -106,7 +106,7 @@
                 <asp:Button ID="btnLogin" runat="server" Text="Войти" CssClass="btn btn-primary" ValidationGroup="Login1"
                     CommandName="Login" />
                 <asp:Button ID="btnEsc" runat="server" Text="Пропустить регистрацию" OnClick="btnEsc_Click"
-                    CssClass="btn" Width="180px" />
+                    CssClass="btn"  />
             </LayoutTemplate>
         </asp:Login>
     </asp:Panel>
@@ -292,7 +292,7 @@
                             </td>
                             <td width="40%" align="left">
                                 <asp:Button ID="btnReturn" runat="server" Text="Вернуться в корзину" CssClass="btn"
-                                    OnClick="btnReturn_Click" Width="150px" />
+                                    OnClick="btnReturn_Click"  />
                             </td>
                         </tr>
                     </table>
@@ -408,7 +408,7 @@
             В ближайшее время с Вами свяжется наш сотрудник.</p>
         <p align="center">
             <asp:Button ID="btnDefault" runat="server" Text="На главную страницу" CssClass="btn btn-primary"
-                OnClick="btnDefault_Click" Width="200px" />
+                OnClick="btnDefault_Click"  />
         </p>
     </asp:Panel>
     <asp:Panel ID="pnlForEmail" runat="server" Visible="false">

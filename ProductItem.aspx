@@ -54,7 +54,7 @@
                                     Text="Данная продукция отсутствует" /></p>
                             <p>
                                 <asp:Button ID="btnAdd" runat="server" Text="Добавить в корзину" CssClass="btn btn-primary"
-                                    OnClick="btnAdd_Click"  Width="150px"/>
+                                    OnClick="btnAdd_Click" />
                                 <asp:Button ID="btnCancel" runat="server" Text="Отмена" CssClass="btn" OnClick="btnCancel_Click" /><br/>
                             </p>
                             <p> <asp:ImageButton ID="btnAddKredit" runat="server" CssClass="pointer" 
@@ -90,7 +90,7 @@
         </p>
         <p>
             <asp:Button ID="btnOrder" runat="server" Text="Оформить заказ" CssClass="btn btn-primary"
-                OnClick="btnOrder_Click" Width="150px"/>
+                OnClick="btnOrder_Click"/>
             &nbsp; &nbsp;
             <asp:Button ID="btnReturn" runat="server" Text="Вернуться" CssClass="btn"
                 OnClick="btnReturn_Click" />
