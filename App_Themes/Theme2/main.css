@@ -218,7 +218,7 @@
 
 #mainlink:hover
 {
-    text-decoration: underline;
+   /* text-decoration: underline;*/
 }
 
 /*Телефоны*/
@@ -626,7 +626,8 @@ a:hover {
     margin-top: 0px;
     display: block;
     font: bold 12px Arial;
-    color: #676767;
+    /*color: #676767;*/
+    color:#f00;
     text-decoration: none;
     margin-bottom: 0px;
 }

@@ -318,15 +318,16 @@ namespace echo.BLL
                     }
                     else
                     {
+                        /*
                         if (((XmlElement)node).HasAttribute("title") && !((XmlElement)node).HasAttribute("url"))
                         {
                             if (node.HasChildNodes)
                                 str.Append("<li><h3>" + node.Attributes["title"].Value + "</h3></li>");
                         }
                         else if (((XmlElement)node).HasAttribute("title") && ((XmlElement)node).HasAttribute("url"))
-                        {
+                        {   
                             if (node.Attributes["url"].Value.IndexOf("http://PlatinumShoes.ru") != -1)
-                            {
+                            {   
                                 str.Append("<li>");
                                 if (((XmlElement)node).HasAttribute("marked"))
                                     str.Append("<a href='http://Platinumshoes.ru/'><h3><span class='marked'>" +
@@ -350,6 +351,7 @@ namespace echo.BLL
                         }
                         if (node.HasChildNodes)
                             str.Append("<div class='sub_menu'>"+GetSubRusMenu2(node.ChildNodes, level + 1)+"</div>");
+                        */
                     }
                 }
             }

@@ -331,6 +331,7 @@ public partial class Admin_Products : AdminPage
             cbProdAvailable.Checked = product.Available;
             cbOnSale.Checked = product.OnSale;
             cbFromUsa.Checked = product.FromUsa;
+            cbVip.Checked = product.IsVip;
             btnMore.Visible = false;
             btnUpdateProduct.Visible = true;
             btnExtraInfo.Visible = true;
@@ -404,6 +405,7 @@ public partial class Admin_Products : AdminPage
         cbProdAvailable.Checked = true;
         cbOnSale.Checked = false;
         cbFromUsa.Checked = false;
+        cbVip.Checked = false;
         BindProducts();
         BindProductColors();
         ddlBrand.SelectedValue = "1";
@@ -434,6 +436,7 @@ public partial class Admin_Products : AdminPage
         product.OnSale = cbOnSale.Checked;
         product.FromUsa = cbFromUsa.Checked;
         product.Alt = txtAlt.Text;
+        product.IsVip = cbVip.Checked;
     }
 
     protected bool Uploadfile()

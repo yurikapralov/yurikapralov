@@ -116,6 +116,9 @@
           <Property Name="GroupOrder" Type="int" />
           <Property Name="AvaliableInEngilsh" Type="bit" Nullable="false" />
           <Property Name="HaveGeneralLink" Type="bit" Nullable="false" />
+          <Property Name="GroupTitle" Type="varchar" MaxLength="1000" />
+          <Property Name="MetaDescription" Type="varchar(max)" />
+          <Property Name="MetaKeywords" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="echoPlatforms">
           <Key>
@@ -164,6 +167,7 @@
           <Property Name="FromUsa" Type="bit" Nullable="false" />
           <Property Name="BrandId" Type="int" Nullable="false" />
           <Property Name="Alt" Type="varchar" MaxLength="2000" />
+          <Property Name="IsVip" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="echoProductSizes">
           <Key>
@@ -434,6 +438,9 @@
           <Property Name="GroupOrder" Type="Int32" />
           <NavigationProperty Name="Cathegories" Relationship="ProductsModel.FK_echoCathegory_echoGroups" FromRole="echoGroups" ToRole="echoCathegory" />
           <Property Type="Boolean" Name="HaveGeneralLink" Nullable="false" />
+          <Property Type="String" Name="GroupTitle" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MetaDescription" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MetaKeywords" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Platform">
           <Key>
@@ -486,6 +493,7 @@
           <Property Type="Boolean" Name="FromUsa" Nullable="false" />
           <NavigationProperty Name="Brand" Relationship="ProductsModel.FK_echoProducts_echoBrands" FromRole="Product" ToRole="echoBrands" />
           <Property Type="String" Name="Alt" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsVip" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductSize">
           <Key>
@@ -625,6 +633,9 @@
           <EntitySetMapping Name="Groups">
             <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Group)">
               <MappingFragment StoreEntitySet="echoGroups">
+                <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />
                 <ScalarProperty Name="HaveGeneralLink" ColumnName="HaveGeneralLink" />
                 <ScalarProperty Name="AvaliableInEngilsh" ColumnName="AvaliableInEngilsh" />
                 <ScalarProperty Name="GroupID" ColumnName="GroupID" />
@@ -661,6 +672,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Product)">
               <MappingFragment StoreEntitySet="echoProducts">
+                <ScalarProperty Name="IsVip" ColumnName="IsVip" />
                 <ScalarProperty Name="Alt" ColumnName="Alt" />
                 <ScalarProperty Name="FromUsa" ColumnName="FromUsa" />
                 <ScalarProperty Name="OnSale" ColumnName="OnSale" />

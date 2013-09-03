@@ -427,6 +427,9 @@
                                 <label class="checkbox">
                                     <asp:CheckBox ID="cbFromUsa" runat="server" Checked="false" />&nbsp;Из США
                                 </label>
+                                <label class="checkbox">
+                                    <asp:CheckBox ID="cbVip" runat="server" Checked="false" />&nbsp;Vip
+                                </label>
                             </div>
                         </div>
                         <div class="control-group">

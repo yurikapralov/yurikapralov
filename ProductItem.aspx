@@ -16,6 +16,7 @@
                         <asp:Image ID="imgLarge" runat="server" ImageUrl='<%#Eval("ImageURL","~/Images/Products/Large/{0}") %>'
                             CssClass="MainImage" />              
                             <asp:Literal runat="server"  ID="ltlsale" />
+                            <asp:Literal runat="server" ID="ltlVip" />
                             </div>
                             <br />
                              <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>

@@ -7,7 +7,6 @@
 </asp:Content>
 <asp:Content ID="extraContent" runat="server" ContentPlaceHolderID="extraNavHolder">
     <a href="PayMethods.aspx">
-        <img src="Images/Decoration/logo-kupivkredit.jpg" class="qiwi_image" style="margin-bottom: 20px" />
         <img src="Images/Decoration/qiwi%20gorizontal.jpg" class="qiwi_image" />
         <img src="Images/Decoration/visa.jpg" class="qiwi_image" />
         

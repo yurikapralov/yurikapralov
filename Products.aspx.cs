@@ -240,13 +240,10 @@ public partial class Products : BasePage
                     Master.Title = _group.GroupNameRus;
                     lblDescription.Text = "";
                     lblDescription2.Text = "";
-                    //Вставим такой вот костыль
-                    if (GroupId == 3)
-                    {
-                        Master.Title = "Обувь для стриптиза, стрип обувь для танцев Go-Go ( Гоу-Гоу ), купить туфли стрипы - интернет-магазин Эхо Голливуда";
-                        CreateMetaControl("description", "В интернет-магазине Эхо Голливуда вы найдете богатый ассортимент обуви для стриптиза, обуви для танцев и стрип обуви, купить которую можно и оптом, ведь мы являемся производителями продукции бренда Echo of Hollywood.");
-                        CreateMetaControl("keywords", "обувь для стриптиза,  магазин обуви для стриптиза, обувь для танцев, обувь для go go, туфли для стриптиза, стрип обувь, туфли стрипы");
-                    }
+                    Master.Title = string.IsNullOrEmpty(_group.GroupTitle) ? _group.GroupNameRus : _group.GroupTitle;
+                    CreateMetaControl("description", !string.IsNullOrEmpty(_group.MetaDescription) ? _group.MetaDescription : _group.GroupNameRus);
+                    CreateMetaControl("keywords", _group.MetaKeywords);
+                    
                 }
                 else
                 {

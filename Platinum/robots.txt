@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /Products.aspx
+Disallow: /ProductItem.aspx
+
+User-agent: Yandex
+
+Disallow: /Products.aspx
+Disallow: /ProductItem.aspx

@@ -42,6 +42,9 @@ public partial class Admin_Groups : AdminPage
             txtGroupOrder.Text = _group.GroupOrder.ToString();
             cbxAvaliable.Checked = _group.AvaliableInEngilsh;
             cbxGeneralLink.Checked = _group.HaveGeneralLink;
+            txtMetaTitle.Text = _group.GroupTitle;
+            txtMetaKeywords.Text = _group.MetaKeywords;
+            txtMetaDescription.Text = _group.MetaDescription;
             btnAddGroup.Text = "Изменить";
         }
     }
@@ -57,6 +60,9 @@ public partial class Admin_Groups : AdminPage
         txtGroupOrder.Text = "";
         cbxAvaliable.Checked = true;
         cbxGeneralLink.Checked = false;
+        txtMetaTitle.Text = "";
+        txtMetaDescription.Text = "";
+        txtMetaKeywords.Text = "";
     }
 
     protected void UpdateGroup()
@@ -77,6 +83,9 @@ public partial class Admin_Groups : AdminPage
             _group.GroupOrder = int.Parse(txtGroupOrder.Text);
             _group.AvaliableInEngilsh = cbxAvaliable.Checked;
             _group.HaveGeneralLink = cbxGeneralLink.Checked;
+            _group.MetaDescription = txtMetaDescription.Text;
+            _group.MetaKeywords = txtMetaKeywords.Text;
+            _group.GroupTitle = txtMetaTitle.Text;
 
             _group = lRepository.AddGroup(_group);
         }

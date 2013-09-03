@@ -73,6 +73,7 @@
                                     top: 0px; display: none; position: absolute;">
                                 </div>
                                 <%#(bool)Eval("onSale")? "<div id=\"sale_"+Eval("ProdId")+"\" style=\"z-index: 2; height: 60px; left: 85px; width:60px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/sale.png\" /></div>":"" %>
+                                <%#(bool)Eval("isVip")? "<div id=\"vip_"+Eval("ProdId")+"\" style=\"z-index: 3; height: 60px; left: 85px; width:60px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/vip.png\" /></div>":"" %>
                                 
                             </div>
                             <div class="post_info">

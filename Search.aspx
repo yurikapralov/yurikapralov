@@ -70,6 +70,7 @@
                                 <div id="img_block_<%#Eval("ProdId") %>" style="z-index: 1000; height: 100px; left: 0px;
                                     top: 0px; display: none; position: absolute;">
                                 </div>
+                                <%#(bool)Eval("isVip")? "<div id=\"vip_"+Eval("ProdId")+"\" style=\"z-index: 3; height: 60px; left: 85px; width:60px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/vip.png\" /></div>":"" %>
                             </div>
                             <div class="post_info">
                                 <%#oldSalePrice(Eval("SalePrice", "{0:C}"), true)%><%#Eval("OrigPrice","<span class=\"prodthumb_price\">{0:C}</span>")%>

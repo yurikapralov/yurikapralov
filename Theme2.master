@@ -176,7 +176,7 @@
                     </asp:LoginView>
                 </div>
                 <div id="header_main">
-                    <a href="http://echo-h.ru" id="mainlink">Интернет-магазин женской обуви</a> <span
+                    <!--<a href="http://echo-h.ru" id="mainlink">Интернет-магазин женской обуви</a>--><span id="mainlink">Интернет-магазин женской обуви</span> <span
                         class="header_phones">(499) 464-2365, (495) 652-4297</span> <a href="Shopping.aspx"
                             id="cart_header">Корзина</a>
                     <div id="cart_ticker">

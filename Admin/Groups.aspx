@@ -78,6 +78,37 @@
                       </label>
                     &nbsp;</div>
                   </div>
+                  <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" href="#" data-toggle="collapse" onclick="$('#collapseTwo').collapse('toggle')">Meta
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body in collapse" style="height: auto;">
+                            <div class="control-group">
+                                <label class="control-label" for="txtMetaTitle">
+                                    Title:</label>
+                                <div class="controls">
+                                    <asp:TextBox ID="txtMetaTitle" runat="server" TextMode="MultiLine" Rows="2" CssClass="span10" ClientIDMode="Static" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="xtMetaDescription">
+                                     Meta Description:</label>
+                                <div class="controls">
+                                    <asp:TextBox ID="txtMetaDescription" runat="server" TextMode="MultiLine" Rows="2"
+                                    CssClass="span10" ClientIDMode="Static" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="txtMetaKeywords">
+                                      Meta Keywords:</label>
+                                <div class="controls">
+                                    <asp:TextBox ID="txtMetaKeywords" runat="server" TextMode="MultiLine" Rows="2"
+                                    CssClass="span10" ClientIDMode="Static" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <div class="form-actions">
                      <asp:Button ID="btnAddGroup" runat="server" Text="Добавить" ValidationGroup="EditGroup"
                         CssClass="btn btn-primary" OnClick="btnAddGroup_Click" />

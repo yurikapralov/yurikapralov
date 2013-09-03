@@ -22,7 +22,7 @@
     <div id="mainlayer">
         <div id="headerzone">
             <div id="navigation_links">
-                <a href="Default.aspx">Главная страница</a><br />
+                <a href="http://platinumshoes.ru">Главная страница</a><br />
                 <a href="Stores.aspx">Наши магазины</a><br />
                 <a href="Delivery.aspx">Оплата и доставка</a><br />
                 <a href="CustomShoes.aspx">Обувь на заказ</a>

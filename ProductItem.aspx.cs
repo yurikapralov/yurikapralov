@@ -79,6 +79,7 @@ public partial class ProductItem : BasePage
                 btnAdd.OnClientClick = "return confirm('При добавлении продукции с доставкой из США покупка в кредит будет невозможной.\\nДобавить товар в корзину?');";
             }
             ltlsale.Text = productColor.Product.OnSale ? " <div id=\"sale_" + productColor.ProductId + "\" style=\"z-index: 2; height: 128px; left: 350px; width:128px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/sale_large.png\" /></div>" : "";
+            ltlVip.Text = productColor.Product.IsVip ? " <div id=\"vip_" + productColor.ProductId + "\" style=\"z-index: 3; height: 128px; left: 350px; width:128px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/vip_large.png\" /></div>" : "";
             if (productColor.Product.ProdTypeID == 1)
             {
                 using (PlatformRepository lPlatformRepository = new PlatformRepository())

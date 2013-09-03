@@ -13,7 +13,7 @@ public partial class Default : BasePage
     {
         if(!IsPostBack)
         {
-            Master.MainHeader = "Магазин женской обуви \"Echo Of Hollywood\"";
+            Master.MainHeader = "Интернет - магазин женской обуви \"Echo Of Hollywood\"";
             Master.Title = "Женская обувь оптом | Интернет-магазин женской обуви больших размеров - Эхо Голливуда";
             BindNews();
         }
