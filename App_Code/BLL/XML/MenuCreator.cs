@@ -31,7 +31,7 @@ public class MenuCreator
                 foreach (Group groupItem in groups)
                 {
                     int groupId = groupItem.GroupID;
-                    if (groupId != 1)
+                    if (groupId != 1 && groupItem.Avaliable)
                     {
                         writer.WriteStartElement("siteMapNode");
                         writer.WriteAttributeString("title", groupItem.GroupNameRus);

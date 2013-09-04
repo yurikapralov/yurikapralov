@@ -18,6 +18,7 @@
             <asp:BoundField DataField="GroupID" HeaderText="GroupID" HeaderStyle-CssClass="center" />
             <asp:BoundField DataField="GroupNameRus" HeaderText="Русское имя" HeaderStyle-CssClass="center"  />
             <asp:BoundField DataField="GroupNameEng" HeaderText="Английское имя" HeaderStyle-CssClass="center" />
+            <asp:CheckBoxField DataField="Avaliable" HeaderText="Доступна" HeaderStyle-CssClass="center" />
             <asp:CheckBoxField DataField="AvaliableInEngilsh" HeaderText="Доступно в англ. версии" HeaderStyle-CssClass="center" />
             <asp:CheckBoxField DataField="HaveGeneralLink" HeaderText="Есть общая ссылка" HeaderStyle-CssClass="center" />
             <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" DeleteText="Удалить"
@@ -62,6 +63,14 @@
                         </asp:RangeValidator>    
                     </div>
                 </div>
+                <div class="control-group">
+                    <label for="cbxAvaliableRus" class="control-label">Доступна:</label>
+                    <div class="controls">
+                      <label class="checkbox">
+                          <asp:CheckBox ID="cbxAvaliableRus" runat="server" Checked="true" ClientIDMode="Static"/>
+                      </label>
+                    &nbsp;</div>
+                  </div>
                 <div class="control-group">
                     <label for="cbxAvaliable" class="control-label">Доступна в английской версии:</label>
                     <div class="controls">

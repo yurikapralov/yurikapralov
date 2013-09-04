@@ -119,6 +119,7 @@
           <Property Name="GroupTitle" Type="varchar" MaxLength="1000" />
           <Property Name="MetaDescription" Type="varchar(max)" />
           <Property Name="MetaKeywords" Type="varchar(max)" />
+          <Property Name="Avaliable" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="echoPlatforms">
           <Key>
@@ -441,6 +442,7 @@
           <Property Type="String" Name="GroupTitle" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="MetaDescription" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="MetaKeywords" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Avaliable" Nullable="false" />
         </EntityType>
         <EntityType Name="Platform">
           <Key>
@@ -633,6 +635,7 @@
           <EntitySetMapping Name="Groups">
             <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Group)">
               <MappingFragment StoreEntitySet="echoGroups">
+                <ScalarProperty Name="Avaliable" ColumnName="Avaliable" />
                 <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
                 <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
                 <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />

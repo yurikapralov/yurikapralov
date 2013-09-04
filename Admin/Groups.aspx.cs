@@ -41,6 +41,7 @@ public partial class Admin_Groups : AdminPage
             txtGroupNameEng.Text = _group.GroupNameEng;
             txtGroupOrder.Text = _group.GroupOrder.ToString();
             cbxAvaliable.Checked = _group.AvaliableInEngilsh;
+            cbxAvaliableRus.Checked = _group.Avaliable;
             cbxGeneralLink.Checked = _group.HaveGeneralLink;
             txtMetaTitle.Text = _group.GroupTitle;
             txtMetaKeywords.Text = _group.MetaKeywords;
@@ -59,6 +60,7 @@ public partial class Admin_Groups : AdminPage
         txtGroupNameEng.Text = "";
         txtGroupOrder.Text = "";
         cbxAvaliable.Checked = true;
+        cbxAvaliableRus.Checked = true;
         cbxGeneralLink.Checked = false;
         txtMetaTitle.Text = "";
         txtMetaDescription.Text = "";
@@ -82,6 +84,7 @@ public partial class Admin_Groups : AdminPage
             _group.GroupNameEng = txtGroupNameEng.Text;
             _group.GroupOrder = int.Parse(txtGroupOrder.Text);
             _group.AvaliableInEngilsh = cbxAvaliable.Checked;
+            _group.Avaliable = cbxAvaliableRus.Checked;
             _group.HaveGeneralLink = cbxGeneralLink.Checked;
             _group.MetaDescription = txtMetaDescription.Text;
             _group.MetaKeywords = txtMetaKeywords.Text;
@@ -103,7 +106,7 @@ public partial class Admin_Groups : AdminPage
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            LinkButton btn = e.Row.Cells[6].Controls[0] as LinkButton;
+            LinkButton btn = e.Row.Cells[7].Controls[0] as LinkButton;
             btn.OnClientClick = "if (confirm('Вы уверенны что хотите удалить этот раздел?')==false)return false;";
             btn.ForeColor = System.Drawing.Color.Red;
         }

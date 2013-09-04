@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Метаданные связи EDM
@@ -254,7 +253,6 @@ namespace echo.BLL.Products
         private ObjectSet<Brand> _Brands;
 
         #endregion
-
         #region Методы AddTo
     
         /// <summary>
@@ -346,11 +344,11 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Сущности
     
     /// <summary>
@@ -377,7 +375,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -432,7 +429,6 @@ namespace echo.BLL.Products
         partial void OnBrandNameChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -459,7 +455,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -498,7 +493,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -913,7 +907,6 @@ namespace echo.BLL.Products
         partial void OnInGeneralLinkChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -1016,7 +1009,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1041,7 +1033,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -1072,7 +1063,6 @@ namespace echo.BLL.Products
         partial void OnCollIDChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -1153,7 +1143,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1184,7 +1173,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -1287,7 +1275,6 @@ namespace echo.BLL.Products
         partial void OnIsMainChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -1314,7 +1301,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1335,7 +1321,8 @@ namespace echo.BLL.Products
         /// <param name="groupNameEng">Исходное значение свойства GroupNameEng.</param>
         /// <param name="groupNameRus">Исходное значение свойства GroupNameRus.</param>
         /// <param name="haveGeneralLink">Исходное значение свойства HaveGeneralLink.</param>
-        public static Group CreateGroup(global::System.Boolean avaliableInEngilsh, global::System.Int32 groupID, global::System.String groupNameEng, global::System.String groupNameRus, global::System.Boolean haveGeneralLink)
+        /// <param name="avaliable">Исходное значение свойства Avaliable.</param>
+        public static Group CreateGroup(global::System.Boolean avaliableInEngilsh, global::System.Int32 groupID, global::System.String groupNameEng, global::System.String groupNameRus, global::System.Boolean haveGeneralLink, global::System.Boolean avaliable)
         {
             Group group = new Group();
             group.AvaliableInEngilsh = avaliableInEngilsh;
@@ -1343,11 +1330,11 @@ namespace echo.BLL.Products
             group.GroupNameEng = groupNameEng;
             group.GroupNameRus = groupNameRus;
             group.HaveGeneralLink = haveGeneralLink;
+            group.Avaliable = avaliable;
             return group;
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -1568,9 +1555,32 @@ namespace echo.BLL.Products
         private global::System.String _MetaKeywords;
         partial void OnMetaKeywordsChanging(global::System.String value);
         partial void OnMetaKeywordsChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Avaliable
+        {
+            get
+            {
+                return _Avaliable;
+            }
+            set
+            {
+                OnAvaliableChanging(value);
+                ReportPropertyChanging("Avaliable");
+                _Avaliable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Avaliable");
+                OnAvaliableChanged();
+            }
+        }
+        private global::System.Boolean _Avaliable;
+        partial void OnAvaliableChanging(global::System.Boolean value);
+        partial void OnAvaliableChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -1597,7 +1607,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1628,7 +1637,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -1827,7 +1835,6 @@ namespace echo.BLL.Products
         partial void OnSizeInfoChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -1854,7 +1861,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1901,7 +1907,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -2340,7 +2345,6 @@ namespace echo.BLL.Products
         partial void OnIsVipChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -2465,7 +2469,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2494,7 +2497,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -2597,7 +2599,6 @@ namespace echo.BLL.Products
         partial void OnProdColorIDChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -2700,7 +2701,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2725,7 +2725,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -2756,7 +2755,6 @@ namespace echo.BLL.Products
         partial void OnProdSizeIDChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -2837,7 +2835,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2862,7 +2859,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -2965,7 +2961,6 @@ namespace echo.BLL.Products
         partial void OnSizeNameRusChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -2992,7 +2987,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -3023,7 +3017,6 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
         #region Свойства-примитивы
     
         /// <summary>
@@ -3150,7 +3143,6 @@ namespace echo.BLL.Products
         partial void OnThemeChanged();
 
         #endregion
-
     
         #region Свойства навигации
     
@@ -3177,10 +3169,8 @@ namespace echo.BLL.Products
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }
