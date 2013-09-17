@@ -31,6 +31,19 @@
                 }
             });
 
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.scrollup').fadeIn();
+                } else {
+                    $('.scrollup').fadeOut();
+                }
+            });
+
+            $('.scrollup').click(function () {
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+
             var filename = document.URL.substring(document.URL.lastIndexOf('/') + 1);
 
             switch (filename) {
@@ -274,6 +287,7 @@
             </div>
         </div>
         <div id="footer">
+            <a href="#" class="scrollup">Наверх</a>
             <div id="footer_content">
                 <ul id="footer_menu">
                     <li><a href="Default.aspx" title="Главная">Главная</a></li>

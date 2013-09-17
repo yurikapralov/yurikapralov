@@ -1098,5 +1098,25 @@ tablePanel h2
     margin-top: 3px;
     margin-left: 5px;
 }
+.scrollup{
+width:40px;
+height:40px;
+opacity:0.3;  /*Здесь можете менять значение от 0 до 1*/
+position:fixed;
+bottom:50px;
+right:100px;
+display:none;
+/*text-indent:-9999px;*/
+background: url(Images/arrow_up.png) no-repeat; /*Путь к картинке, на которую будут нажимать для подъема наверх страницы*/
+outline:0;
+padding: 10px 0 0 30px;
+font: bold 13px Arial;
+text-decoration:none;
+}
+.scrollup:hover
+{
+    opacity:0.8;
+    text-decoration:underline;
+}
 
 
