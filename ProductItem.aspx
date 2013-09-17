@@ -17,6 +17,7 @@
                             CssClass="MainImage" />              
                             <asp:Literal runat="server"  ID="ltlsale" />
                             <asp:Literal runat="server" ID="ltlVip" />
+                            <asp:Literal runat="server"  ID="ltlsale2" />
                             </div>
                             <br />
                              <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>

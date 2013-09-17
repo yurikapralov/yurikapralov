@@ -430,6 +430,9 @@
                                 <label class="checkbox">
                                     <asp:CheckBox ID="cbVip" runat="server" Checked="false" />&nbsp;Vip
                                 </label>
+                                 <label class="checkbox">
+                                    <asp:CheckBox ID="cbOnSale2" runat="server" Checked="false" />&nbsp;Распродажа
+                                </label>
                             </div>
                         </div>
                         <div class="control-group">

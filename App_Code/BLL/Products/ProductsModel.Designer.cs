@@ -1888,7 +1888,8 @@ namespace echo.BLL.Products
         /// <param name="onSale">Исходное значение свойства OnSale.</param>
         /// <param name="fromUsa">Исходное значение свойства FromUsa.</param>
         /// <param name="isVip">Исходное значение свойства IsVip.</param>
-        public static Product CreateProduct(global::System.Boolean available, global::System.DateTime dateCreated, global::System.Decimal origPrice, global::System.Int32 prodID, global::System.Int32 prodTypeID, global::System.String productNameEng, global::System.String productNameRus, global::System.String sortedName, global::System.String thumbURL, global::System.Boolean onSale, global::System.Boolean fromUsa, global::System.Boolean isVip)
+        /// <param name="onSale2">Исходное значение свойства OnSale2.</param>
+        public static Product CreateProduct(global::System.Boolean available, global::System.DateTime dateCreated, global::System.Decimal origPrice, global::System.Int32 prodID, global::System.Int32 prodTypeID, global::System.String productNameEng, global::System.String productNameRus, global::System.String sortedName, global::System.String thumbURL, global::System.Boolean onSale, global::System.Boolean fromUsa, global::System.Boolean isVip, global::System.Boolean onSale2)
         {
             Product product = new Product();
             product.Available = available;
@@ -1903,6 +1904,7 @@ namespace echo.BLL.Products
             product.OnSale = onSale;
             product.FromUsa = fromUsa;
             product.IsVip = isVip;
+            product.OnSale2 = onSale2;
             return product;
         }
 
@@ -2343,6 +2345,30 @@ namespace echo.BLL.Products
         private global::System.Boolean _IsVip;
         partial void OnIsVipChanging(global::System.Boolean value);
         partial void OnIsVipChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean OnSale2
+        {
+            get
+            {
+                return _OnSale2;
+            }
+            set
+            {
+                OnOnSale2Changing(value);
+                ReportPropertyChanging("OnSale2");
+                _OnSale2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("OnSale2");
+                OnOnSale2Changed();
+            }
+        }
+        private global::System.Boolean _OnSale2;
+        partial void OnOnSale2Changing(global::System.Boolean value);
+        partial void OnOnSale2Changed();
 
         #endregion
     

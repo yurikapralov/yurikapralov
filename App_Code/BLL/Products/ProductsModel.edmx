@@ -169,6 +169,7 @@
           <Property Name="BrandId" Type="int" Nullable="false" />
           <Property Name="Alt" Type="varchar" MaxLength="2000" />
           <Property Name="IsVip" Type="bit" Nullable="false" />
+          <Property Name="OnSale2" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="echoProductSizes">
           <Key>
@@ -496,6 +497,7 @@
           <NavigationProperty Name="Brand" Relationship="ProductsModel.FK_echoProducts_echoBrands" FromRole="Product" ToRole="echoBrands" />
           <Property Type="String" Name="Alt" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="IsVip" Nullable="false" />
+          <Property Type="Boolean" Name="OnSale2" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductSize">
           <Key>
@@ -675,6 +677,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="IsTypeOf(ProductsModel.Product)">
               <MappingFragment StoreEntitySet="echoProducts">
+                <ScalarProperty Name="OnSale2" ColumnName="OnSale2" />
                 <ScalarProperty Name="IsVip" ColumnName="IsVip" />
                 <ScalarProperty Name="Alt" ColumnName="Alt" />
                 <ScalarProperty Name="FromUsa" ColumnName="FromUsa" />

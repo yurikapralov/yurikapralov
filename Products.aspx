@@ -74,6 +74,7 @@
                                 </div>
                                 <%#(bool)Eval("onSale")? "<div id=\"sale_"+Eval("ProdId")+"\" style=\"z-index: 2; height: 60px; left: 85px; width:60px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/sale.png\" /></div>":"" %>
                                 <%#(bool)Eval("isVip")? "<div id=\"vip_"+Eval("ProdId")+"\" style=\"z-index: 3; height: 60px; left: 85px; width:60px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/vip.png\" /></div>":"" %>
+                                 <%#(bool)Eval("onSale2")? "<div id=\"vip_"+Eval("ProdId")+"\" style=\"z-index: 3; height: 60px; left: 85px; width:60px;top: 0px; position: absolute;\"><img src=\"Images/Decoration/sale2_sm.png\" /></div>":"" %>
                                 
                             </div>
                             <div class="post_info">
