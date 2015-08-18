@@ -229,7 +229,7 @@
                     </fieldset>
                 </div>
 
-                <div id="soc_block">
+                <div id="soc_block" style="margin-bottom:10px;">
                                <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script>
 
                 <!-- VK Widget -->
@@ -241,9 +241,10 @@
                 Skype 'Добавь меня в Skype' button
                 http://www.skype.com/go/skypebuttons
                 -->
+                <!--
                 <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
                 <a href="skype:echoofhollywood?add"><img src="http://download.skype.com/share/skypebuttons/buttons/add_blue_white_194x52.png" style="border: none;" width="194" height="52" alt="Добавь меня в Skype" /></a>
-
+                -->
                
                 </div>
                 <a href="CreditInfo.aspx">
@@ -261,7 +262,7 @@
                             <li><a href="Collaboration.aspx">Сотрудничество</a></li>
                             <li><a href="CustomShoes.aspx">Обувь на заказ</a></li>
                             <li><a href="Sizes.aspx">Как снимать мерки для сапог</a></li>
-                            <li><a href="Gallery.aspx">Фотоотчеты</a></li>
+                            <!--<li><a href="Gallery.aspx">Фотоотчеты</a></li>-->
                         </div>
                     </ul>
                     <ul>

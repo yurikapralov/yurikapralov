@@ -10,10 +10,20 @@
         <img src="Images/Decoration/qiwi%20gorizontal.jpg" class="qiwi_image" />
         <img src="Images/Decoration/visa.jpg" class="qiwi_image" />
         
-        <!--<img src="Images/Decoration/yan.jpg" class="qiwi_image" />-->
+        
     </a>
+
+    <a href="http://taxi-fantom.ru" target="_blank"><img src="Images/Decoration/logo-obmen.png" class="qiwi_image" /></a>
 </asp:Content>
 <asp:Content ID="mainContent" runat="server" ContentPlaceHolderID="mainPlaceHolder">
+        <div id="fb-root"></div>
+        <script>    (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.3";
+                fjs.parentNode.insertBefore(js, fjs);
+            } (document, 'script', 'facebook-jssdk'));</script>
     <p>
         Интернет магазин женской обуви и одежды для шоу «Echo of Hollywood» приветствует
         Вас. На страницах нашего сайта вы найдете богатый ассортимент одежды, аксессуаров
@@ -41,6 +51,7 @@
         <li>ознакомится с продукцией Echo of Hollywood вы можете на нашем сайте или в фирменных
             магазинах-салонах одежды и женской обуви «Echo of Hollywood" (Москва, Санкт-Петербург).</li>
     </ul>
+    <div style="margin: 20px 50px;" class="fb-page" data-href="https://www.facebook.com/pages/%D0%9E%D0%B1%D1%83%D0%B2%D1%8C-%D0%AD%D0%A5%D0%9E-%D0%93%D0%BE%D0%BB%D0%BB%D0%B8%D0%B2%D1%83%D0%B4%D0%B0/1590525661184123" data-width="500" data-height="130" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
     <h2>
         Новинки</h2>
     <a href="Products.aspx?CatId=54" class="flex_link">Все новинки</a>
@@ -84,5 +95,6 @@
         Приглашаем к взаимовыгодному сотрудничеству руководителей клубов и танцевальных
         школ, арт-директоров, специалистов шоу-бизнеса, бизнесменов. Осуществляем производство
         обуви и одежды для шоу, презентаций, промоушн акций.</p>
-    <div id="advert" style="text-align:center;padding: 10px;"><img src="Images/Decoration/adv01.jpg" /></div>
+    
+    <!--<div id="advert" style="text-align:center;padding: 10px;"><img src="Images/Decoration/adv01.jpg" /></div>-->
 </asp:Content>

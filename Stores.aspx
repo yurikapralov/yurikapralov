@@ -158,6 +158,7 @@
         </table>
         <p>
         </p>
+        <!--
         <br />
         <br />
         <br />
@@ -174,6 +175,6 @@
                     </p>
                 </td>
             </tr>
-        </table>
+        </table>-->
 </asp:Content>
 
