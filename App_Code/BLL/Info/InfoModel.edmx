@@ -26,6 +26,7 @@
           <Property Name="NewsDate" Type="datetime" Nullable="false" />
           <Property Name="Header" Type="nvarchar" MaxLength="1024" />
           <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="avail" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="echoRate">
           <Key>
@@ -80,6 +81,7 @@
           <Property Type="DateTime" Name="NewsDate" Nullable="false" />
           <Property Type="String" Name="Header" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="avail" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -114,6 +116,7 @@
           <EntitySetMapping Name="echoNews">
             <EntityTypeMapping TypeName="InfoModel.echoNews">
               <MappingFragment StoreEntitySet="echoNews">
+                <ScalarProperty Name="avail" ColumnName="avail" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
                 <ScalarProperty Name="Header" ColumnName="Header" />
                 <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />

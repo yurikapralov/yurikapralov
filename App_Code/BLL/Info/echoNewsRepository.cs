@@ -71,7 +71,7 @@ namespace echo.BLL.Info
                 if (EnableCaching && Cache[key] != null)
                     return (List<echoNews>)Cache[key];
 
-                List<echoNews> news = Infoctx.echoNews.OrderByDescending(e => e.NewsDate).Take(2).ToList();
+                List<echoNews> news = Infoctx.echoNews.Where(p=>p.avail).OrderByDescending(e => e.NewsDate).Take(2).ToList();
 
                 if (EnableCaching)
                     CacheData(key, news, CacheDuration);

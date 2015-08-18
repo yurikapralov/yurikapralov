@@ -183,6 +183,7 @@ public partial class Admin_Info : AdminPage
             news.NewsDate = DateTime.Parse(txtDate.Text);
             news.Header = txtHeader.Text;
             news.Body = txtBody.Text;
+            news.avail = cbxAvail.Checked;
 
             news = erep.AddNews(news);
         }
@@ -198,6 +199,7 @@ public partial class Admin_Info : AdminPage
             txtDate.Text = news.NewsDate.ToShortDateString();
             txtHeader.Text = news.Header;
             txtBody.Text = news.Body;
+            cbxAvail.Checked = news.avail;
             btnEchoNewsAdd.Text = "Изменить";
         }
 
@@ -230,7 +232,7 @@ public partial class Admin_Info : AdminPage
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            LinkButton btn = (LinkButton)e.Row.Cells[2].Controls[0];
+            LinkButton btn = (LinkButton)e.Row.Cells[3].Controls[0];
             btn.OnClientClick = "if(confirm('Вы хотите удалить эту новость?')==false)return false;";
         }
     }

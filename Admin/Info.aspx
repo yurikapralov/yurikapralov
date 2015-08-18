@@ -74,6 +74,7 @@
                             <Columns>
                                 <asp:BoundField DataField="NewsDate" HeaderText="Дата Новости" DataFormatString="{0:d}" HeaderStyle-CssClass="center"/>
                                 <asp:BoundField DataField="Header" HeaderText="Заголовок" HeaderStyle-CssClass="center"/>
+                                <asp:CheckBoxField DataField="avail" HeaderText="Показывать" HeaderStyle-CssClass="center"/>
                                 <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" DeleteText="Удалить"
                                     SelectText="Выбрать" />
                             </Columns>
@@ -110,6 +111,12 @@
                                      <label class="control-label" for="txtBody">Текст</label>
                                      <div class="controls">
                                          <asp:TextBox ID="txtBody" runat="server" TextMode="MultiLine" Rows="5" CssClass="span5" ClientIDMode="Static"/>
+                                         </div>
+                                 </div>
+                                 <div class="control-group">
+                                     <label class="control-label" for="cbxAvail">Показывать</label>
+                                     <div class="controls">
+                                         <asp:CheckBox runat="server" ID="cbxAvail" ClientIDMode="Static"/>
                                          </div>
                                  </div>
                                 <div class="form-actions">
