@@ -50,7 +50,7 @@ public partial class OrdersHistory : BasePage
         switch (DeliverTypeID)
         {
             case 1:
-                return string.Format("ЕМС Гарантпост: {0:C}", DeliverSum);
+                return string.Format("Курьерская служба: {0:C}", DeliverSum);
                 break;
             case 2:
                 return "Наложенный платеж";

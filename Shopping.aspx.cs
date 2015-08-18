@@ -138,14 +138,14 @@ public partial class Shopping : BasePage
         if(in_credit)
         {
             var items = new[] { new ListItem("--Выберите способ доставки--","0"),
-            new ListItem("ЕМС Гарантпост","1"),
+            new ListItem("Курьерская служба по России","1"),
             new ListItem("Курьером по Москве","3")};
             ddlDeliverType.Items.AddRange(items);
         }
         else
         {
             var items = new[] { new ListItem("--Выберите способ доставки--","0"),
-            new ListItem("ЕМС Гарантпост","1"),
+            new ListItem("Курьерская служба по России","1"),
             new ListItem("Наложенный платеж","2"),
             new ListItem("Курьером по Москве","3"),
             new ListItem("За пределы РФ","4")};
@@ -311,7 +311,7 @@ public partial class Shopping : BasePage
                 {
                     City city = lCityRepository.GetCityById(int.Parse(ddlCities.SelectedValue));
                     int zIndex = city.ZN;
-                    int qTy = this.Profile.ShoppingCart.Count;
+                    int qTy = this.Profile.ShoppingCart.Count+1;
                     Zone zone = lZoneRepository.GetZoneByzIndexAndQty(zIndex, qTy);
                     if (rblRegionType.SelectedValue == "1")
                         return zone.CenterPrice;
@@ -472,7 +472,7 @@ public partial class Shopping : BasePage
                <p>Схема Выполнения заказа:</p>
                 <p align='left'>1. Вы оплачиваете счет через банк, и по факту прихода денег мы отправляем<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;Ваш заказ по указанному Вами адресу.<br>
-               2. Доставка осуществляется службой экспресс доставки &quot;ЕМС Гарантпост&quot;<br>
+               2. Доставка осуществляется службой экспресс доставки <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;в течении 2-5 дней в зависимости от региона.</p>
                 <p>Наши реквизиты.<br>
                 ООО 'ЭХО XXI'<br>

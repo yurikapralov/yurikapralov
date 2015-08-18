@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Метаданные связи EDM
@@ -183,6 +184,7 @@ namespace echo.BLL.Orders
         private ObjectSet<MoscowDelivery> _MoscowDeliveries;
 
         #endregion
+
         #region Методы AddTo
     
         /// <summary>
@@ -242,11 +244,11 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Сущности
     
     /// <summary>
@@ -275,6 +277,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
         #region Свойства-примитивы
     
         /// <summary>
@@ -401,6 +404,7 @@ namespace echo.BLL.Orders
         partial void OnZNChanged();
 
         #endregion
+
     
         #region Свойства навигации
     
@@ -427,6 +431,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -455,6 +460,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
         #region Свойства-примитивы
     
         /// <summary>
@@ -557,6 +563,7 @@ namespace echo.BLL.Orders
         partial void OnSortedChanged();
 
         #endregion
+
     
         #region Свойства навигации
     
@@ -583,6 +590,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -607,6 +615,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
         #region Свойства-примитивы
     
         /// <summary>
@@ -1045,6 +1054,7 @@ namespace echo.BLL.Orders
         partial void OnZn7_2Changed();
 
         #endregion
+
     
     }
     
@@ -1072,6 +1082,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
         #region Свойства-примитивы
     
         /// <summary>
@@ -1126,6 +1137,7 @@ namespace echo.BLL.Orders
         partial void OnPriceChanged();
 
         #endregion
+
     
     }
     
@@ -1167,6 +1179,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
         #region Свойства-примитивы
     
         /// <summary>
@@ -1749,6 +1762,7 @@ namespace echo.BLL.Orders
         partial void OnInCreditChanged();
 
         #endregion
+
     
         #region Свойства навигации
     
@@ -1889,6 +1903,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1919,6 +1934,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
         #region Свойства-примитивы
     
         /// <summary>
@@ -2045,6 +2061,7 @@ namespace echo.BLL.Orders
         partial void OnTitleChanged();
 
         #endregion
+
     
         #region Свойства навигации
     
@@ -2087,6 +2104,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2113,6 +2131,7 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
         #region Свойства-примитивы
     
         /// <summary>
@@ -2167,6 +2186,7 @@ namespace echo.BLL.Orders
         partial void OnOrderStausChanged();
 
         #endregion
+
     
         #region Свойства навигации
     
@@ -2193,8 +2213,10 @@ namespace echo.BLL.Orders
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

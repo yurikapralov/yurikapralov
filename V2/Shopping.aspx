@@ -76,7 +76,7 @@
                     <asp:DropDownList ID="ddlDeliverType" runat="server" AutoPostBack="true" 
                         onselectedindexchanged="ddlDeliverType_SelectedIndexChanged">
                     <asp:ListItem Value="0">--Выберите способ доставки--</asp:ListItem>
-                    <asp:ListItem Value="1">ЕМС Гарантпост</asp:ListItem>
+                    <asp:ListItem Value="1">Курьерская служба</asp:ListItem>
                     <asp:ListItem Value="2">Наложенный платеж</asp:ListItem>
                     <asp:ListItem Value="3">Курьером по Москве</asp:ListItem>
                     <asp:ListItem Value="4">За пределы РФ</asp:ListItem>

@@ -85,7 +85,7 @@ public partial class Controls_Order : System.Web.UI.UserControl
             switch (order.DeliverTypeID)
             {
                 case 1:
-                    lblDeliver.Text = string.Format("ЕМС Гарантпост: {0:C}", order.DeliverSum);
+                    lblDeliver.Text = string.Format("Курьерская служба: {0:C}", order.DeliverSum);
                     break;
                 case 2:
                     lblDeliver.Text = "Наложенный платеж";
