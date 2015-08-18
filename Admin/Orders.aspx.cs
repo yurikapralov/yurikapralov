@@ -29,7 +29,7 @@ public partial class Admin_Orders : AdminPage
             BindOrders();
 
             //Очистка профиля от старых записей - могла быть в любом другом месте сайта
-            ProfileManager.DeleteInactiveProfiles(ProfileAuthenticationOption.Anonymous, DateTime.Now.AddDays(-7));
+            //ProfileManager.DeleteInactiveProfiles(ProfileAuthenticationOption.Anonymous, DateTime.Now.AddDays(-7));
         }
 
     }
