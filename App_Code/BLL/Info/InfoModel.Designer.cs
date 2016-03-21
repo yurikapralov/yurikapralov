@@ -17,7 +17,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-namespace echo.BLL.Info
+namespace BLL.Info
 {
     #region Contexts
     
