@@ -210,7 +210,7 @@
 {
     position: relative;
     top: 105px;
-    left:-35px;
+    left: -100px;
     color: #000;
     text-decoration: none;
     font: normal 12px Arial; 
@@ -234,8 +234,8 @@
 #cart_header
 {
     position: relative;
-    top: 88px;
-    left: 110px;
+    top: 85px;
+    left: 195px;
     text-decoration: none;
     font: bold 14px Arial;
     color: #f00;
@@ -1117,6 +1117,100 @@ text-decoration:none;
 {
     opacity:0.8;
     text-decoration:underline;
+}
+
+.kupivkredit-button {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  *display: inline;
+  *zoom: 1;
+  outline: none;
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+}
+button.kupivkredit-button {
+  margin: 0;
+  padding: 2px 3px 4px;
+  border: 0px none;
+  outline: none;
+  overflow: visible !important;
+  cursor: pointer;
+  background: none;
+}
+a.kupivkredit-button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(about:blank);
+}
+.kupivkredit-button:hover .kupivkredit-button-content {
+  background: #2c363c;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #445766), color-stop(100%, #272d31));
+  background: -webkit-linear-gradient(top, #445766 0%, #272d31 100%);
+  background: -moz-linear-gradient(top, #445766 0%, #272d31 100%);
+  background: -o-linear-gradient(top, #445766 0%, #272d31 100%);
+  background: -ms-linear-gradient(top, #445766 0%, #272d31 100%);
+  background: linear-gradient(to bottom, #445766 0%, #272d31 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#445766', endColorstr='#272d31', GradientType=0);
+}
+.kupivkredit-button:active .kupivkredit-button-content {
+  box-shadow: inset 0 1px 6px #000000;
+  -webkit-box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.35);
+  background: #333a3f;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333a3f), color-stop(100%, #333a3f));
+  background: -webkit-linear-gradient(top, #333a3f 0%, #333a3f 100%);
+  background: -moz-linear-gradient(top, #333a3f 0%, #333a3f 100%);
+  background: -o-linear-gradient(top, #333a3f 0%, #333a3f 100%);
+  background: -ms-linear-gradient(top, #333a3f 0%, #333a3f 100%);
+  background: linear-gradient(to bottom, #333a3f 0%, #333a3f 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333a3f', endColorstr='#333a3f', GradientType=0);
+  line-height: 49px;
+}
+.kupivkredit-button-content {
+  display: block;
+  padding: 0;
+  height: 100%;
+  cursor: pointer;
+  background: #37434a;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #445766), color-stop(100%, #394248));
+  background: -webkit-linear-gradient(top, #445766 0%, #394248 100%);
+  background: -moz-linear-gradient(top, #445766 0%, #394248 100%);
+  background: -o-linear-gradient(top, #445766 0%, #394248 100%);
+  background: -ms-linear-gradient(top, #445766 0%, #394248 100%);
+  background: linear-gradient(to bottom, #445766 0%, #394248 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#445766', endColorstr='#394248', GradientType=0);
+  box-shadow: 0 1px 3px #010101;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  font: 700 20px/24px 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 0 1px #0a0b0c;
+  line-height: 50px;
+  text-align: center;
+}
+.kupivkredit-button-content > .kupivkredit-icon {
+  margin: 0 5px 0 -5px;
+}
+.kupivkredit-icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowNTc1MjcxN0ZGNjkxMUUyQUIzQkE3QkMyMEMwOEIxQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowNTc1MjcxOEZGNjkxMUUyQUIzQkE3QkMyMEMwOEIxQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA1NzUyNzE1RkY2OTExRTJBQjNCQTdCQzIwQzA4QjFCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjA1NzUyNzE2RkY2OTExRTJBQjNCQTdCQzIwQzA4QjFCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+9cRiswAAA5JJREFUeNrsV21IU1EYvruOQAsiI5DAPkH6EUQQhBV9/PZHmlISVEJEJBJkakW1zWFpE1EUNC21NJ35VfmRs9TSzPyYWuQsNT8yXTrT6Zzza249Rza5zU033bQfvvBwznnvec997rnnPu97WcGu9hTTOFUqajnGP+Rg9lzcawuabOAokEpTq2Qgso/SasWEiELW2xbhtn11yICIJ4h8olisbZNKhSzzlnfwmHyglL3CJFhoeKQLItTM9KSqQOD3QPqtPgc+DXsFiWxAkwJ4kLFWo5kpTwqNkZRkJ2E4QXzsFSKyA68lH7uxV+/7XJjyrPKpIBrdYb2PXgEix0GknkmkU/yuOD/UNxRdKXMubWMiV9C8BRFHve9P1/fGNH93LrothvPZNiKxDg15BZeZfuVg/09hgCdHo56uMRbHtgERppDN2ZRqVJ7L9eHLpZ0iU7HWJkOELI/oB9OJnZgsjr4h6Gooz8BQbSrYmmdmTsj+8Wq12qr0qLjGvCePMFow11iDDBGy4NlXw2LZG16UlOY8L3vIjUR3cLGFaIYyLsWIkOXMKqoR65HUvs/hnL+HbrdZT4VdJAroPvsJUlSRDv1mxM4TMqbhoErizx30nRpXVpj7ZDQESI52E3AaSAZ+AySb8gFXwM5I3DwhY9r4yJA0I9CLByIfLNlmO8emzJ6dB07s2ejkvItxBrYCx4CLgB+wH3DQKeYFQAgi640tOD2hUuTyfLi/vlYLMZyxhAw5M83p1z14Qz3tTSbmEPX01iW5ASDWlCRoZtTTpXGcyLYqEZk7ZekBpHWC9DHz5hmuanhQupzPSpybkFibFUvIKpcSr/+0tbKO5oJXIZdC1JPjo0tZqLXy9UtRZEA4urKlPgxTZ6awvall8bxILfbbkkX6Wr9UZwR58SERHcvZWUPRU1ZnxMSKXzxOMncBRX9PW5r/ybsg0rhc9aSNJLr+oohr4e01JQWLBU8oR2RZt8/yxoZkZdbIJ7SJzPtDGOjJxzmqMxVI6tdCwdWw3mZxLuZrbEaG2J2KkTphwCmecrCv0/DabP2aeD9aUpKVDCIT1sq0CybKkb7uN6QGwac/xPSjfk2tTAmPAZFha9Yf9CKFkrqroSJTFBUUTmoSXf0qQv0ahmtSysq2aHGFm6rwy5qw2Xm3k8sRt8OoX3nwtdiiXGUZ/msvYKRocgFKbFXAkxKC+l+Mpv4jWyOzRsZS+yvAACulny1aGP1AAAAAAElFTkSuQmCC) no-repeat;
 }
 
 

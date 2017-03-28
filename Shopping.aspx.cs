@@ -303,7 +303,7 @@ public partial class Shopping : BasePage
 
     protected decimal GetDeliverSum(int deliverType)
     {
-        if (deliverType == 1)
+        /*if (deliverType == 1)
         {
             using (ZoneRepository lZoneRepository = new ZoneRepository())
             {
@@ -318,7 +318,7 @@ public partial class Shopping : BasePage
                     return zone.RegionPrice;
                 }
             }
-        }
+        }*/
         if (deliverType == 3)
         {
             using (MoscowDeliveryRepository lRepository = new MoscowDeliveryRepository())
@@ -492,27 +492,27 @@ public partial class Shopping : BasePage
                 <li>Через платежную систему Яндекс-Деньги</li>
                 </ul>
                 <p>Подробнее на странице: <a href='http://echo-h.ru/PayMethods.aspx'>Способы оплаты</a><br>
-                <p>Телефон для справок (499) 464-2365, (495) 652-4297</p>
+                <p>Телефон для справок (499) 748-8584</p>
                 <p>СПАСИБО ЗА ПОКУПКУ</p>
                 <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
             case "2":
                 extratext = @"<p>Стоимость доставки определяется почтой РФ и оплачивается при получении. </p>
                 <p><b>ВНИМАНИЕ! ЗАКАЗ ВЫПОЛНЯЕТСЯ ТОЛЬКО ПОСЛЕ ЕГО ПОДТВЕРЖДЕНИЯ ПО ТЕЛЕФОНУ. </b></p>
-                <p>Телефон для справок (499) 464-2365, (495) 652-4297</p>
+                <p>Телефон для справок (499) 748-8584</p>
                 <p>СПАСИБО ЗА ПОКУПКУ</p>
                 <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
             case "3":
                 extratext =
                     @"<p><b>ВНИМАНИЕ! ЗАКАЗ ВЫПОЛНЯЕТСЯ ТОЛЬКО ПОСЛЕ ЕГО ПОДТВЕРЖДЕНИЯ ПО ТЕЛЕФОНУ. </b></p>
-                <p>Телефон для справок (499) 464-2365, (495) 652-4297</p>
+                <p>Телефон для справок (499) 748-8584</p>
                 <p>СПАСИБО ЗА ПОКУПКУ</p>
                 <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
             case "4":
                 extratext = @"<p>Стоимость доствки определяется менеджером компании.</p>
-                    <p>Телефон для справок (499) 464-2365, (495) 652-4297</p>
+                    <p>Телефон для справок (499) 748-8584</p>
                     <p>СПАСИБО ЗА ПОКУПКУ</p>
                     <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
@@ -536,7 +536,7 @@ public partial class Shopping : BasePage
                     <li>Через платежную систему Яндекс-Деньги</li>
                     </ul>
                     <p>Подробнее на странице: <a href='http://echo-h.ru/PayMethods.aspx'>Способы оплаты</a><br>
-                    <p>Телефон для справок (499) 464-2365, (495) 652-4297</p>
+                    <p>Телефон для справок (499) 748-8584</p>
                     <p>СПАСИБО ЗА ПОКУПКУ</p>
                     <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;

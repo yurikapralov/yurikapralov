@@ -8,7 +8,7 @@
     <table cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
                 <td width="300" align="left">
-                    <table width="100%">
+                   <!-- <table width="100%">
                         <tr>
                             <td align="right">
                                 <a class="shop_foto" rel="chel" href="../Images/Decoration/shop/large/l_chel01.jpg">
@@ -37,16 +37,15 @@
                                 </a>
                             </td>
                         </tr>
-                    </table>
+                    </table>-->
                 </td>
                 <td valign="top" align="right">
                     <h3>
-                        metro Chelkovskaya</h3>
+                        metro Partizanskaya</h3>
                     <p>
-                        Moscow, 9-th Parkovaya st., 66<br />
-                        'Albatross' passage<br />
-                        Phone./fax: +7(499) 464-2365;<br />
-                        +7(499)748-8584<br />
+                        Moscow, Izmaylovskoe highway, 69 D<br />
+                        'Albatross' passage, 33 <br />
+                        tel:+7(985)638-4400<br/>
                     </p>
                 </td>
             </tr>

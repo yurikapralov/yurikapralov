@@ -6,7 +6,7 @@
 <table cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
                 <td width="300" align="left">
-                    <table width="100%">
+                   <!-- <table width="100%">
                         <tr>
                             <td align="right">
                                 <a class="shop_foto" rel="chel" href="Images/Decoration/shop/large/l_chel01.jpg">
@@ -35,17 +35,20 @@
                                 </a>
                             </td>
                         </tr>
-                    </table>
+                    </table>-->
                 </td>
                 <td valign="top" align="right">
                     <h3>
-                        м. Щелковская</h3>
+                        м. Партизанская</h3>
                     <p>
-                        Москва, ул. 9-я Парковая, д. 66<br />
+                        Москва, улица Измайловское шоссе д. 69 к. д<br />
                         Пассаж "Альбатрос".<br />
-                        Тел./факс: (499) 464-2365;<br />
-                        (499)748-8584<br />
-                        <a href="javascript:window.open('chelkovskaya.html','item0','top=0,left=0,width=500,height=570');void(0);">
+                        Павильон 33<br/>
+                        тел:(985)638-4400<br/> 
+                        Режим работы магазина:<br />
+                        пн-сб  10:00-21:00<br />
+                        вс 10:00-19:00<br />
+                        <a href="javascript:window.open('partizan.html','item0','top=0,left=0,width=500,height=470');void(0);">
                             Как нас найти</a>
                     </p>
                 </td>

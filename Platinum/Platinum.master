@@ -46,10 +46,10 @@
         </div>
         <div id="footerzone">
             <div id="copyright">
-                copyright "platinum shoes" 2011<br />
+                copyright "platinum shoes" 2011-<%=DateTime.Now.Year %><br />
             </div>
             <div id="footer_info">
-                Тел: (499) 464-23-65<br />
+                Тел: (499) (499) 748-8584<br />
                 E-mail:info@platinumshoes.ru
             </div>
         </div>
