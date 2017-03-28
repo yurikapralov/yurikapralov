@@ -55,12 +55,12 @@
                                 <asp:Label ID="lblNotAvailable" runat="server" Visible="false" CssClass="ErrorNote"
                                     Text="Данная продукция отсутствует" /></p>
                             <p>
-                                <asp:Button ID="btnAdd" runat="server" Text="Добавить в корзину" CssClass="btn btn-primary"
+                                <asp:Button ID="btnAdd" runat="server" Text="Добавить в корзину" CssClass="btn btn-primary btn-large"
                                     OnClick="btnAdd_Click" />
-                                <asp:Button ID="btnCancel" runat="server" Text="Отмена" CssClass="btn" OnClick="btnCancel_Click" /><br/>
+                                <asp:Button ID="btnCancel" runat="server" Text="Отмена" CssClass="btn btn-large" OnClick="btnCancel_Click" /><br/>
                             </p>
-                            <p> <asp:ImageButton ID="btnAddKredit" runat="server" CssClass="pointer" 
-                                    ImageUrl="Images/Decoration/kupivkredit.png" onclick="btnAddKredit_Click"/></p>
+                            <p> <asp:LinkButton ID="btnAddKredit" runat="server" CssClass="kupivkredit-button"
+                                            onclick="btnAddKredit_Click"><span class="kupivkredit-button-content"><i class="kupivkredit-icon"></i>КупиВкредит</span></asp:LinkButton></p>
                         </div>
                     </div>
                     <div id="ExtraProductItemArea">

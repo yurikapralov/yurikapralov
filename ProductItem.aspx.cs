@@ -192,7 +192,7 @@ public partial class ProductItem : BasePage
         }
     }
 
-    protected void btnAddKredit_Click(object sender, ImageClickEventArgs e)
+    protected void btnAddKredit_Click(object sender, EventArgs e)
     {
         this.Profile.ShoppingCart.InCredit = true;
         AddProdut();

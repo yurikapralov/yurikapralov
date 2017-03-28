@@ -2,7 +2,7 @@
     CodeFile="Shopping.aspx.cs" Inherits="Shopping" Theme="Theme2" %>
 
 <%@ MasterType VirtualPath="~/Theme2.master" %>
-<%@ Register Src="Controls/Order1.ascx" TagName="Order" TagPrefix="uc1" %>
+<%@ Register Src="Controls/Order2.ascx" TagName="Order" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="https://www.kupivkredit.ru/widget/vkredit.js"></script>
     <asp:Literal ID="lblCreditScript" runat="server" /> 
