@@ -19,8 +19,8 @@ public partial class Admin_Cathegories_old : AdminPage
     {
         if (!this.IsPostBack)
         {
-            Master.Title = "Управление категориями";
-            Master.HeaderText = "Управление категориями";
+            //Master.Title = "Управление категориями";
+            //Master.HeaderText = "Управление категориями";
             BindGroups(ddlGroup,true);
             BindGroups(ddlGroupForEdit,false);
             BindTemplates();

@@ -1,11 +1,14 @@
 User-agent: *
-
 Allow: /
-
-
+Disallow: /v2
+Disallow: /V2
+Disallow:/Platinum
+sitemap: http://echo-h.ru/sitemap1.xml
 
 User-agent: Yandex
-
+Disallow: /v2
+Disallow: /V2
+Disallow:/Platinum
 Disallow: /(A
 Allow: /About.aspx
 Allow: /Collaboration.aspx
@@ -22,3 +25,4 @@ Allow: /Shopping.aspx
 Allow: /Sizes.aspx
 Allow: /Stores.aspx
 Host: echo-h.ru
+sitemap: http://echo-h.ru/sitemap1.xml

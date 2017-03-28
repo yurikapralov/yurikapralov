@@ -99,6 +99,60 @@ public class MenuCreator
 
     }
 
+    public static void GenerateSiteMap()
+    {
+        string xmlFile = HttpContext.Current.Server.MapPath("~/SiteMap1.xml");
+
+        using (CathegoryRepository lCathegoryRepository = new CathegoryRepository())
+        using(XmlTextWriter writer = new XmlTextWriter(xmlFile, Encoding.UTF8))
+        {
+            writer.WriteStartDocument();
+            writer.WriteStartElement("urlset");
+            writer.WriteAttributeString("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            WriteUrl(writer, "About.aspx");
+            WriteUrl(writer, "Stores.aspx");
+            WriteUrl(writer, "Shipping.aspx");
+            WriteUrl(writer, "PayMethods.aspx");
+            WriteUrl(writer, "CreditInfo.aspx");
+            using (GroupRepository lGroupRepository = new GroupRepository())
+            {
+                List<Group> groups = lGroupRepository.GetGroups();
+                foreach (Group groupItem in groups)
+                {
+                    int groupId = groupItem.GroupID;
+                    if (groupId != 1 && groupItem.Avaliable)
+                    {
+                        WriteUrl(writer, "Products.aspx?CatId=0&amp;GroupID=" + groupId + "&amp;all=1");
+                    }
+
+                    List<Cathegory> cathegories = lCathegoryRepository.GetCathegoryByGroup(groupId);
+
+                    foreach (Cathegory cathegory in cathegories)
+                    {
+                        if (cathegory.ActiveStatus)
+                        {
+                            WriteUrl(writer, "Products.aspx?CatID=" + cathegory.CatID+ "&amp;all=1");
+                        }
+                    }
+                }
+            }
+
+            writer.WriteEndElement();
+            writer.WriteEndDocument();
+            writer.Flush();
+        }
+    }
+
+    private static void WriteUrl(XmlTextWriter writer, string url)
+    {
+        writer.WriteRaw(string.Format(@"
+            <url>
+              <loc>http://echo-h.ru/{0}</loc>
+              <changefreq>weekly</changefreq>
+           </url>
+        ", url));
+    }
+
     public static void GenerateEngXmlMenu()
     {
         using (CathegoryRepository lCathegoryRepository = new CathegoryRepository())

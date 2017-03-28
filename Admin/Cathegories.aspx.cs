@@ -251,7 +251,7 @@ public partial class Admin_Cathegories : AdminPage
         ClearCathegory();
         MenuCreator.GenerateRusXmlMenu();
         MenuCreator.GenerateEngXmlMenu();
-
+        MenuCreator.GenerateSiteMap();
     }
 
     
@@ -272,6 +272,7 @@ public partial class Admin_Cathegories : AdminPage
             BindCategories();
             MenuCreator.GenerateRusXmlMenu();
             MenuCreator.GenerateEngXmlMenu();
+            MenuCreator.GenerateSiteMap();
         }
     }
 
@@ -280,5 +281,6 @@ public partial class Admin_Cathegories : AdminPage
     {
         MenuCreator.GenerateRusXmlMenu();
         MenuCreator.GenerateEngXmlMenu();
+        MenuCreator.GenerateSiteMap();
     }
 }
