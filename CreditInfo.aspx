@@ -13,7 +13,7 @@
 <li>После оформления заказа заполнить заявку</li>
 <li>Получить решение</li>
 </ul>
-<p>Более подробная информация на сайте <a href="https://www.kupivkredit.ru/main/support" target="_blank" >КупиВкредит</a></p>
+<p><a href="Images/Decoration/credit.png" class="credit_link">Более подробная информация</a></p>
 <p>Внимание: кредит предоставляется только на продукцию Echo Of Hollywood на сумму более 3000 руб. (включая стоимость доставки).</p>
 </asp:Content>
 

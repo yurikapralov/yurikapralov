@@ -190,7 +190,7 @@
                 </div>
                 <div id="header_main">
                     <!--<a href="http://echo-h.ru" id="mainlink">Интернет-магазин женской обуви</a>--><span id="mainlink">Интернет-магазин женской обуви</span> <span
-                        class="header_phones">(499) 464-2365, (499)748-8584</span> <a href="Shopping.aspx"
+                        class="header_phones">(499)748-8584</span> <a href="Shopping.aspx"
                             id="cart_header">Корзина</a>
                     <div id="cart_ticker">
                         <a href="Shopping.aspx">Товаров – <span class="sel">
@@ -247,7 +247,7 @@
                 -->
                
                 </div>
-                <a href="CreditInfo.aspx">
+                <a href="Images/Decoration/credit.png" class="credit_link">
         <img src="Images/Decoration/logo-kupivkredit.jpg" class="qiwi_image" style="margin-bottom: 20px" />
         </a>
                 <div id="nav_block">
@@ -303,7 +303,7 @@
                         © <strong>“Echo of Hollywood”</strong> – обувь и одежда для танцев и шоу. Одежда
                         и обувь для праздничных и выпускных вечеров.</p>
                     <p>
-                        <strong>Контактные телефоны:</strong> (499) <strong>464-2365</strong>, (499) <strong>
+                        <strong>Контактный телефон:</strong>(499) <strong>
                             748-8584</strong>, &nbsp; <strong>E-mail: </strong>info@echo-h.ru</p>
 
                 </div>
