@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using echo.BLL.Orders;
 using echo.BLL.Products;
 
-public partial class Controls_Order : System.Web.UI.UserControl
+public partial class Controls_Order2 : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -85,7 +85,7 @@ public partial class Controls_Order : System.Web.UI.UserControl
             switch (order.DeliverTypeID)
             {
                 case 1:
-                    lblDeliver.Text = "Стоимость доствки определяется менеджером компании."; //string.Format("Курьерская служба: {0:C}", order.DeliverSum);
+                    lblDeliver.Text = "Стоимость доствки определяется менеджером компании.";
                     break;
                 case 2:
                     lblDeliver.Text = "Наложенный платеж";
