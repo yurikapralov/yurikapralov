@@ -345,7 +345,7 @@ public partial class En_Shopping : BasePage
         Echo of Hollywood - Shop Online of Shoes and Clothes. Shoes and Clothes for striptease, dance and show. Erotic lingerie, evening dresses.
         </p>
         <p>
-        Phones:  +7(499)748-8584
+        Phones:  +7(915) 246-60-88
         </p>
         <p><a href='http://echo-h.ru'>echo-h.ru</a>";
         string fromAddress = Helpers.Settings.ContactForm.MailFrom;

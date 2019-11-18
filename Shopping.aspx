@@ -279,6 +279,18 @@
                 </td>
             </tr>
             <tr class="tablebody">
+                <td class="questionstext">
+                    &nbsp;
+                </td>
+                <td class="answertext">
+                    <span style="width: 350px;display: inline-block;margin: 20px 0;">
+                    <asp:CheckBox runat="server"  ID="btnConsent"
+                         AutoPostBack="True" Checked="true" OnCheckedChanged="btnConsent_CheckedChanged" />
+                    Заполняя данную форму, я  даю своё <a href="javascript:window.open('consent.html','Consent','top=0,left=0,width=800,height=780');void(0);"
+                class="mainlink">согласие на обработку моих персональных данных</a>, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных»</span>
+                </td>
+            </tr>
+            <tr class="tablebody">
                 <td colspan="2">
                     <table>
                         <tr>

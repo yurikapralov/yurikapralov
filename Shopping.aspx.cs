@@ -112,7 +112,10 @@ public partial class Shopping : BasePage
             ddlDeliverType.Items.Add(new ListItem("Условия доставки оговариваются отдельно","5"));
 
             //Начальные установки панелей
-            btnMore.Enabled = true;
+            if (btnConsent.Checked)
+            {
+                btnMore.Enabled = true;
+            }           
             pnlRusAdress.Visible = true;
             pnlOutsideAdress.Visible = false;
             ddlCountry.Enabled = false;
@@ -210,7 +213,10 @@ public partial class Shopping : BasePage
                 break;
             case 1:
             case 2:
-                btnMore.Enabled = true;
+                if (btnConsent.Checked)
+                {
+                    btnMore.Enabled = true;
+                }
                 pnlRusAdress.Visible = true;
                 pnlOutsideAdress.Visible = false;
                 ddlCountry.Enabled = false;
@@ -219,7 +225,10 @@ public partial class Shopping : BasePage
                 rblRegionType.Enabled = true;
                 break;
             case 3:
-                btnMore.Enabled = true;
+                if (btnConsent.Checked)
+                {
+                    btnMore.Enabled = true;
+                }
                 pnlRusAdress.Visible = true;
                 pnlOutsideAdress.Visible = false;
                 ddlCountry.Enabled = false;
@@ -231,7 +240,10 @@ public partial class Shopping : BasePage
                 pnlRegionCity.Visible = false;
                 break;
             case 4:
-                btnMore.Enabled = true;
+                if (btnConsent.Checked)
+                {
+                    btnMore.Enabled = true;
+                }
                 pnlRusAdress.Visible = false;
                 pnlOutsideAdress.Visible = true;
                 ddlCountry.Enabled = true;
@@ -492,27 +504,27 @@ public partial class Shopping : BasePage
                 <li>Через платежную систему Яндекс-Деньги</li>
                 </ul>
                 <p>Подробнее на странице: <a href='http://echo-h.ru/PayMethods.aspx'>Способы оплаты</a><br>
-                <p>Телефон для справок (499) 748-8584</p>
+                <p>Телефон для справок (915) 246-60-88</p>
                 <p>СПАСИБО ЗА ПОКУПКУ</p>
                 <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
             case "2":
                 extratext = @"<p>Стоимость доставки определяется почтой РФ и оплачивается при получении. </p>
                 <p><b>ВНИМАНИЕ! ЗАКАЗ ВЫПОЛНЯЕТСЯ ТОЛЬКО ПОСЛЕ ЕГО ПОДТВЕРЖДЕНИЯ ПО ТЕЛЕФОНУ. </b></p>
-                <p>Телефон для справок (499) 748-8584</p>
+                <p>Телефон для справок (915) 246-60-88</p>
                 <p>СПАСИБО ЗА ПОКУПКУ</p>
                 <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
             case "3":
                 extratext =
                     @"<p><b>ВНИМАНИЕ! ЗАКАЗ ВЫПОЛНЯЕТСЯ ТОЛЬКО ПОСЛЕ ЕГО ПОДТВЕРЖДЕНИЯ ПО ТЕЛЕФОНУ. </b></p>
-                <p>Телефон для справок (499) 748-8584</p>
+                <p>Телефон для справок (915) 246-60-88</p>
                 <p>СПАСИБО ЗА ПОКУПКУ</p>
                 <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
             case "4":
                 extratext = @"<p>Стоимость доствки определяется менеджером компании.</p>
-                    <p>Телефон для справок (499) 748-8584</p>
+                    <p>Телефон для справок (915) 246-60-88</p>
                     <p>СПАСИБО ЗА ПОКУПКУ</p>
                     <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
@@ -536,7 +548,7 @@ public partial class Shopping : BasePage
                     <li>Через платежную систему Яндекс-Деньги</li>
                     </ul>
                     <p>Подробнее на странице: <a href='http://echo-h.ru/PayMethods.aspx'>Способы оплаты</a><br>
-                    <p>Телефон для справок (499) 748-8584</p>
+                    <p>Телефон для справок (915) 246-60-88</p>
                     <p>СПАСИБО ЗА ПОКУПКУ</p>
                     <p><a href='http://echo-h.ru'>http://echo-h.ru</a><br>";
                 break;
@@ -600,5 +612,18 @@ public partial class Shopping : BasePage
     protected void btnBuyCash_Click(object sender, EventArgs e)
     {
         ShowFinalPanel();
+    }
+
+    protected void btnConsent_CheckedChanged(object sender, EventArgs e)
+    {
+        int deliverTypeId = int.Parse(ddlDeliverType.SelectedValue);
+        if(btnConsent.Checked && deliverTypeId > 0)
+        {
+            btnMore.Enabled = true;
+        }
+        if(!btnConsent.Checked)
+        {
+            btnMore.Enabled = false;
+        }
     }
 }
