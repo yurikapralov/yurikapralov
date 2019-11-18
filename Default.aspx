@@ -6,14 +6,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="extraContent" runat="server" ContentPlaceHolderID="extraNavHolder">
-    <a href="PayMethods.aspx">
+<%--    <a href="PayMethods.aspx">
         <img src="Images/Decoration/qiwi%20gorizontal.jpg" class="qiwi_image" />
         <img src="Images/Decoration/visa.jpg" class="qiwi_image" />
         
         
     </a>
 
-    <a href="http://taxi-fantom.ru" target="_blank"><img src="Images/Decoration/logo-obmen.png" class="qiwi_image" /></a>
+    <a href="http://taxi-fantom.ru" target="_blank"><img src="Images/Decoration/logo-obmen.png" class="qiwi_image" /></a>--%>
 </asp:Content>
 <asp:Content ID="mainContent" runat="server" ContentPlaceHolderID="mainPlaceHolder">
         <div id="fb-root"></div>

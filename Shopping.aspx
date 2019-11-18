@@ -121,7 +121,7 @@
                 </td>
                 <td class="answertext">
                     <asp:CheckBox runat="server" Text="Покупка в кредит" Font-Bold="True" ID="cbxCreditPayment"
-                        OnCheckedChanged="cbxCreditPayment_CheckedChanged" AutoPostBack="True" />
+                        OnCheckedChanged="cbxCreditPayment_CheckedChanged" AutoPostBack="True" Visible="false" />
                 </td>
             </tr>
             <tr class="tablebody">

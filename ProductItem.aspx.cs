@@ -68,7 +68,7 @@ public partial class ProductItem : BasePage
                                          ? productColor.Product.ProductNameRus
                                          : productColor.Product.Alt;
             lblUSA.Visible = productColor.Product.FromUsa;
-            btnAddKredit.Visible = productColor.Product.FromUsa == false;
+            btnAddKredit.Visible = false; // productColor.Product.FromUsa == false;
             if(this.Profile.ShoppingCart.HaveUsaProduct()&&(!productColor.Product.FromUsa))
             {
                 btnAddKredit.OnClientClick =
